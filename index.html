@@ -786,8 +786,8 @@
                 <!-- Tab Navigation -->
                 <div class="tab-nav">
                     <button class="tab-btn active" data-tab="daily">📰 每日动态</button>
-                    <button class="tab-btn" data-tab="research">🔬 深度调研</button>
-                    <button class="tab-btn" data-tab="reports">📄 行研报告库</button>
+                    <button class="tab-btn" data-tab="research">🔬 深度调研（开发中）</button>
+                    <button class="tab-btn" data-tab="reports">📄 行研报告库（开发中）</button>
                 </div>
 
                 <!-- Tab Panels -->
@@ -795,123 +795,70 @@
                 <!-- Daily Reports -->
                 <div class="tab-panel active" id="daily">
                     <!-- 今日洞察 -->
-                    <div class="content-card" style="background: linear-gradient(135deg, rgba(255, 102, 0, 0.05) 0%, rgba(255, 102, 0, 0.02) 100%); border: 2px solid var(--ks-orange);">
-                        <h2>💡 今日洞察</h2>
-                        <p class="section-desc">
+                    <div class="content-card" style="background: linear-gradient(135deg, rgba(255, 102, 0, 0.05) 0%, rgba(255, 102, 0, 0.02) 100%); border: 2px solid var(--ks-orange); padding: 20px;">
+                        <h2 style="font-size: 1.3em; margin-bottom: 8px;">💡 今日洞察</h2>
+                        <p class="section-desc" style="font-size: 0.85em; margin-bottom: 15px;">
                             从快手商业化视角，基于最新竞对动态与行业趋势，给出战略洞察与行动建议（更新于 2026-03-18）
                         </p>
                         
-                        <div style="margin-top: 25px;">
+                        <div style="margin-top: 12px;">
                             <!-- 洞察1 -->
-                            <details style="margin-bottom: 15px;">
-                                <summary class="company-summary" style="border: 1px solid var(--ks-orange);">
-                                    <div class="company-summary-title">
-                                        <h4 style="color: var(--ks-orange);">🎯 对标字节本地生活进攻，加速磁力引擎本地生活广告产品迭代</h4>
+                            <details style="margin-bottom: 8px;">
+                                <summary class="company-summary" style="border: 1px solid var(--ks-orange); padding: 10px; cursor: pointer;">
+                                    <div class="company-summary-title" style="margin-bottom: 6px;">
+                                        <h4 style="color: var(--ks-orange); font-size: 0.95em;">🎯 对标字节本地生活进攻，加速磁力引擎本地生活广告产品迭代</h4>
                                         <span class="expand-icon">▼</span>
                                     </div>
-                                    <div class="company-summary-desc">
+                                    <div class="company-summary-desc" style="font-size: 0.8em; line-height: 1.4;">
                                         抖省省下载暴涨验证本地生活广告红利，快手需在Q2前完成本地生活ROI3托管模式升级
                                     </div>
                                 </summary>
                                 <div class="company-details">
-                                    <div style="padding: 20px; background: var(--bg-secondary); border-radius: 8px; line-height: 1.8;">
-                                        <p style="margin-bottom: 15px;"><strong style="color: var(--ks-orange);">竞对动态：</strong></p>
-                                        <ul style="padding-left: 20px; margin-bottom: 20px; color: var(--text-secondary);">
-                                            <li>字节抖省省本地生活布局加速，与抖音电商、本地生活业务形成协同</li>
-                                            <li>本地生活领域已布局多家关联企业，对标美团形成竞争态势</li>
-                                        </ul>
-                                        
-                                        <p style="margin-bottom: 15px;"><strong style="color: var(--ks-orange);">快手机会：</strong></p>
-                                        <ul style="padding-left: 20px; margin-bottom: 20px; color: var(--text-secondary);">
-                                            <li>本地生活是磁力引擎广告收入目标翻倍的关键赛道</li>
-                                            <li>快手在下沉市场的用户基础与本地生活服务需求高度匹配</li>
-                                        </ul>
-                                        
-                                        <p style="margin-bottom: 15px;"><strong style="color: var(--ks-orange);">行动建议：</strong></p>
-                                        <ul style="padding-left: 20px; margin-bottom: 0; color: var(--text-secondary);">
-                                            <li>对标字节本地生活广告产品能力，完善商家端投放工具</li>
-                                            <li>加大本地生活商家补贴力度，扩大商家规模</li>
-                                            <li>优化ROI3托管在本地生活场景的适配性，提升转化效率</li>
-                                        </ul>
+                                    <div style="padding: 10px; background: var(--bg-secondary); border-radius: 6px; line-height: 1.4; font-size: 0.8em;">
+                                        <p style="margin-bottom: 6px;"><strong style="color: var(--ks-orange);">竞对动态：</strong>字节抖省省布局加速，对标美团竞争</p>
+                                        <p style="margin-bottom: 6px;"><strong style="color: var(--ks-orange);">快手机会：</strong>本地生活是磁力引擎广告收入翻倍关键赛道，下沉市场优势明显</p>
+                                        <p style="margin-bottom: 0;"><strong style="color: var(--ks-orange);">行动建议：</strong>对标字节产品能力，加大商家补贴，优化ROI3托管适配性</p>
                                     </div>
                                 </div>
                             </details>
 
                             <!-- 洞察2 -->
-                            <details style="margin-bottom: 15px;">
-                                <summary class="company-summary" style="border: 1px solid var(--ks-orange);">
-                                    <div class="company-summary-title">
-                                        <h4 style="color: var(--ks-orange);">🛍️ 深化泛货架电商+广告协同，学习小红书种草转化模式</h4>
+                            <details style="margin-bottom: 8px;">
+                                <summary class="company-summary" style="border: 1px solid var(--ks-orange); padding: 10px; cursor: pointer;">
+                                    <div class="company-summary-title" style="margin-bottom: 6px;">
+                                        <h4 style="color: var(--ks-orange); font-size: 0.95em;">🛍️ 深化泛货架电商+广告协同，学习小红书种草转化模式</h4>
                                         <span class="expand-icon">▼</span>
                                     </div>
-                                    <div class="company-summary-desc">
+                                    <div class="company-summary-desc" style="font-size: 0.8em; line-height: 1.4;">
                                         泛货架GMV年增32%成增长引擎，需强化"短视频种草→货架转化→广告变现"闭环
                                     </div>
                                 </summary>
                                 <div class="company-details">
-                                    <div style="padding: 20px; background: var(--bg-secondary); border-radius: 8px; line-height: 1.8;">
-                                        <p style="margin-bottom: 15px;"><strong style="color: var(--ks-orange);">竞对动态：</strong></p>
-                                        <ul style="padding-left: 20px; margin-bottom: 20px; color: var(--text-secondary);">
-                                            <li>小红书市集提至首页一级入口，打通种草到交易链路</li>
-                                            <li>利欧数字获小红书端到端全链路种草营销认可</li>
-                                        </ul>
-                                        
-                                        <p style="margin-bottom: 15px;"><strong style="color: var(--ks-orange);">快手现状：</strong></p>
-                                        <ul style="padding-left: 20px; margin-bottom: 20px; color: var(--text-secondary);">
-                                            <li>泛货架电商GMV年度增速32%，成为新增长引擎</li>
-                                            <li>内容到交易的转化路径仍有优化空间，用户从短视频到货架购买的链路较长</li>
-                                        </ul>
-                                        
-                                        <p style="margin-bottom: 15px;"><strong style="color: var(--ks-orange);">行动建议：</strong></p>
-                                        <ul style="padding-left: 20px; margin-bottom: 0; color: var(--text-secondary);">
-                                            <li>建立短视频种草内容与货架商品的智能关联机制</li>
-                                            <li>优化磁力金牛在泛货架场景的投放效率，缩短从种草到下单的路径</li>
-                                            <li>重点突破美妆、家居、母婴等高客单价品类，提升广告主ROI</li>
-                                        </ul>
+                                    <div style="padding: 10px; background: var(--bg-secondary); border-radius: 6px; line-height: 1.4; font-size: 0.8em;">
+                                        <p style="margin-bottom: 6px;"><strong style="color: var(--ks-orange);">竞对动态：</strong>小红书市集提至首页，打通种草到交易链路</p>
+                                        <p style="margin-bottom: 6px;"><strong style="color: var(--ks-orange);">快手现状：</strong>泛货架GMV年增32%，但内容到交易转化路径仍有优化空间</p>
+                                        <p style="margin-bottom: 0;"><strong style="color: var(--ks-orange);">行动建议：</strong>建立智能关联机制，优化磁力金牛投放效率，突破高客单品类</p>
                                     </div>
                                 </div>
                             </details>
 
                             <!-- 洞察3 -->
                             <details style="margin-bottom: 0;">
-                                <summary class="company-summary" style="border: 1px solid var(--ks-orange);">
-                                    <div class="company-summary-title">
-                                        <h4 style="color: var(--ks-orange);">🤖 深化可灵AI与磁力引擎商业化融合，扩大AI广告创意市场份额</h4>
+                                <summary class="company-summary" style="border: 1px solid var(--ks-orange); padding: 10px; cursor: pointer;">
+                                    <div class="company-summary-title" style="margin-bottom: 6px;">
+                                        <h4 style="color: var(--ks-orange); font-size: 0.95em;">🤖 深化可灵AI与磁力引擎商业化融合，扩大AI广告创意市场份额</h4>
                                         <span class="expand-icon">▼</span>
                                     </div>
-                                    <div class="company-summary-desc">
+                                    <div class="company-summary-desc" style="font-size: 0.8em; line-height: 1.4;">
                                         可灵3.0登顶全球视频生成榜单，需加速AI能力向磁力引擎全产品线渗透，提升中小广告主使用渗透率
                                     </div>
                                 </summary>
                                 <div class="company-details">
-                                    <div style="padding: 20px; background: var(--bg-secondary); border-radius: 8px; line-height: 1.8;">
-                                        <p style="margin-bottom: 15px;"><strong style="color: var(--ks-orange);">竞对动态：</strong></p>
-                                        <ul style="padding-left: 20px; margin-bottom: 20px; color: var(--text-secondary);">
-                                            <li>腾讯混元大模型优化广告定向投放和创意生成，驱动广告收入预增17%</li>
-                                            <li>字节Seedance 2.0公布商业化定价（15秒视频生成），AI视频商业化进入加速期</li>
-                                        </ul>
-                                        
-                                        <p style="margin-bottom: 15px;"><strong style="color: var(--ks-orange);">快手优势：</strong></p>
-                                        <ul style="padding-left: 20px; margin-bottom: 20px; color: var(--text-secondary);">
-                                            <li>可灵3.0于2026年2月发布，登顶全球视频生成大模型榜单，与Seedance 2.0同处第一梯队</li>
-                                            <li>已有磁力开创（一站式AIGC视频创意生产平台）、广告π数字员工等AI创意工具</li>
-                                            <li>可灵AI预计2025年全年收入达1.4亿美元，商业化能力验证</li>
-                                        </ul>
-                                        
-                                        <p style="margin-bottom: 15px;"><strong style="color: var(--ks-orange);">提升空间：</strong></p>
-                                        <ul style="padding-left: 20px; margin-bottom: 20px; color: var(--text-secondary);">
-                                            <li>AI创意工具与磁力引擎投放流程的融合深度不足，使用路径较长</li>
-                                            <li>中小广告主对AI创意工具的认知和使用渗透率较低</li>
-                                            <li>可灵AI能力在广告场景的商业化变现仍有较大提升空间</li>
-                                        </ul>
-                                        
-                                        <p style="margin-bottom: 15px;"><strong style="color: var(--ks-orange);">行动建议：</strong></p>
-                                        <ul style="padding-left: 20px; margin-bottom: 0; color: var(--text-secondary);">
-                                            <li>将可灵AI能力深度集成到磁力引擎全产品线（磁力金牛、磁力本地推、UAX等）</li>
-                                            <li>降低AI创意工具使用门槛，推出"一键生成广告素材"等傻瓜式功能</li>
-                                            <li>重点突破电商、本地生活等高频场景的AI素材生成能力，提升转化率</li>
-                                            <li>加大对中小广告主的AI创意培训和激励，扩大使用规模</li>
-                                        </ul>
+                                    <div style="padding: 10px; background: var(--bg-secondary); border-radius: 6px; line-height: 1.4; font-size: 0.8em;">
+                                        <p style="margin-bottom: 6px;"><strong style="color: var(--ks-orange);">竞对动态：</strong>腾讯混元驱动广告收入增17%，字节Seedance 2.0公布定价</p>
+                                        <p style="margin-bottom: 6px;"><strong style="color: var(--ks-orange);">快手优势：</strong>可灵3.0登顶榜单与Seedance同处第一梯队，已有磁力开创等工具</p>
+                                        <p style="margin-bottom: 6px;"><strong style="color: var(--ks-orange);">提升空间：</strong>AI工具与投放流程融合不足，中小广告主渗透率低</p>
+                                        <p style="margin-bottom: 0;"><strong style="color: var(--ks-orange);">行动建议：</strong>深度集成到磁力引擎全产品线，降低使用门槛，突破高频场景</p>
                                     </div>
                                 </div>
                             </details>
@@ -1130,7 +1077,7 @@
                 <!-- Deep Research -->
                 <div class="tab-panel" id="research">
                     <div class="content-card">
-                        <h2>🔬 深度调研</h2>
+                        <h2>🔬 深度调研（开发中）</h2>
                         <p class="section-desc">
                             聚焦商业化核心议题的深度分析报告，从战略到执行的全链路拆解
                         </p>
@@ -1188,7 +1135,7 @@
                 <!-- Reports Library -->
                 <div class="tab-panel" id="reports">
                     <div class="content-card">
-                        <h2>📄 行研报告库</h2>
+                        <h2>📄 行研报告库（开发中）</h2>
                         <p class="section-desc">
                             历史行研报告归档，支持全文搜索，快速定位所需内容
                         </p>
