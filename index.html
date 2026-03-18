@@ -524,6 +524,93 @@
             }
         }
 
+        /* Company Summary & Details */
+        .company-summary {
+            padding: 20px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            margin-bottom: 15px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .company-summary:hover {
+            border-color: var(--ks-orange);
+            background: var(--bg-card-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(255, 102, 0, 0.15);
+        }
+
+        details {
+            margin-bottom: 20px;
+        }
+
+        details summary {
+            list-style: none;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        details summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .company-summary-title {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 12px;
+        }
+
+        .company-summary-title h4 {
+            font-size: 1.2em;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .expand-icon {
+            font-size: 1.2em;
+            color: var(--ks-orange);
+            transition: transform 0.3s;
+        }
+
+        details[open] .expand-icon {
+            transform: rotate(180deg);
+        }
+
+        .company-summary-desc {
+            color: var(--text-secondary);
+            font-size: 0.95em;
+            line-height: 1.6;
+            margin-top: 8px;
+        }
+
+        .company-details {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .company-details .insight-list {
+            margin-top: 10px;
+        }
+
+        .company-details .insight-list li {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            margin-bottom: 10px;
+            padding: 15px;
+        }
+
+        .company-details .insight-list li:hover {
+            background: var(--bg-card-hover);
+            border-color: var(--ks-orange);
+        }
+
         /* Divider */
         .divider {
             height: 1px;
@@ -714,63 +801,145 @@
                             追踪字节跳动、小红书、快手、腾讯、阿里等头部平台的商业化战略与产品动态（最近7天）
                         </p>
                         
-                        <h3>🔥 字节跳动</h3>
-                        <ul class="insight-list">
-                            <li>
-                                <span class="insight-badge hot">HOT</span>
-                                <a href="https://www.tmtpost.com/7917042.html" target="_blank" style="color: inherit; text-decoration: none;">
-                                    <strong>抖省省下载量暴涨，本地生活布局加速</strong> - 字节跳动在本地生活领域已布局多家关联企业，与抖音电商、本地生活业务形成协同
-                                </a>
-                            </li>
-                        </ul>
+                        <!-- 字节跳动 -->
+                        <details>
+                            <summary class="company-summary">
+                                <div class="company-summary-title">
+                                    <h4>🔥 字节跳动</h4>
+                                    <span class="expand-icon">▼</span>
+                                </div>
+                                <div class="company-summary-desc">
+                                    <strong>本地生活战略加速，AI视频商业化定价</strong> - 抖省省下载量暴涨对标美团，Seedance 2.0公布商业化定价，商业变现部门持续赋能全产品矩阵
+                                </div>
+                            </summary>
+                            <div class="company-details">
+                                <ul class="insight-list">
+                                    <li>
+                                        <span class="insight-badge hot">HOT</span>
+                                        <a href="https://www.tmtpost.com/7917042.html" target="_blank" style="color: inherit; text-decoration: none;">
+                                            <strong>抖省省下载量暴涨，本地生活布局加速</strong> - 字节跳动在本地生活领域已布局多家关联企业，与抖音电商、本地生活业务形成协同（钛媒体，23小时前）
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <span class="insight-badge new">NEW</span>
+                                        <a href="http://www.iheima.com/article-394884.html" target="_blank" style="color: inherit; text-decoration: none;">
+                                            <strong>Seedance 2.0公布商业化定价</strong> - 火山引擎公布视频生成定价，生成15秒视频商业化落地，AI视频应用进入巨头交锋期（黑马，6天前）
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <span class="insight-badge company">商业化</span>
+                                        <a href="https://jobs.bytedance.com/experienced/m/position/detail/7257881429543094589" target="_blank" style="color: inherit; text-decoration: none;">
+                                            <strong>商业变现部门持续招人，覆盖全产品矩阵</strong> - 承担抖音、头条、西瓜全产品收入变现职责，持续数年为公司提供核心营收（字节招聘，5天前）
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </details>
 
-                        <h3>💄 小红书</h3>
-                        <ul class="insight-list">
-                            <li>
-                                <span class="insight-badge hot">HOT</span>
-                                <a href="https://m.cbndata.com/information/295097" target="_blank" style="color: inherit; text-decoration: none;">
-                                    <strong>小红书向AI托管账号出手，维护种草生态</strong> - 用户更愿意相信普通人的种草而非广告，伴随种草文化生根发芽，小红书已成消费决策重要入口
-                                </a>
-                            </li>
-                            <li>
-                                <span class="insight-badge new">NEW</span>
-                                <a href="https://finance.sina.cn/2026-03-17/detail-inhrhttr8098653.d.html" target="_blank" style="color: inherit; text-decoration: none;">
-                                    <strong>利欧数字获小红书端到端全链路种草营销认可</strong> - 双方将围绕业务、策略、运营、数据、技术展开深入合作，共同助力品牌种草力长效增长
-                                </a>
-                            </li>
-                        </ul>
+                        <!-- 小红书 -->
+                        <details>
+                            <summary class="company-summary">
+                                <div class="company-summary-title">
+                                    <h4>💄 小红书</h4>
+                                    <span class="expand-icon">▼</span>
+                                </div>
+                                <div class="company-summary-desc">
+                                    <strong>打击AI托管维护种草生态，电商市集提至首页</strong> - 向AI托管账号出手维护真实内容，利欧数字获全链路种草认可，电商市集成为首页一级入口
+                                </div>
+                            </summary>
+                            <div class="company-details">
+                                <ul class="insight-list">
+                                    <li>
+                                        <span class="insight-badge hot">HOT</span>
+                                        <a href="https://m.cbndata.com/information/295097" target="_blank" style="color: inherit; text-decoration: none;">
+                                            <strong>率先向AI托管账号出手，维护种草生态</strong> - 用户更愿相信普通人种草而非广告，伴随种草文化生根发芽，小红书已成消费决策重要入口（CBNData，5天前）
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <span class="insight-badge new">NEW</span>
+                                        <a href="https://finance.sina.cn/2026-03-17/detail-inhrhttr8098653.d.html" target="_blank" style="color: inherit; text-decoration: none;">
+                                            <strong>利欧数字获端到端全链路种草营销认可</strong> - 双方将围绕业务、策略、运营、数据、技术展开深入合作，共同助力品牌种草力长效增长（新浪财经，20小时前）
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <span class="insight-badge trend">趋势</span>
+                                        <a href="https://www.pai.com.cn/p/01kkt2q65nzhwzd51qgkw0mgfw" target="_blank" style="color: inherit; text-decoration: none;">
+                                            <strong>市集提至首页一级入口，电商商业化提速</strong> - 把审美判断和社区信任变现，不需自建仓储物流，聚焦最擅长的内容种草（电商派，2天前）
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </details>
 
-                        <h3>🐧 腾讯</h3>
-                        <ul class="insight-list">
-                            <li>
-                                <span class="insight-badge hot">HOT</span>
-                                <a href="https://k.sina.com.cn/article_7879848900_1d5acf3c401902s7hu.html?from=tech" target="_blank" style="color: inherit; text-decoration: none;">
-                                    <strong>AI引领增长新纪元，混元大模型优化广告投放</strong> - 通过混元大模型优化广告定向投放和创意生成，显著提升广告收入，AI成为腾讯广告业务新引擎
-                                </a>
-                            </li>
-                            <li>
-                                <span class="insight-badge new">NEW</span>
-                                <a href="https://cloud.tencent.com/document/product/1616/129182" target="_blank" style="color: inherit; text-decoration: none;">
-                                    <strong>腾讯混元生视频广告素材生成上线</strong> - 依托人像视频生成技术，提供人脸融合大模型与视频编辑能力，一键解锁海量创意，批量生成爆款电商广告
-                                </a>
-                            </li>
-                        </ul>
+                        <!-- 腾讯 -->
+                        <details>
+                            <summary class="company-summary">
+                                <div class="company-summary-title">
+                                    <h4>🐧 腾讯</h4>
+                                    <span class="expand-icon">▼</span>
+                                </div>
+                                <div class="company-summary-desc">
+                                    <strong>混元大模型驱动广告增长，视频号商业化放量</strong> - AI优化广告定向投放和创意生成成效显著，混元生视频广告素材上线，视频号商业化快速放量预期
+                                </div>
+                            </summary>
+                            <div class="company-details">
+                                <ul class="insight-list">
+                                    <li>
+                                        <span class="insight-badge hot">HOT</span>
+                                        <a href="https://k.sina.com.cn/article_7879848900_1d5acf3c401902s7hu.html?from=tech" target="_blank" style="color: inherit; text-decoration: none;">
+                                            <strong>AI引领增长新纪元，混元优化广告投放</strong> - 通过混元大模型优化广告定向投放和创意生成，显著提升广告收入，AI成为腾讯广告业务新引擎（新浪，13小时前）
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <span class="insight-badge new">NEW</span>
+                                        <a href="https://cloud.tencent.com/document/product/1616/129182" target="_blank" style="color: inherit; text-decoration: none;">
+                                            <strong>混元生视频广告素材生成上线</strong> - 依托人像视频生成技术，提供人脸融合大模型与视频编辑能力，一键解锁海量创意，批量生成爆款电商广告（腾讯云，4天前）
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <span class="insight-badge trend">趋势</span>
+                                        <a href="https://www.itigerup.com/hans/earnseason/report" target="_blank" style="color: inherit; text-decoration: none;">
+                                            <strong>视频号商业化快速放量，广告收入预增17%</strong> - AI驱动广告投放系统提升ROI，叠加视频号商业化快速放量，广告收入预计同比增长+17%（老虎财报，7天前）
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </details>
 
-                        <h3>🏢 其他头部平台</h3>
-                        <ul class="insight-list">
-                            <li>
-                                <span class="insight-badge company">快手</span>
-                                <a href="https://finance.sina.com.cn/tech/roll/2026-03-12/doc-inhqtqkp4770756.shtml" target="_blank" style="color: inherit; text-decoration: none;">
-                                    <strong>快手电商服务商大会：泛货架GMV年增32%</strong> - 全域增长态势持续，磁力引擎渠道业务深化，构建稳定生态驱动确定性增长
-                                </a>
-                            </li>
-                            <li>
-                                <span class="insight-badge company">阿里</span>
-                                <a href="https://k.sina.com.cn/article_7879848900_1d5acf3c401902rxkq.html?from=tech" target="_blank" style="color: inherit; text-decoration: none;">
-                                    <strong>阿里妈妈AIGC创意入选服贸会示范案例</strong> - 依托淘宝星辰大模型与海量数据，构建"洞察-策略-制作-投放-结案"全链路智能营销创意体系
-                                </a>
-                            </li>
-                        </ul>
+                        <!-- 其他头部平台 -->
+                        <details>
+                            <summary class="company-summary">
+                                <div class="company-summary-title">
+                                    <h4>🏢 其他头部平台</h4>
+                                    <span class="expand-icon">▼</span>
+                                </div>
+                                <div class="company-summary-desc">
+                                    <strong>快手电商GMV年增32%，阿里发布悟空Agent平台</strong> - 快手泛货架电商成增长引擎，阿里悟空打通淘宝天猫1688商业能力，美团面临抖音本地生活竞争
+                                </div>
+                            </summary>
+                            <div class="company-details">
+                                <ul class="insight-list">
+                                    <li>
+                                        <span class="insight-badge company">快手</span>
+                                        <a href="https://finance.sina.com.cn/tech/roll/2026-03-12/doc-inhqtqkp4770756.shtml" target="_blank" style="color: inherit; text-decoration: none;">
+                                            <strong>快手电商服务商大会：泛货架GMV年增32%</strong> - 全域增长态势持续，磁力引擎渠道业务深化，构建稳定生态驱动确定性增长（新浪财经，6天前）
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <span class="insight-badge company">阿里</span>
+                                        <a href="https://www.cnstock.com/commonDetail/651479" target="_blank" style="color: inherit; text-decoration: none;">
+                                            <strong>阿里发布首个企业级Agent平台"悟空"</strong> - 淘宝、天猫、1688、支付宝、阿里云等B端商业能力将逐步接入悟空，成为AI能力企业端统一出口（中证网，1天前）
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <span class="insight-badge company">美团</span>
+                                        <a href="https://pdf.dfcfw.com/pdf/H3_AP202603121820516491_1.pdf" target="_blank" style="color: inherit; text-decoration: none;">
+                                            <strong>美团面临抖音本地生活竞争加剧</strong> - 抖音在本地生活服务领域的竞争是主要风险，新业务仍处早期阶段，短期带来利润率压力（东方财富研报，6天前）
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </details>
                     </div>
 
                     <div class="divider"></div>
