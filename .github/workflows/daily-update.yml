@@ -1,0 +1,55 @@
+name: 每日新闻自动更新
+
+on:
+  schedule:
+    # 每天早上8:00 (UTC 00:00 = 北京时间 08:00)
+    - cron: '0 0 * * *'
+  
+  workflow_dispatch:  # 允许手动触发
+
+jobs:
+  update-news:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: 📦 Checkout代码
+        uses: actions/checkout@v3
+      
+      - name: 🐍 设置Python环境
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+      
+      - name: 📚 安装依赖
+        run: |
+          pip install requests beautifulsoup4 lxml
+      
+      - name: 🔍 执行新闻搜索
+        env:
+          GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
+          GOOGLE_CSE_ID: ${{ secrets.GOOGLE_CSE_ID }}
+        run: |
+          cd ad-insight-demo
+          python scripts/update_news.py
+      
+      - name: 📝 提交更新
+        run: |
+          cd ad-insight-demo
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          
+          # 检查是否有更改
+          if [ -n "$(git status --porcelain)" ]; then
+            git add index.html news_update.json
+            git commit -m "🤖 自动更新: $(date +'%Y-%m-%d %H:%M')"
+            git push
+            echo "✅ 更新已提交"
+          else
+            echo "ℹ️  没有更新"
+          fi
+      
+      - name: 📊 上传结果
+        uses: actions/upload-artifact@v3
+        with:
+          name: news-update-result
+          path: ad-insight-demo/news_update.json
