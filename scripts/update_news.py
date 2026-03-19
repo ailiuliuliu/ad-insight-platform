@@ -94,10 +94,17 @@ def search_google(query: str, num_results: int = 3) -> List[Dict]:
         # 'dateRestrict': f'd{DATE_FILTER_DAYS}'
     }
     
+    print(f"🔍 搜索查询: {query}")
+    print(f"📡 API URL: {url}")
+    print(f"📝 参数: {params}")
+    
     try:
         response = requests.get(url, params=params, timeout=10)
         response.raise_for_status()
         data = response.json()
+        
+        print(f"📊 API返回数据: {data.get('searchInformation', {})}")
+        print(f"📋 搜索结果数: {len(data.get('items', []))} 条")
         
         results = []
         for item in data.get('items', []):
@@ -107,6 +114,7 @@ def search_google(query: str, num_results: int = 3) -> List[Dict]:
             
             # 排除不需要的内容
             if should_exclude(title, link):
+                print(f"⏭️  跳过: {title[:50]}...")
                 continue
             
             results.append({
@@ -116,10 +124,13 @@ def search_google(query: str, num_results: int = 3) -> List[Dict]:
                 'source': extract_domain(link)
             })
         
+        print(f"✅ 有效结果: {len(results)} 条")
         return results
     
     except Exception as e:
         print(f"❌ Google搜索失败: {e}")
+        import traceback
+        traceback.print_exc()
         return []
 
 
