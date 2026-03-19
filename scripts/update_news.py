@@ -89,8 +89,9 @@ def search_google(query: str, num_results: int = 3) -> List[Dict]:
         'key': GOOGLE_API_KEY,
         'cx': GOOGLE_CSE_ID,
         'q': query,
-        'num': num_results,
-        'dateRestrict': f'd{DATE_FILTER_DAYS}'  # 最近N天
+        'num': num_results
+        # 暂时移除时间过滤器，先测试基本搜索是否工作
+        # 'dateRestrict': f'd{DATE_FILTER_DAYS}'
     }
     
     try:
@@ -134,10 +135,9 @@ def search_competitor_news(company: str, keywords: List[str]) -> List[Dict]:
     """
     print(f"🔍 搜索 {company} 的新闻...")
     
-    # 构建搜索查询
+    # 构建搜索查询（不需要site:过滤器，因为搜索引擎已经配置了）
     keyword_query = ' OR '.join(keywords)
-    site_filter = ' OR '.join([f'site:{site}' for site in NEWS_SOURCES['tier3_media']])
-    query = f"({keyword_query}) 商业化 OR 广告 OR 收入 ({site_filter}) after:{get_date_filter()}"
+    query = f"({keyword_query}) 商业化 OR 广告 OR 收入"
     
     results = search_google(query, num_results=5)
     
@@ -152,8 +152,7 @@ def search_industry_news(industry: str, keywords: List[str]) -> List[Dict]:
     print(f"🔍 搜索 {industry} 赛道新闻...")
     
     keyword_query = ' OR '.join(keywords)
-    site_filter = ' OR '.join([f'site:{site}' for site in NEWS_SOURCES['tier3_media']])
-    query = f"({keyword_query}) ({site_filter}) after:{get_date_filter()}"
+    query = f"({keyword_query})"
     
     results = search_google(query, num_results=3)
     return results[:2]
