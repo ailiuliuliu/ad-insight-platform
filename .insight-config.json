@@ -1,0 +1,33 @@
+{
+  "project_name": "商业化洞察平台",
+  "github_repo": "ailiuliuliu/ad-insight-platform",
+  "update_frequency_days": 7,
+  "last_update_date": "2026-03-19",
+  "auto_reminder": true,
+  "target_sources": [
+    "36氪 (36kr.com)",
+    "新浪财经 (finance.sina.com.cn)",
+    "钛媒体 (tmtpost.com)",
+    "虎嗅 (huxiu.com)",
+    "广告门 (adquan.com)",
+    "新榜 (newrank.cn)",
+    "电商派 (pai.com.cn)",
+    "巨量引擎官网 (oceanengine.com)",
+    "巨量学 (school.oceanengine.com)",
+    "腾讯营销学堂 (eschool.qq.com)",
+    "小红书种草学"
+  ],
+  "target_competitors": [
+    "字节跳动",
+    "小红书",
+    "快手",
+    "腾讯",
+    "阿里"
+  ],
+  "target_industries": [
+    "游戏与内容",
+    "本地生活",
+    "电商广告"
+  ],
+  "notes": "AI助手将每周检查并主动提醒更新。用户确认后自动执行：搜索→筛选→分析→更新网页→部署。2026-03-19更新：扩大搜索范围，新增官方平台和公众号信息源。"
+}

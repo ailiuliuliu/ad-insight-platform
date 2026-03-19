@@ -29,12 +29,10 @@ jobs:
           GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
           GOOGLE_CSE_ID: ${{ secrets.GOOGLE_CSE_ID }}
         run: |
-          cd ad-insight-demo
           python scripts/update_news.py
       
       - name: 📝 提交更新
         run: |
-          cd ad-insight-demo
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
           
@@ -52,4 +50,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: news-update-result
-          path: ad-insight-demo/news_update.json
+          path: news_update.json
