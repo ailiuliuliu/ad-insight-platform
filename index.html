@@ -116,6 +116,36 @@
             box-shadow: 0 6px 25px rgba(255, 102, 0, 0.5);
         }
 
+        /* 内容消费专区按钮 */
+        .content-hub-toggle {
+            position: fixed;
+            right: 20px;
+            top: calc(50% - 100px);
+            transform: translateY(-50%);
+            background: linear-gradient(135deg, #4CAF50 0%, #66BB6A 100%);
+            color: white;
+            border: none;
+            border-radius: 12px 0 0 12px;
+            padding: 20px 12px;
+            cursor: pointer;
+            font-size: 1.1em;
+            font-weight: 700;
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            z-index: 999;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .content-hub-toggle:hover {
+            padding-right: 15px;
+            box-shadow: 0 6px 25px rgba(76, 175, 80, 0.5);
+        }
+
         .sidebar-knowledge.open + .sidebar-toggle {
             right: 360px;
         }
@@ -146,12 +176,6 @@
 
         .sidebar-close:hover {
             color: var(--ks-orange);
-        }
-
-        /* 内容消费专区链接hover效果 */
-        .content-hub-link:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(255, 102, 0, 0.4);
         }
 
         .sidebar-section {
@@ -707,15 +731,6 @@
 <body>
     <!-- Sidebar Knowledge Base -->
     <aside class="sidebar-knowledge" id="knowledgeSidebar">
-        <!-- 内容消费专区入口 -->
-        <a href="https://sjtu-zhuyiqi.github.io/IndustryIntelHub/index.html" target="_blank" class="content-hub-link" style="display: block; margin-bottom: 20px; padding: 16px; background: linear-gradient(135deg, #FF6600 0%, #FF8533 100%); border-radius: 12px; text-decoration: none; color: white; text-align: center; font-weight: 600; font-size: 1em; transition: transform 0.2s, box-shadow 0.2s; border: none;">
-            <div style="display: flex; align-items: center; justify-content: center; gap: 8px;">
-                <span style="font-size: 1.2em;">📺</span>
-                <span>内容消费专区</span>
-                <span style="font-size: 0.9em; opacity: 0.9;">→</span>
-            </div>
-        </a>
-        
         <div class="sidebar-header">
             <h3 class="sidebar-title">📚 知识库</h3>
             <button class="sidebar-close" onclick="toggleSidebar()">✕</button>
@@ -785,6 +800,9 @@
     </aside>
 
     <button class="sidebar-toggle" onclick="toggleSidebar()">📚 知识库</button>
+    
+    <!-- 内容消费专区按钮 -->
+    <a href="https://sjtu-zhuyiqi.github.io/IndustryIntelHub/index.html" target="_blank" class="content-hub-toggle">📺 内容消费</a>
 
     <div class="container">
         <div class="main-layout">
