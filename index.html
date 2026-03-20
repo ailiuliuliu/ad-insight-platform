@@ -148,6 +148,12 @@
             color: var(--ks-orange);
         }
 
+        /* 内容消费专区链接hover效果 */
+        .content-hub-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 102, 0, 0.4);
+        }
+
         .sidebar-section {
             margin-bottom: 30px;
         }
@@ -701,6 +707,15 @@
 <body>
     <!-- Sidebar Knowledge Base -->
     <aside class="sidebar-knowledge" id="knowledgeSidebar">
+        <!-- 内容消费专区入口 -->
+        <a href="https://sjtu-zhuyiqi.github.io/IndustryIntelHub/index.html" target="_blank" class="content-hub-link" style="display: block; margin-bottom: 20px; padding: 16px; background: linear-gradient(135deg, #FF6600 0%, #FF8533 100%); border-radius: 12px; text-decoration: none; color: white; text-align: center; font-weight: 600; font-size: 1em; transition: transform 0.2s, box-shadow 0.2s; border: none;">
+            <div style="display: flex; align-items: center; justify-content: center; gap: 8px;">
+                <span style="font-size: 1.2em;">📺</span>
+                <span>内容消费专区</span>
+                <span style="font-size: 0.9em; opacity: 0.9;">→</span>
+            </div>
+        </a>
+        
         <div class="sidebar-header">
             <h3 class="sidebar-title">📚 知识库</h3>
             <button class="sidebar-close" onclick="toggleSidebar()">✕</button>
