@@ -127,11 +127,11 @@ def build_markdown_message(data):
         'Sunday': '周日'
     }.get(weekday, weekday)
     
-    markdown = f"""## 📈 商业化洞察周报 ({today} {weekday_zh})
+    markdown = f"""## 📈 今日商业化洞察 ({today} {weekday_zh})
 
 > 数据更新时间：{update_date}
 
-### 💡 本周核心洞察
+### 💡 今日核心洞察
 
 """
     
