@@ -1,0 +1,42 @@
+{
+  "meta": {
+    "created": "2026-03-23",
+    "last_updated": "2026-03-23",
+    "version": "1.0",
+    "description": "商业化洞察长期记忆 - 按主题追踪行业演进"
+  },
+  "topics": {
+    "小红书-种草效果化": {
+      "timeline": [
+        {
+          "date": "2026-03-23",
+          "event": "WILL大会官宣种草进入效果化时代",
+          "stage": "官宣期",
+          "产品": "AIPS人群资产模型"
+        }
+      ],
+      "current_stage": "官宣期",
+      "trend": "",
+      "keywords": []
+    },
+    "字节-AI商业化": {
+      "timeline": [
+        {
+          "date": "2026-03-23",
+          "event": "豆包AI购物功能内测",
+          "stage": "首次",
+          "source": "证券时报",
+          "url": "https://test.com/2"
+        },
+        {
+          "date": "2026-03-23",
+          "event": "字节豆包AI购物功能3月正式上线",
+          "stage": "进展"
+        }
+      ],
+      "current_stage": "进展",
+      "trend": "",
+      "keywords": []
+    }
+  }
+}
