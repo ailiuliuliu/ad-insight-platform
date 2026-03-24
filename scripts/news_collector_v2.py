@@ -38,6 +38,12 @@ class NewsCollector:
             '数英网': 'https://www.digitaling.com/rss'
         }
         
+        # 定向信息源（官方平台）
+        self.official_sources = {
+            '腾讯广告': 'https://e.qq.com/latestnews',
+            '字节巨量学': 'https://school.oceanengine.com/'  # 需要特殊处理
+        }
+        
         # 关键词权重（用于相关性评分）
         self.keywords_weight = {
             # 核心业务（高权重）
@@ -89,6 +95,67 @@ class NewsCollector:
         # TODO: 或使用fetch_web工具抓取官网
         
         logging.info(f"✅ 行业媒体采集完成: {len(news_list)}条")
+        return news_list
+    
+    def collect_from_tencent_ads(self, fetch_content: str = None) -> List[Dict]:
+        """
+        从腾讯广告咨询洞察采集新闻
+        
+        Args:
+            fetch_content: fetch_web抓取的网页内容
+            
+        Returns:
+            新闻列表
+        """
+        logging.info("🎯 开始腾讯广告采集...")
+        
+        news_list = []
+        
+        if not fetch_content:
+            logging.warning("⚠️  未提供腾讯广告网页内容，跳过采集")
+            return news_list
+        
+        # 从内容中提取关键信息
+        # 注意：这里需要解析HTML，实际使用时需要BeautifulSoup
+        # 简化版：直接提取关键词匹配的文本片段
+        
+        keywords = ['漫剧', '短剧', '获客宝', 'Chatbot', 'AI', '视频号', '直播']
+        
+        for keyword in keywords:
+            if keyword in fetch_content:
+                # 简化版：创建一条新闻记录
+                news_list.append({
+                    'title': f'腾讯广告最新：{keyword}相关更新',
+                    'source': '腾讯广告',
+                    'url': 'https://e.qq.com/latestnews',
+                    'content': f'腾讯广告发布{keyword}相关内容...',
+                    'date': datetime.now().strftime('%Y-%m-%d')
+                })
+        
+        logging.info(f"✅ 腾讯广告采集完成: {len(news_list)}条")
+        return news_list
+    
+    def collect_from_oceanengine(self, search_keywords: List[str] = None) -> List[Dict]:
+        """
+        从字节巨量学采集新闻
+        
+        由于直接访问可能受限，建议通过Google搜索：
+        site:school.oceanengine.com 短剧/漫剧/小说/游戏
+        
+        Args:
+            search_keywords: 搜索关键词列表
+            
+        Returns:
+            新闻列表
+        """
+        logging.info("📚 开始巨量学采集...")
+        
+        news_list = []
+        
+        # 注意：需要通过search_web工具搜索
+        # 搜索query示例：site:school.oceanengine.com 短剧 最新
+        
+        logging.info(f"✅ 巨量学采集完成: {len(news_list)}条（建议使用Google site:搜索）")
         return news_list
     
     def calculate_news_score(self, news: Dict) -> float:
@@ -246,6 +313,8 @@ class NewsCollector:
     def collect_and_filter(self, 
                           google_results: List[Dict] = None,
                           media_results: List[Dict] = None,
+                          tencent_ads_content: str = None,
+                          oceanengine_results: List[Dict] = None,
                           min_score: float = 50.0,
                           top_n: int = 10) -> List[Dict]:
         """
@@ -254,6 +323,8 @@ class NewsCollector:
         Args:
             google_results: Google搜索结果
             media_results: 媒体官网结果
+            tencent_ads_content: 腾讯广告网页内容（fetch_web）
+            oceanengine_results: 巨量学搜索结果（Google site:）
             min_score: 最低分数
             top_n: 返回前N条
             
@@ -274,6 +345,15 @@ class NewsCollector:
         if media_results:
             all_news.extend(media_results)
             logging.info(f"📊 媒体来源: {len(media_results)}条")
+        
+        if tencent_ads_content:
+            tencent_news = self.collect_from_tencent_ads(tencent_ads_content)
+            all_news.extend(tencent_news)
+            logging.info(f"📊 腾讯广告来源: {len(tencent_news)}条")
+        
+        if oceanengine_results:
+            all_news.extend(oceanengine_results)
+            logging.info(f"📊 巨量学来源: {len(oceanengine_results)}条")
         
         logging.info(f"📊 总计: {len(all_news)}条原始新闻")
         
