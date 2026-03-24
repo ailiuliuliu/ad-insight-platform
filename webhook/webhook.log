@@ -1,0 +1,29 @@
+/Users/litianyu6/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+ * Serving Flask app 'app'
+ * Debug mode: off
+2026-03-22 23:30:24,229 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:9999
+ * Running on http://172.25.88.66:9999
+2026-03-22 23:30:24,229 - INFO - [33mPress CTRL+C to quit[0m
+2026-03-22 23:31:01,502 - INFO - 127.0.0.1 - - [22/Mar/2026 23:31:01] "GET /health HTTP/1.1" 200 -
+2026-03-22 23:31:14,253 - INFO - 🎯 手动触发更新 (用户: litianyu03)
+2026-03-22 23:31:14,253 - INFO - ==================================================
+2026-03-22 23:31:14,253 - INFO - 127.0.0.1 - - [22/Mar/2026 23:31:14] "POST /trigger HTTP/1.1" 200 -
+2026-03-22 23:31:14,253 - INFO - 开始执行平台更新流程
+2026-03-22 23:31:14,253 - INFO - ==================================================
+2026-03-22 23:31:27,713 - INFO - 收到webhook请求: {"msgtype": "text", "text": {"content": "更新平台"}, "sender": {"username": "litianyu03", "name": "李天宇"}}
+2026-03-22 23:31:27,713 - INFO - 消息内容: 更新平台
+2026-03-22 23:31:27,713 - INFO - 发送者: litianyu03 (李天宇)
+2026-03-22 23:31:27,713 - INFO - 🎯 触发平台更新
+2026-03-22 23:31:27,713 - INFO - ==================================================
+2026-03-22 23:31:27,713 - INFO - 开始执行平台更新流程
+2026-03-22 23:31:27,713 - INFO - 127.0.0.1 - - [22/Mar/2026 23:31:27] "POST /webhook HTTP/1.1" 200 -
+2026-03-22 23:31:27,713 - INFO - ==================================================
+2026-03-22 23:31:34,334 - ERROR - 发送KIM消息失败: HTTPConnectionPool(host='kim-robot.internal', port=80): Max retries exceeded with url: /api/robot/send?key=271996bf-7424-4c93-984f-21830b354394 (Caused by ConnectTimeoutError(<HTTPConnection(host='kim-robot.internal', port=80) at 0x10694b850>, 'Connection to kim-robot.internal timed out. (connect timeout=10)'))
+2026-03-22 23:31:34,548 - ERROR - ❌ 平台更新失败: 
+2026-03-22 23:31:47,716 - ERROR - 发送KIM消息失败: HTTPConnectionPool(host='kim-robot.internal', port=80): Max retries exceeded with url: /api/robot/send?key=271996bf-7424-4c93-984f-21830b354394 (Caused by ConnectTimeoutError(<HTTPConnection(host='kim-robot.internal', port=80) at 0x10697bb20>, 'Connection to kim-robot.internal timed out. (connect timeout=10)'))
+2026-03-22 23:31:47,857 - ERROR - ❌ 平台更新失败: 
+2026-03-22 23:31:54,554 - ERROR - 发送KIM消息失败: HTTPConnectionPool(host='kim-robot.internal', port=80): Max retries exceeded with url: /api/robot/send?key=271996bf-7424-4c93-984f-21830b354394 (Caused by ConnectTimeoutError(<HTTPConnection(host='kim-robot.internal', port=80) at 0x10694b9a0>, 'Connection to kim-robot.internal timed out. (connect timeout=10)'))
+2026-03-22 23:32:07,862 - ERROR - 发送KIM消息失败: HTTPConnectionPool(host='kim-robot.internal', port=80): Max retries exceeded with url: /api/robot/send?key=271996bf-7424-4c93-984f-21830b354394 (Caused by ConnectTimeoutError(<HTTPConnection(host='kim-robot.internal', port=80) at 0x10698b280>, 'Connection to kim-robot.internal timed out. (connect timeout=10)'))
