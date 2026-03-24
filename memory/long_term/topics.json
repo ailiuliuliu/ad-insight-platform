@@ -1,7 +1,7 @@
 {
   "meta": {
     "created": "2026-03-23",
-    "last_updated": "2026-03-23",
+    "last_updated": "2026-03-24",
     "version": "1.0",
     "description": "商业化洞察长期记忆 - 按主题追踪行业演进"
   },
@@ -35,6 +35,30 @@
         }
       ],
       "current_stage": "进展",
+      "trend": "",
+      "keywords": []
+    },
+    "小红书-种草": {
+      "timeline": [
+        {
+          "date": "2026-03-24",
+          "event": "小红书打击AI托管账号，3月10日正式封禁批量运营账号",
+          "stage": "首次"
+        }
+      ],
+      "current_stage": "首次",
+      "trend": "",
+      "keywords": []
+    },
+    "腾讯-视频号": {
+      "timeline": [
+        {
+          "date": "2026-03-24",
+          "event": "腾讯2025年财报：营销服务全年收入达1450亿增19%",
+          "stage": "首次"
+        }
+      ],
+      "current_stage": "首次",
       "trend": "",
       "keywords": []
     }
