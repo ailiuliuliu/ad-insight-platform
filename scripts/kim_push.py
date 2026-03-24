@@ -2,10 +2,11 @@
 # -*- coding: utf-8 -*-
 """
 KIM机器人推送脚本
-每周一早上10点自动推送商业化洞察到KIM群聊
+每周一、周四上午11点自动推送商业化洞察到KIM群聊
 
 Author: AI Assistant
 Created: 2026-03-19
+Updated: 2026-03-24 (调整为每周一、周四11:00推送)
 """
 
 import requests

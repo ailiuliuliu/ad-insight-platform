@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <!-- 任务标识 -->
+    <key>Label</key>
+    <string>com.ad-insight.kim-push</string>
+    
+    <!-- Python脚本路径 -->
+    <key>ProgramArguments</key>
+    <array>
+        <string>/usr/bin/python3</string>
+        <string>/Users/litianyu6/Documents/超级小李/ad-insight-demo/scripts/kim_push.py</string>
+    </array>
+    
+    <!-- 工作目录 -->
+    <key>WorkingDirectory</key>
+    <string>/Users/litianyu6/Documents/超级小李/ad-insight-demo/scripts</string>
+    
+    <!-- 定时配置：每周一和周四上午11:00 -->
+    <key>StartCalendarInterval</key>
+    <array>
+        <!-- 每周一 11:00 -->
+        <dict>
+            <key>Weekday</key>
+            <integer>1</integer>
+            <key>Hour</key>
+            <integer>11</integer>
+            <key>Minute</key>
+            <integer>0</integer>
+        </dict>
+        <!-- 每周四 11:00 -->
+        <dict>
+            <key>Weekday</key>
+            <integer>4</integer>
+            <key>Hour</key>
+            <integer>11</integer>
+            <key>Minute</key>
+            <integer>0</integer>
+        </dict>
+    </array>
+    
+    <!-- 标准输出日志 -->
+    <key>StandardOutPath</key>
+    <string>/Users/litianyu6/Documents/超级小李/ad-insight-demo/scripts/kim_push.log</string>
+    
+    <!-- 标准错误日志 -->
+    <key>StandardErrorPath</key>
+    <string>/Users/litianyu6/Documents/超级小李/ad-insight-demo/scripts/kim_push_error.log</string>
+    
+    <!-- 自动重启（如果任务意外退出） -->
+    <key>KeepAlive</key>
+    <false/>
+    
+    <!-- 在系统启动时不运行 -->
+    <key>RunAtLoad</key>
+    <false/>
+</dict>
+</plist>
