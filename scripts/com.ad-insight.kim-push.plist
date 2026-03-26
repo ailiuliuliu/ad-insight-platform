@@ -17,6 +17,17 @@
     <key>WorkingDirectory</key>
     <string>/Users/litianyu6/Documents/超级小李/ad-insight-demo/scripts</string>
     
+    <!-- 环境变量（解决launchd找不到Python依赖的问题） -->
+    <key>EnvironmentVariables</key>
+    <dict>
+        <key>PATH</key>
+        <string>/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Frameworks/Python.framework/Versions/3.9/bin</string>
+        <key>PYTHONPATH</key>
+        <string>/Users/litianyu6/Library/Python/3.9/lib/python/site-packages</string>
+        <key>HOME</key>
+        <string>/Users/litianyu6</string>
+    </dict>
+    
     <!-- 定时配置：每周一和周四上午11:00 -->
     <key>StartCalendarInterval</key>
     <array>
