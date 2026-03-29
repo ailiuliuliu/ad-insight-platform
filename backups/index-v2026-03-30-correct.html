@@ -1,0 +1,1556 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>商业化洞察 | 广告行业追踪平台</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <meta name="description" content="系统化追踪广告行业核心动态，聚焦字节、快手、腾讯等头部平台，深度分析变现策略与商业模式">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-52J7N742KH"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-52J7N742KH');
+    </script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --ks-orange: #FF6600;
+            --ks-orange-light: #FF8533;
+            --ks-orange-dark: #E65C00;
+            --bg-primary: #0a0a0a;
+            --bg-secondary: #141414;
+            --bg-card: #1a1a1a;
+            --bg-card-hover: #222222;
+            --text-primary: #ffffff;
+            --text-secondary: #b3b3b3;
+            --text-muted: #666666;
+            --border-color: #2a2a2a;
+            --gradient-orange: linear-gradient(135deg, #FF6600 0%, #FF8533 100%);
+            --gradient-hero: linear-gradient(135deg, #FF6600 0%, #E65C00 100%);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "PingFang SC", Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: var(--bg-primary);
+            min-height: 100vh;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(255, 102, 0, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255, 102, 0, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .main-layout {
+            display: flex;
+            gap: 20px;
+            position: relative;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .content-wrapper {
+            flex: 1;
+            min-width: 0;
+            writing-mode: horizontal-tb;
+            text-orientation: mixed;
+        }
+
+        /* Sidebar Knowledge Base */
+        .sidebar-knowledge {
+            position: fixed;
+            right: -360px;
+            top: 0;
+            width: 360px;
+            height: 100vh;
+            background: var(--bg-card);
+            border-left: 1px solid var(--border-color);
+            transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 1000;
+            overflow-y: auto;
+            padding: 30px;
+        }
+
+        .sidebar-knowledge.open {
+            right: 0;
+            box-shadow: -10px 0 40px rgba(0, 0, 0, 0.5);
+        }
+
+        .sidebar-toggle {
+            position: fixed;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--gradient-orange);
+            color: white;
+            border: none;
+            border-radius: 12px 0 0 12px;
+            padding: 20px 12px;
+            cursor: pointer;
+            font-size: 1.2em;
+            font-weight: 700;
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            z-index: 999;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(255, 102, 0, 0.3);
+        }
+
+        .sidebar-toggle:hover {
+            padding-right: 15px;
+            box-shadow: 0 6px 25px rgba(255, 102, 0, 0.5);
+        }
+
+        /* 内容消费专区按钮 */
+        .content-hub-toggle {
+            position: fixed;
+            right: 20px;
+            top: calc(50% - 150px);
+            transform: translateY(-50%);
+            background: linear-gradient(135deg, #FF8533 0%, #FFB366 100%);
+            color: white;
+            border: none;
+            border-radius: 12px 0 0 12px;
+            padding: 20px 12px;
+            cursor: pointer;
+            font-size: 1.1em;
+            font-weight: 700;
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            z-index: 999;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(255, 133, 51, 0.3);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .content-hub-toggle:hover {
+            padding-right: 15px;
+            box-shadow: 0 6px 25px rgba(255, 133, 51, 0.5);
+        }
+
+        .sidebar-knowledge.open + .sidebar-toggle {
+            right: 360px;
+        }
+
+        .sidebar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--ks-orange);
+        }
+
+        .sidebar-title {
+            font-size: 1.4em;
+            font-weight: 700;
+            color: var(--ks-orange);
+        }
+
+        .sidebar-close {
+            background: transparent;
+            border: none;
+            color: var(--text-secondary);
+            font-size: 1.5em;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .sidebar-close:hover {
+            color: var(--ks-orange);
+        }
+
+        .sidebar-section {
+            margin-bottom: 30px;
+        }
+
+        .sidebar-section h4 {
+            font-size: 1.1em;
+            color: var(--ks-orange);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .sidebar-section h4::before {
+            content: '';
+            width: 3px;
+            height: 16px;
+            background: var(--gradient-orange);
+            border-radius: 2px;
+        }
+
+        .sidebar-list {
+            list-style: none;
+        }
+
+        .sidebar-list li {
+            padding: 12px;
+            margin-bottom: 6px;
+            background: var(--bg-secondary);
+            border-radius: 8px;
+            font-size: 0.9em;
+            line-height: 1.6;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .sidebar-list li:hover {
+            background: var(--bg-card-hover);
+            padding-left: 16px;
+            border-left: 3px solid var(--ks-orange);
+        }
+
+        .sidebar-list li strong {
+            color: var(--text-primary);
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        /* Header */
+        header {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 20px 25px;
+            margin-bottom: 15px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-orange);
+        }
+
+        .header-title {
+            font-size: 1.4em;
+            font-weight: 800;
+            margin-bottom: 8px;
+            background: linear-gradient(135deg, var(--text-primary) 0%, var(--ks-orange) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.5px;
+        }
+
+        .header-subtitle {
+            font-size: 0.75em;
+            color: var(--text-secondary);
+            font-weight: 500;
+            line-height: 1.5;
+        }
+
+        .header-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            background: var(--gradient-orange);
+            color: white;
+            border-radius: 30px;
+            font-size: 0.7em;
+            font-weight: 600;
+            margin-bottom: 10px;
+            box-shadow: 0 4px 15px rgba(255, 102, 0, 0.3);
+        }
+
+        /* Tab Navigation */
+        .tab-nav {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 18px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 10px;
+            overflow-x: auto;
+        }
+
+        .tab-btn {
+            flex: 1;
+            min-width: 130px;
+            padding: 14px 24px;
+            background: transparent;
+            border: none;
+            border-radius: 12px;
+            font-size: 0.95em;
+            font-weight: 600;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: all 0.3s;
+            white-space: nowrap;
+        }
+
+        .tab-btn:hover {
+            background: var(--bg-card-hover);
+            color: var(--text-primary);
+        }
+
+        .tab-btn.active {
+            background: var(--gradient-orange);
+            color: white;
+            box-shadow: 0 4px 15px rgba(255, 102, 0, 0.3);
+        }
+
+        /* Tab Panels */
+        .tab-panel {
+            display: none;
+            animation: fadeInUp 0.4s ease-out;
+        }
+
+        .tab-panel.active {
+            display: block;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Content Card */
+        .content-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 25px;
+            margin-bottom: 15px;
+            transition: border-color 0.3s;
+            writing-mode: horizontal-tb;
+            direction: ltr;
+        }
+
+        .content-card:hover {
+            border-color: var(--ks-orange);
+        }
+
+        .content-card h2 {
+            font-size: 1.5em;
+            margin-bottom: 8px;
+            color: var(--text-primary);
+            font-weight: 700;
+        }
+
+        .content-card h3 {
+            font-size: 1.15em;
+            margin: 15px 0 10px 0;
+            color: var(--ks-orange);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .content-card h3::before {
+            content: '';
+            width: 4px;
+            height: 18px;
+            background: var(--gradient-orange);
+            border-radius: 2px;
+        }
+
+        .section-desc {
+            color: var(--text-secondary);
+            margin-bottom: 12px;
+            font-size: 0.95em;
+            line-height: 1.7;
+        }
+
+        /* Search Box */
+        .search-box {
+            position: relative;
+            margin-bottom: 15px;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 16px 50px 16px 20px;
+            background: var(--bg-secondary);
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            color: var(--text-primary);
+            font-size: 0.95em;
+            transition: all 0.3s;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--ks-orange);
+            box-shadow: 0 0 0 3px rgba(255, 102, 0, 0.1);
+        }
+
+        .search-input::placeholder {
+            color: var(--text-muted);
+        }
+
+        .search-icon {
+            position: absolute;
+            right: 18px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-muted);
+            font-size: 1.2em;
+        }
+
+        .search-result-count {
+            color: var(--text-secondary);
+            font-size: 0.9em;
+            margin-bottom: 15px;
+        }
+
+        /* Report List */
+        .report-list {
+            list-style: none;
+        }
+
+        .report-item {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 15px;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .report-item:hover {
+            border-color: var(--ks-orange);
+            transform: translateX(5px);
+            box-shadow: 0 4px 15px rgba(255, 102, 0, 0.2);
+        }
+
+        .report-title {
+            font-size: 1.1em;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+
+        .report-meta {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 10px;
+            font-size: 0.85em;
+            color: var(--text-muted);
+        }
+
+        .report-meta span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .report-desc {
+            color: var(--text-secondary);
+            font-size: 0.9em;
+            line-height: 1.6;
+        }
+
+        .report-tags {
+            display: flex;
+            gap: 8px;
+            margin-top: 12px;
+            flex-wrap: wrap;
+        }
+
+        .report-tag {
+            padding: 4px 10px;
+            background: var(--bg-card);
+            border-radius: 6px;
+            font-size: 0.8em;
+            color: var(--ks-orange);
+            border: 1px solid var(--ks-orange);
+        }
+
+        /* List */
+        .insight-list {
+            list-style: none;
+        }
+
+        .insight-list li {
+            padding: 16px;
+            border-bottom: 1px solid var(--border-color);
+            transition: all 0.3s;
+            border-radius: 8px;
+            margin-bottom: 4px;
+            font-size: 0.95em;
+        }
+
+        .insight-list li:hover {
+            background: var(--bg-secondary);
+            border-color: var(--ks-orange);
+            padding-left: 20px;
+        }
+
+        .insight-list li:last-child {
+            border-bottom: none;
+        }
+
+        .insight-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 6px;
+            font-size: 0.8em;
+            font-weight: 700;
+            margin-right: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .insight-badge.new {
+            background: var(--gradient-orange);
+            color: white;
+            box-shadow: 0 2px 8px rgba(255, 102, 0, 0.3);
+        }
+
+        .insight-badge.trend {
+            background: linear-gradient(135deg, #4a90e2 0%, #357abd 100%);
+            color: white;
+        }
+
+        .insight-badge.company {
+            background: linear-gradient(135deg, #9b59b6 0%, #8e44ad 100%);
+            color: white;
+        }
+
+        .insight-badge.hot {
+            background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+            color: white;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                box-shadow: 0 2px 8px rgba(231, 76, 60, 0.3);
+            }
+            50% {
+                box-shadow: 0 2px 15px rgba(231, 76, 60, 0.6);
+            }
+        }
+
+        /* Company Summary & Details */
+        .company-summary {
+            padding: 12px 16px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .company-summary:hover {
+            border-color: var(--ks-orange);
+            background: var(--bg-card-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(255, 102, 0, 0.15);
+        }
+
+        details {
+            margin-bottom: 7px;
+        }
+
+        details summary {
+            list-style: none;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        details summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .company-summary-title {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 6px;
+        }
+
+        .company-summary-title h4 {
+            font-size: 0.95em;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .expand-icon {
+            font-size: 0.9em;
+            color: var(--ks-orange);
+            transition: transform 0.3s;
+        }
+
+        details[open] .expand-icon {
+            transform: rotate(180deg);
+        }
+
+        .company-summary-desc {
+            color: var(--text-secondary);
+            font-size: 0.8em;
+            line-height: 1.4;
+            margin-top: 4px;
+        }
+
+        .company-details {
+            margin-top: 8px;
+            padding-top: 8px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .company-details .insight-list {
+            margin-top: 10px;
+        }
+
+        .company-details .insight-list li {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            margin-bottom: 6px;
+            padding: 10px;
+        }
+
+        .company-details .insight-list li:hover {
+            background: var(--bg-card-hover);
+            border-color: var(--ks-orange);
+        }
+
+        /* Divider */
+        .divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--border-color), transparent);
+            margin: 15px 0;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 50px 20px 35px;
+            color: var(--text-muted);
+            border-top: 1px solid var(--border-color);
+            margin-top: 50px;
+        }
+
+        footer .footer-title {
+            font-size: 1.1em;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+
+        footer .footer-subtitle {
+            font-size: 0.9em;
+            margin-bottom: 15px;
+        }
+
+        footer a {
+            color: var(--ks-orange);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        footer a:hover {
+            color: var(--ks-orange-light);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-title {
+                font-size: 2.2em;
+            }
+            
+            .tab-nav {
+                flex-direction: column;
+            }
+            
+            .tab-btn {
+                min-width: auto;
+            }
+            
+            .content-card {
+                padding: 25px;
+            }
+
+            .sidebar-knowledge {
+                width: 100%;
+                right: -100%;
+            }
+
+            .sidebar-knowledge.open + .sidebar-toggle {
+                right: 0;
+            }
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+            height: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-secondary);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--ks-orange);
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--ks-orange-light);
+        }
+    </style>
+</head>
+<body>
+    <!-- Sidebar Knowledge Base -->
+    <aside class="sidebar-knowledge" id="knowledgeSidebar">
+        <div class="sidebar-header">
+            <h3 class="sidebar-title">📚 知识库</h3>
+            <button class="sidebar-close" onclick="toggleSidebar()">✕</button>
+        </div>
+
+        <div class="sidebar-section">
+            <h4>💡 核心概念</h4>
+            <ul class="sidebar-list">
+                <li>
+                    <strong>ROI3托管模式</strong>
+                    广告主托管预算，平台优化ROI至3倍以上的新型投放模式
+                </li>
+                <li>
+                    <strong>oCPX智能出价</strong>
+                    以转化目标优化的智能竞价策略（oCPM/oCPC/oCPA）
+                </li>
+                <li>
+                    <strong>穿山甲联盟</strong>
+                    字节跳动的移动广告聚合平台，日分发超100亿次
+                </li>
+                <li>
+                    <strong>磁力金牛</strong>
+                    快手电商广告产品，GMV突破万亿的核心引擎
+                </li>
+            </ul>
+        </div>
+
+        <div class="sidebar-section">
+            <h4>📊 关键指标</h4>
+            <ul class="sidebar-list">
+                <li>
+                    <strong>eCPM</strong>
+                    千次展示收入，信息流15-50元，激励视频50-200元
+                </li>
+                <li>
+                    <strong>ROI/ROAS</strong>
+                    投资回报率，电商广告普遍要求3+
+                </li>
+                <li>
+                    <strong>CVR转化率</strong>
+                    点击到转化比例，优秀电商可达5-10%
+                </li>
+                <li>
+                    <strong>LTV/CAC</strong>
+                    用户生命周期价值/获客成本，理想比值>3
+                </li>
+            </ul>
+        </div>
+
+        <div class="sidebar-section">
+            <h4>🛠️ 最佳实践</h4>
+            <ul class="sidebar-list">
+                <li>
+                    <strong>信息流优化四步法</strong>
+                    素材测试→定向优化→出价策略→落地页转化
+                </li>
+                <li>
+                    <strong>ROI3托管接入</strong>
+                    账户诊断→预算规划→托管上线→效果监控
+                </li>
+                <li>
+                    <strong>短视频创意公式</strong>
+                    3秒吸引+痛点刺激+解决方案+行动召唤
+                </li>
+            </ul>
+        </div>
+    </aside>
+
+    <button class="sidebar-toggle" onclick="toggleSidebar()">📚 知识库</button>
+    
+    <!-- 内容消费专区按钮 -->
+    <a href="https://sjtu-zhuyiqi.github.io/IndustryIntelHub/index.html" target="_blank" class="content-hub-toggle">📺 内容消费</a>
+
+    <div class="container">
+        <div class="main-layout">
+            <div class="content-wrapper">
+                <!-- Header -->
+                <header>
+                    <div class="header-badge">🎯 商业化战略追踪</div>
+                    <div class="header-title">商业化洞察平台</div>
+                    <div class="header-subtitle">
+                        系统化追踪广告行业核心动态 | 聚焦字节、快手、腾讯等头部平台 | 深度分析变现策略与商业模式
+                    </div>
+                </header>
+
+                <!-- Tab Navigation -->
+                <div class="tab-nav">
+                    <button class="tab-btn active" data-tab="daily">📰 每日动态</button>
+                    <button class="tab-btn" data-tab="research">🔬 深度调研（开发中）</button>
+                    <button class="tab-btn" data-tab="reports">📄 行研报告库（开发中）</button>
+                </div>
+
+                <!-- Tab Panels -->
+                
+                <!-- Daily Reports -->
+                <div class="tab-panel active" id="daily">
+                    <!-- 今日洞察 -->
+                    <div class="content-card" style="background: linear-gradient(135deg, rgba(255, 102, 0, 0.05) 0%, rgba(255, 102, 0, 0.02) 100%); border: 2px solid var(--ks-orange); padding: 20px;">
+                        <h2 style="font-size: 1.3em; margin-bottom: 8px;">💡 今日洞察</h2>
+                        <p class="section-desc" style="font-size: 0.85em; margin-bottom: 15px;">
+                            从快手商业化视角，基于最新竞对动态与行业趋势，给出战略洞察与行动建议（更新于 2026-03-29 晚）
+                        </p>
+                        
+                        <div style="margin-top: 12px;">
+                            <!-- 洞察1 -->
+                            <details style="margin-bottom: 8px;">
+                                <summary class="company-summary" style="border: 1px solid var(--ks-orange); padding: 10px; cursor: pointer;">
+                                    <div class="company-summary-title" style="margin-bottom: 6px;">
+                                        <h4 style="color: var(--ks-orange); font-size: 0.95em;">🤖 AIGC视频生成白热化：可灵3亿美元ARR对抗Seedance 2.0，商业化竞速开启</h4>
+                                        <span class="expand-icon">▼</span>
+                                    </div>
+                                    <div class="company-summary-desc" style="font-size: 0.8em; line-height: 1.4;">
+                                        快手可灵AI实现3亿美元ARR，字节Seedance 2.0上线带动即梦AI下载量环比飙升228%，AIGC视频生成从技术竞争进入商业化竞速阶段
+                                    </div>
+                                </summary>
+                                <div class="company-details">
+                                    <div style="padding: 10px; background: var(--bg-secondary); border-radius: 6px; line-height: 1.4; font-size: 0.8em;">
+                                        <p style="margin-bottom: 6px;"><strong style="color: var(--ks-orange);">竞对动向：</strong>快手可灵AI实现3亿美元ARR（2026年有望翻倍），Sora关停当日公布成绩；字节Seedance 2.0上线即梦AI下载量环比增228%，正面竞争</p>
+                                        <p style="margin-bottom: 6px;"><strong style="color: var(--ks-orange);">行业变革：</strong>AIGC视频生成从"技术秀肌肉"进入"商业化落地"，谁能将技术优势转化为平台生态优势，谁就能占据下一个十年的内容生产高地</p>
+                                        <p style="margin-bottom: 0;"><strong style="color: var(--ks-orange);">快手启示：</strong>可灵AI已验证商业化，但需避免"技术孤岛"陷阱。应加速融入短剧/漫剧创作链路，将AI工具嵌入磁力引擎投放系统，让AIGC成为"平台级能力"而非"独立产品"</p>
+                                    </div>
+                                </div>
+                            </details>
+
+                            <!-- 洞察2 -->
+                            <details style="margin-bottom: 8px;">
+                                <summary class="company-summary" style="border: 1px solid var(--ks-orange); padding: 10px; cursor: pointer;">
+                                    <div class="company-summary-title" style="margin-bottom: 6px;">
+                                        <h4 style="color: var(--ks-orange); font-size: 0.95em;">🛍️ AI购物元年：豆包2.26亿MAU切入电商，对话式购物重构流量分发逻辑</h4>
+                                        <span class="expand-icon">▼</span>
+                                    </div>
+                                    <div class="company-summary-desc" style="font-size: 0.8em; line-height: 1.4;">
+                                        豆包MAU 2.26亿领先行业，开启AI购物内测预计3月上线，从"搜索框"到"对话框"，AI正在成为电商新入口，流量分发逻辑面临重构
+                                    </div>
+                                </summary>
+                                <div class="company-details">
+                                    <div style="padding: 10px; background: var(--bg-secondary); border-radius: 6px; line-height: 1.4; font-size: 0.8em;">
+                                        <p style="margin-bottom: 6px;"><strong style="color: var(--ks-orange);">竞对动向：</strong>字节豆包MAU 2.26亿领先，内测AI购物功能实现"对话→浏览→下单→支付"全流程；阿里、蚂蚁也在春招大量招聘AI工程师布局</p>
+                                        <p style="margin-bottom: 6px;"><strong style="color: var(--ks-orange);">行业变革：</strong>AI购物从"辅助工具"升级为"消费入口"，用户不再被动接受算法推荐，而是主动表达需求由AI匹配，信任驱动的购物体验成为核心竞争力</p>
+                                        <p style="margin-bottom: 0;"><strong style="color: var(--ks-orange);">快手启示：</strong>老铁文化天然具备信任优势，快手可基于"老铁AI导购助手"切入，将信任关系从"人-人"延伸到"人-AI-人"，避免陷入字节"大模型驱动"的技术军备竞赛</p>
+                                    </div>
+                                </div>
+                            </details>
+
+                            <!-- 洞察3 -->
+                            <details style="margin-bottom: 0;">
+                                <summary class="company-summary" style="border: 1px solid var(--ks-orange); padding: 10px; cursor: pointer;">
+                                    <div class="company-summary-title" style="margin-bottom: 6px;">
+                                        <h4 style="color: var(--ks-orange); font-size: 0.95em;">📈 腾讯营销收入1450亿增19%，"素材+行业+经营"三位一体策略验证成功</h4>
+                                        <span class="expand-icon">▼</span>
+                                    </div>
+                                    <div class="company-summary-desc" style="font-size: 0.8em; line-height: 1.4;">
+                                        腾讯2025年营销服务收入1450亿增19%，视频号广告持续增长，围绕"素材供给+行业化能力+经营优化"三位一体策略取得成功，混元3.0将于4月发布
+                                    </div>
+                                </summary>
+                                <div class="company-details">
+                                    <div style="padding: 10px; background: var(--bg-secondary); border-radius: 6px; line-height: 1.4; font-size: 0.8em;">
+                                        <p style="margin-bottom: 6px;"><strong style="color: var(--ks-orange);">竞对动向：</strong>腾讯2025营销收入1450亿增19%，视频号商业化加速（漫剧日耗350万），推出获客宝Chatbot等AI工具，混元3.0即将发布</p>
+                                        <p style="margin-bottom: 6px;"><strong style="color: var(--ks-orange);">行业变革：</strong>"素材+行业+经营"三位一体成为广告平台标配策略，AI驱动的素材供给能力、垂直行业方法论输出、全链路经营优化缺一不可</p>
+                                        <p style="margin-bottom: 0;"><strong style="color: var(--ks-orange);">快手启示：</strong>磁力引擎应对标腾讯，加速推进：①可灵AI融入素材供给体系；②磁力大学输出"服饰/美妆/食品"垂类白皮书；③推出AI驱动的经营优化工具（对标获客宝Chatbot）</p>
+                                    </div>
+                                </div>
+                            </details>
+                        </div>
+                    </div>
+
+                    <div class="divider"></div>
+
+                    <!-- 核心竞对动态 -->
+                    <div class="content-card">
+                        <h2 style="font-size: 1.3em; margin-bottom: 8px;">🎯 核心竞对动态</h2>
+                        <p class="section-desc">
+                            追踪字节跳动、小红书、快手、腾讯、阿里等头部平台的商业化战略与产品动态（最近7天）
+                        </p>
+                        
+                        <!-- 字节跳动 -->
+                        <details>
+                            <summary class="company-summary">
+                                <div class="company-summary-title">
+                                    <h4>🔥 字节跳动</h4>
+                                    <span class="expand-icon">▼</span>
+                                </div>
+                                <div class="company-summary-desc">
+                                    <strong>Seedance 2.0上线+豆包AI购物内测+巨量星图3.0升级</strong> - AI视频生成对抗快手可灵，豆包MAU 2.26亿领先推AI购物，短剧演员合作体系持续完善
+                                </div>
+                            </summary>
+                            <div class="company-details">
+                                <ul class="insight-list">
+                                    <li>
+                                        <span class="insight-badge hot">NEW</span>
+                                        <a href="https://finance.sina.cn/stock/jdts/2026-03-26/detail-inhshxnz9072512.d.html" target="_blank" style="color: inherit; text-decoration: none;">
+                                            <strong>字节Seedance 2.0上线，即梦AI下载量环比飙升228%</strong> - 2026年初推出AI视频生成模型，与快手可灵正面竞争AIGC赛道（新浪财经，2026-03-26）
+                                        </a>
+                                        <div style="margin-top: 4px; padding: 6px; background: rgba(255,102,0,0.1); border-left: 2px solid var(--ks-orange); font-size: 0.85em; color: var(--text-secondary);">
+                                            💡 对快手启示：字节正面对抗可灵，AIGC视频生成竞争白热化，快手需加速可灵商业化落地
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <span class="insight-badge hot">AI购物</span>
+                                        <a href="https://www.21jingji.com/article/20260320/herald/12194df49654d66390640fd7a5c3b53f.html" target="_blank" style="color: inherit; text-decoration: none;">
+                                            <strong>豆包开启AI购物内测，MAU 2.26亿领先行业</strong> - 用户可在豆包APP内完成商品浏览、下单、支付全流程，AI对话式购物重构流量分发（21财经，2026-03-20）
+                                        </a>
+                                        <div style="margin-top: 4px; padding: 6px; background: rgba(255,102,0,0.1); border-left: 2px solid var(--ks-orange); font-size: 0.85em; color: var(--text-secondary);">
+                                            💡 对快手启示：AI对话式购物将重构流量分发，快手可基于老铁文化推出信任驱动的AI导购助手
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <span class="insight-badge trend">巨量星图</span>
+                                        <a href="https://support.oceanengine.com/support/content/191193" target="_blank" style="color: inherit; text-decoration: none;">
+                                            <strong>2026巨量星图「巨星企划3.0」明星营销项目手册发布</strong> - 包含短剧演员合作项目，满足客户品牌和效果营销诉求（巨量学，2026-03-24）
+                                        </a>
+                                        <div style="margin-top: 4px; padding: 6px; background: rgba(255,102,0,0.1); border-left: 2px solid var(--ks-orange); font-size: 0.85em; color: var(--text-secondary);">
+                                            💡 对快手启示：短剧演员资源是内容消费变现关键，快手可参考建立短剧/漫剧演员合作体系
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <span class="insight-badge company">红果短剧</span>
+                                        <a href="https://support.oceanengine.com/support/content/190898" target="_blank" style="color: inherit; text-decoration: none;">
+                                            <strong>红果短剧演员合作社新版升级，支持抖音+红果双发联动</strong> - 3月10日新增功能，短剧演员商单内容同步分发至两大平台（巨量学，2026-03-21）
+                                        </a>
+                                        <div style="margin-top: 4px; padding: 6px; background: rgba(255,102,0,0.1); border-left: 2px solid var(--ks-orange); font-size: 0.85em; color: var(--text-secondary);">
+                                            💡 对快手启示：双平台联动提升内容分发效率，快手可探索快手+快手极速版的内容联动机制
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </details>
+
+                        <!-- 小红书 -->
+                        <details>
+                            <summary class="company-summary">
+                                <div class="company-summary-title">
+                                    <h4>💄 小红书</h4>
+                                    <span class="expand-icon">▼</span>
+                                </div>
+                                <div class="company-summary-desc">
+                                    <strong>打击AI托管+种草进入效果化+文旅种草指南</strong> - 3月10日起封禁批量运营账号，推动ROI可衡量，发布文旅兴趣出游种草指南
+                                </div>
+                            </summary>
+                            <div class="company-details">
+                                <ul class="insight-list">
+                                    <li>
+                                        <span class="insight-badge hot">NEW</span>
+                                        <a href="https://m.cbndata.com/information/295097" target="_blank" style="color: inherit; text-decoration: none;">
+                                            <strong>小红书打击AI托管账号，3月10日正式封禁批量运营账号</strong> - 这些账号高度自动化用于广告变现和商品导流，平台主动净化生态保护真实内容（CBNData，2026-03-13）
+                                        </a>
+                                        <div style="margin-top: 4px; padding: 6px; background: rgba(255,102,0,0.1); border-left: 2px solid var(--ks-orange); font-size: 0.85em; color: var(--text-secondary);">
+                                            💡 对快手启示：AIGC被滥用威胁生态真实性，老铁文化重视真实性，应提前建立AI内容标识+监测体系
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <span class="insight-badge trend">商业化</span>
+                                        <a href="https://www.21jingji.com/article/20260126/herald/4cb81c4c08e1e67ccbb0ba87f5bfd1f7.html" target="_blank" style="color: inherit; text-decoration: none;">
+                                            <strong>小红书推动"种草进入效果化时代"，ROI可衡量成核心</strong> - 2026年WILL商业大会明确战略方向，从粗放式流量运营转向精细化效果运营（21经济网，2026-01-26）
+                                        </a>
+                                        <div style="margin-top: 4px; padding: 6px; background: rgba(255,102,0,0.1); border-left: 2px solid var(--ks-orange); font-size: 0.85em; color: var(--text-secondary);">
+                                            💡 对快手启示：种草从"玄学"变"科学"，快手老铁文化天然适合种草，需推出效果化投放产品
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <span class="insight-badge company">文旅</span>
+                                        <a href="https://www.traveldaily.cn/article/189197/" target="_blank" style="color: inherit; text-decoration: none;">
+                                            <strong>小红书2026文旅种草下半场：发布《文旅兴趣出游种草指南》</strong> - 基于海量数据分析2025趋势并给出2026前瞻洞察（环球旅讯，2026-01-27）
+                                        </a>
+                                        <div style="margin-top: 4px; padding: 6px; background: rgba(255,102,0,0.1); border-left: 2px solid var(--ks-orange); font-size: 0.85em; color: var(--text-secondary);">
+                                            💡 对快手启示：文旅种草是高价值赛道，快手可发挥下沉市场优势切入县域文旅种草
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </details>
+
+                        <!-- 腾讯 -->
+                        <details>
+                            <summary class="company-summary">
+                                <div class="company-summary-title">
+                                    <h4>🐧 腾讯</h4>
+                                    <span class="expand-icon">▼</span>
+                                </div>
+                                <div class="company-summary-desc">
+                                    <strong>漫剧日耗350万+获客宝Chatbot上线，视频号商业化全面提速</strong> - 2025营销收入1450亿增19%，围绕AI+内容消费持续推进商业化产品建设
+                                </div>
+                            </summary>
+                            <div class="company-details">
+                                <ul class="insight-list">
+                                    <li>
+                                        <span class="insight-badge hot">NEW</span>
+                                        <a href="https://e.qq.com/latestnews" target="_blank" style="color: inherit; text-decoration: none;">
+                                            <strong>日耗突破350万！漫剧赛道持续增长，腾讯广告助力开年商业化</strong> - 腾讯广告发布最新数据，漫剧成为视频号内容消费变现重点赛道（腾讯广告，2026-03-17）
+                                        </a>
+                                        <div style="margin-top: 4px; padding: 6px; background: rgba(255,102,0,0.1); border-left: 2px solid var(--ks-orange); font-size: 0.85em; color: var(--text-secondary);">
+                                            💡 对快手启示：漫剧从小众走向主流，快手可灵AI能力领先，应加速推出AI漫剧创作工具+分账计划
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <span class="insight-badge hot">AI</span>
+                                        <a href="https://e.qq.com/latestnews" target="_blank" style="color: inherit; text-decoration: none;">
+                                            <strong>获客宝 Chatbot 正式上线，AI让线索转化更高效</strong> - 腾讯广告推出AI驱动线索转化工具，极速两步开启AI转化（腾讯广告，2026-03-17）
+                                        </a>
+                                        <div style="margin-top: 4px; padding: 6px; background: rgba(255,102,0,0.1); border-left: 2px solid var(--ks-orange); font-size: 0.85em; color: var(--text-secondary);">
+                                            💡 对快手启示：AI工具提升转化效率是趋势，磁力引擎可对标推出AI驱动的转化工具矩阵
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <span class="insight-badge trend">财报</span>
+                                        <a href="https://news.qq.com/rain/a/20260318A083KU00" target="_blank" style="color: inherit; text-decoration: none;">
+                                            <strong>腾讯2025年营销服务收入达1450亿增19%</strong> - 视频号广告投放需求持续增加，围绕素材供给、行业化能力及经营优化持续推进（QQ News，2026-03-18）
+                                        </a>
+                                        <div style="margin-top: 4px; padding: 6px; background: rgba(255,102,0,0.1); border-left: 2px solid var(--ks-orange); font-size: 0.85em; color: var(--text-secondary);">
+                                            💡 对快手启示：腾讯"素材+行业+经营"三位一体策略验证成功，磁力引擎可加速AI素材供给和行业化能力建设
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </details>
+
+                        <!-- 其他头部平台 -->
+                        <details>
+                            <summary class="company-summary">
+                                <div class="company-summary-title">
+                                    <h4>🏢 其他头部平台</h4>
+                                    <span class="expand-icon">▼</span>
+                                </div>
+                                <div class="company-summary-desc">
+                                    <strong>京东本地生活+B站广告增长+阿里AI工具</strong> - 京东切入到店自提，B站广告收入提速，阿里AI经营智能体赋能商家
+                                </div>
+                            </summary>
+                            <div class="company-details">
+                                <ul class="insight-list">
+                                    <li>
+                                        <span class="insight-badge company">京东</span>
+                                        <a href="https://www.shyp.gov.cn/shypq/ggfw-bmgg/20260107/497754.html" target="_blank" style="color: inherit; text-decoration: none;">
+                                            <strong>京东进军本地生活，在杨浦推出外卖到店自提服务</strong> - 聚焦餐饮高频消费领域，以"线上点单、门店自提"模式切入本地生活（上海杨浦，2026-01-07）
+                                        </a>
+                                        <div style="margin-top: 4px; padding: 6px; background: rgba(255,102,0,0.1); border-left: 2px solid var(--ks-orange); font-size: 0.85em; color: var(--text-secondary);">
+                                            💡 对快手启示：本地生活是新增长点，快手下沉市场优势可切入县域本地生活广告
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <span class="insight-badge trend">B站</span>
+                                        <a href="https://pdf.dfcfw.com/pdf/H3_AP202601061816141708_1.pdf" target="_blank" style="color: inherit; text-decoration: none;">
+                                            <strong>B站广告收入加速增长，AI提效+广告主数量增加驱动</strong> - 预计未来3年广告收入CAGR +19%，AI提效及宏观环境改善带动增长（研报，2026-01-06）
+                                        </a>
+                                        <div style="margin-top: 4px; padding: 6px; background: rgba(255,102,0,0.1); border-left: 2px solid var(--ks-orange); font-size: 0.85em; color: var(--text-secondary);">
+                                            💡 对快手启示：AI提效是行业共识，快手可灵AI应加速融入广告投放全链路
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <span class="insight-badge company">阿里</span>
+                                        <a href="https://m.zhidx.com/p/511934.html" target="_blank" style="color: inherit; text-decoration: none;">
+                                            <strong>阿里妈妈万相台AI无界版助力商家高效投放</strong> - AI经营智能体显著提升投放效率，GaaS架构提升系统灵活性（智东西，2025-10-29）
+                                        </a>
+                                        <div style="margin-top: 4px; padding: 6px; background: rgba(255,102,0,0.1); border-left: 2px solid var(--ks-orange); font-size: 0.85em; color: var(--text-secondary);">
+                                            💡 对快手启示：AI经营智能体是电商广告未来，磁力金牛可参考万相台产品设计
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </details>
+                    </div>
+
+                    <div class="divider"></div>
+
+                    <!-- 重点行业赛道 -->
+                    <div class="content-card">
+                        <h2 style="font-size: 1.3em; margin-bottom: 8px;">🚀 重点行业赛道</h2>
+                        <p class="section-desc">
+                            聚焦游戏与内容、本地生活、电商三大高增长赛道的商业化进展（最近7天）
+                        </p>
+
+                        <h3>🎮 游戏与内容赛道</h3>
+                        <ul class="insight-list">
+                            <li>
+                                <span class="insight-badge hot">NEW</span>
+                                <a href="http://paper.people.com.cn/rmrbhwb/pc/content/202603/23/content_30146543.html" target="_blank" style="color: inherit; text-decoration: none;">
+                                    <strong>人民日报：漫剧成为微短剧领域新看点，AIGC短片《霍去病》引发关注</strong> - 主流媒体认可标志漫剧从"亚文化"进入"主流文化"，AI重构内容生产（人民日报，2026-03-23）
+                                </a>
+                            </li>
+                            <li>
+                                <span class="insight-badge trend">政策</span>
+                                <a href="https://v.lmtw.com/mzs/content/detail/id/252234" target="_blank" style="color: inherit; text-decoration: none;">
+                                    <strong>上海释放百亿政策红利，发布《微短剧"繁花"3.0计划》</strong> - 欲打造微短剧全产业链新高地，抖音3月9日上线漫剧IP改编库，字节红果短剧版权中心同步启动激励活动（流媒体网，2026-03-18）
+                                </a>
+                            </li>
+                            <li>
+                                <span class="insight-badge company">游戏</span>
+                                <a href="http://www.gamelook.com.cn/2026/03/589560/" target="_blank" style="color: inherit; text-decoration: none;">
+                                    <strong>苹果在华降低内购分成，腾讯网易等游戏厂商增利100亿元</strong> - 自2026年3月15日起生效，游戏厂商利润率提升，广告投放预算有望增加（GameLook，2026-03-16）
+                                </a>
+                            </li>
+                        </ul>
+
+                        <h3>🍔 本地生活赛道</h3>
+                        <ul class="insight-list">
+                            <li>
+                                <span class="insight-badge hot">NEW</span>
+                                <a href="https://www.tmtpost.com/7933113.html" target="_blank" style="color: inherit; text-decoration: none;">
+                                    <strong>美团年亏234亿，抖音本地生活2026目标超越美团到店业务</strong> - 抖音2月推出"抖省省"APP布局本地生活，美团护城河受到质疑（钛媒体，2026-03-28）
+                                </a>
+                            </li>
+                            <li>
+                                <span class="insight-badge trend">竞争</span>
+                                <a href="https://finance.sina.cn/2026-03-27/detail-inhsmamt9614338.d.html" target="_blank" style="color: inherit; text-decoration: none;">
+                                    <strong>外卖大战一年美团少赚近600亿，市值较去年高点腰斩</strong> - 短期亏损让美团在本地生活领域的护城河受到质疑，与饿了么、抖音竞争激烈（新浪财经，2026-03-27）
+                                </a>
+                            </li>
+                            <li>
+                                <span class="insight-badge company">美团</span>
+                                <a href="https://www.21jingji.com/article/20260306/herald/33d8ed4a82428b92fcf20b33e98e8ee9.html" target="_blank" style="color: inherit; text-decoration: none;">
+                                    <strong>美团低调布局"找房"业务，盯上房地产生意</strong> - 美团关联公司布局房产中介领域，从外卖到房地产的跨界尝试（21财经，2026-03-06）
+                                </a>
+                            </li>
+                        </ul>
+
+                        <h3>🛒 电商广告赛道</h3>
+                        <ul class="insight-list">
+                            <li>
+                                <span class="insight-badge hot">NEW</span>
+                                <a href="https://www.chinanews.com.cn/gn/2026/03-16/10587669.shtml" target="_blank" style="color: inherit; text-decoration: none;">
+                                    <strong>市场监管总局严管直播带货，网络食品安全合规提质行动启动</strong> - 3月20日起正式施行《直播电商经营者落实食品安全主体责任规定》，督促平台、主播严格执法（中新网，2026-03-16）
+                                </a>
+                            </li>
+                            <li>
+                                <span class="insight-badge trend">抖音</span>
+                                <a href="https://tidenews.com.cn/tmh_news.html?id=698e9e772cc8fb0001f3e214" target="_blank" style="color: inherit; text-decoration: none;">
+                                    <strong>抖音电商2025年大货架GMV占比持续提升，超越拼多多成电商第二</strong> - Q4增速放缓但全年表现强劲，"直播+货架"双轮驱动战略见效（潮新闻，2026-02-12）
+                                </a>
+                            </li>
+                            <li>
+                                <span class="insight-badge company">转型</span>
+                                <a href="https://www.21jingji.com/article/20260130/herald/50ea314a64d44c9664cf2c6a0132a9cc.html" target="_blank" style="color: inherit; text-decoration: none;">
+                                    <strong>抖音电商"加减法"转型：加码货架场景、扶持店播；减头部依赖</strong> - 2025年通过补履约与服务短板，全生态出击打破"淘天、京东、拼多多"三强格局（21财经，2026-01-30）
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Deep Research -->
+                <div class="tab-panel" id="research">
+                    <div class="content-card">
+                        <h2 style="font-size: 1.3em; margin-bottom: 8px;">🔬 深度调研（开发中）</h2>
+                        <p class="section-desc">
+                            聚焦商业化核心议题的深度分析报告，从战略到执行的全链路拆解
+                        </p>
+
+                        <h3>📊 趋势洞察</h3>
+                        <ul class="insight-list">
+                            <li>
+                                <span class="insight-badge hot">HOT</span>
+                                <strong>字节跳动商业化行研报告(2026年Q1)</strong> - 覆盖广告业务、本地生活、电商、生态整合等7大维度，1585字深度分析
+                            </li>
+                            <li>
+                                <span class="insight-badge new">NEW</span>
+                                <strong>ROI3托管模式深度解析</strong> - 字节vs快手战略对比，揭示广告托管背后的商业逻辑与平台博弈
+                            </li>
+                            <li>
+                                <span class="insight-badge trend">趋势</span>
+                                <strong>2026年信息流广告趋势报告</strong> - AI生成素材、程序化创意、oCPX智能出价三大核心变化
+                            </li>
+                            <li>
+                                <strong>AI重构广告创意生产</strong> - Seedance 2.0、混元、通义千问等大模型在广告领域的落地实践
+                            </li>
+                        </ul>
+
+                        <h3>🏢 公司调研</h3>
+                        <ul class="insight-list">
+                            <li>
+                                <span class="insight-badge company">字节</span>
+                                <strong>字节跳动商业化产品矩阵</strong> - 巨量引擎、穿山甲、Ocean Engine全景图，从国内到海外的完整布局
+                            </li>
+                            <li>
+                                <span class="insight-badge company">快手</span>
+                                <strong>快手磁力引擎进化史</strong> - 从直播带货到短视频+本地生活全链路变现，GMV破万亿背后的战略
+                            </li>
+                            <li>
+                                <span class="insight-badge company">腾讯</span>
+                                <strong>腾讯广告生态重构</strong> - 微信+视频号+小程序三位一体，社交广告的下一个十年
+                            </li>
+                        </ul>
+
+                        <h3>🎯 专题调研</h3>
+                        <ul class="insight-list">
+                            <li>
+                                <strong>本地生活广告战争</strong> - 抖音vs美团，补贴策略、商业化平衡与长期盈利模型
+                            </li>
+                            <li>
+                                <strong>电商广告ROI优化实战</strong> - 从CPM到GMV，全链路归因与优化方法论
+                            </li>
+                            <li>
+                                <strong>短视频广告进化路径</strong> - 信息流、激励视频、开屏广告的创新玩法与效果对比
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Reports Library -->
+                <div class="tab-panel" id="reports">
+                    <div class="content-card">
+                        <h2 style="font-size: 1.3em; margin-bottom: 8px;">📄 行研报告库（开发中）</h2>
+                        <p class="section-desc">
+                            历史行研报告归档，支持全文搜索，快速定位所需内容
+                        </p>
+
+                        <div class="search-box">
+                            <input 
+                                type="text" 
+                                class="search-input" 
+                                id="reportSearch" 
+                                placeholder="搜索报告标题、关键词、公司名称..."
+                                onkeyup="searchReports()"
+                            >
+                            <span class="search-icon">🔍</span>
+                        </div>
+
+                        <div class="search-result-count" id="resultCount">
+                            共 12 份报告
+                        </div>
+
+                        <ul class="report-list" id="reportList">
+                            <li class="report-item" data-keywords="字节跳动 商业化 Q1 财报 广告 本地生活 电商">
+                                <div class="report-title">字节跳动商业化行研报告(2026年Q1)</div>
+                                <div class="report-meta">
+                                    <span>📅 2026-03-13</span>
+                                    <span>👁️ 1,245次查看</span>
+                                    <span>📝 1,585字</span>
+                                </div>
+                                <div class="report-desc">
+                                    覆盖广告业务、本地生活、电商、生态整合等7大维度的深度分析。重点解析字节商业化战略转向、AI模型商业化突破、ROI3托管模式等核心议题。
+                                </div>
+                                <div class="report-tags">
+                                    <span class="report-tag">字节跳动</span>
+                                    <span class="report-tag">商业化</span>
+                                    <span class="report-tag">财报分析</span>
+                                </div>
+                            </li>
+
+                            <li class="report-item" data-keywords="ROI3 托管 字节 快手 对比">
+                                <div class="report-title">ROI3托管模式深度解析：字节vs快手战略对比</div>
+                                <div class="report-meta">
+                                    <span>📅 2026-03-10</span>
+                                    <span>👁️ 892次查看</span>
+                                    <span>📝 2,100字</span>
+                                </div>
+                                <div class="report-desc">
+                                    对比字节跳动与快手在ROI3托管模式上的战略差异，分析平台补贴策略、算法能力、商家接入门槛等关键维度，揭示广告托管背后的商业逻辑。
+                                </div>
+                                <div class="report-tags">
+                                    <span class="report-tag">ROI3</span>
+                                    <span class="report-tag">托管模式</span>
+                                    <span class="report-tag">竞对分析</span>
+                                </div>
+                            </li>
+
+                            <li class="report-item" data-keywords="信息流广告 AI 程序化创意 oCPX">
+                                <div class="report-title">2026年信息流广告趋势报告</div>
+                                <div class="report-meta">
+                                    <span>📅 2026-03-05</span>
+                                    <span>👁️ 1,567次查看</span>
+                                    <span>📝 1,800字</span>
+                                </div>
+                                <div class="report-desc">
+                                    AI生成素材、程序化创意、oCPX智能出价三大核心变化。分析字节Seedance 2.0、腾讯混元、阿里通义千问在广告创意生成领域的落地实践。
+                                </div>
+                                <div class="report-tags">
+                                    <span class="report-tag">信息流</span>
+                                    <span class="report-tag">AI广告</span>
+                                    <span class="report-tag">趋势</span>
+                                </div>
+                            </li>
+
+                            <li class="report-item" data-keywords="本地生活 抖音 美团 GMV 补贴">
+                                <div class="report-title">本地生活广告战争：抖音vs美团</div>
+                                <div class="report-meta">
+                                    <span>📅 2026-02-28</span>
+                                    <span>👁️ 2,134次查看</span>
+                                    <span>📝 2,400字</span>
+                                </div>
+                                <div class="report-desc">
+                                    抖音生服GMV超8500亿，货补从4%提至10%，与美团正面竞争。深度分析双方补贴策略、商业化平衡点、长期盈利模型与核销率差异。
+                                </div>
+                                <div class="report-tags">
+                                    <span class="report-tag">本地生活</span>
+                                    <span class="report-tag">抖音</span>
+                                    <span class="report-tag">美团</span>
+                                </div>
+                            </li>
+
+                            <li class="report-item" data-keywords="TikTok Shop 电商 出海 美国">
+                                <div class="report-title">TikTok Shop全球扩张战略分析</div>
+                                <div class="report-meta">
+                                    <span>📅 2026-02-20</span>
+                                    <span>👁️ 1,023次查看</span>
+                                    <span>📝 1,650字</span>
+                                </div>
+                                <div class="report-desc">
+                                    TikTok Shop美区2025年销售额同比暴增108%，2030年目标跻身全球前三零售商。分析字节出海电商战略、算法优势转化、合规运营模式。
+                                </div>
+                                <div class="report-tags">
+                                    <span class="report-tag">TikTok</span>
+                                    <span class="report-tag">出海</span>
+                                    <span class="report-tag">电商</span>
+                                </div>
+                            </li>
+
+                            <li class="report-item" data-keywords="快手 磁力引擎 电商 直播">
+                                <div class="report-title">快手磁力引擎进化史</div>
+                                <div class="report-meta">
+                                    <span>📅 2026-02-15</span>
+                                    <span>👁️ 756次查看</span>
+                                    <span>📝 1,900字</span>
+                                </div>
+                                <div class="report-desc">
+                                    从直播带货到短视频+本地生活全链路变现，GMV破万亿背后的战略。梳理磁力金牛广告产品迭代路径，分析快手商业化基础设施建设。
+                                </div>
+                                <div class="report-tags">
+                                    <span class="report-tag">快手</span>
+                                    <span class="report-tag">磁力引擎</span>
+                                    <span class="report-tag">电商</span>
+                                </div>
+                            </li>
+
+                            <li class="report-item" data-keywords="腾讯广告 微信 视频号 小程序">
+                                <div class="report-title">腾讯广告生态重构：社交广告的下一个十年</div>
+                                <div class="report-meta">
+                                    <span>📅 2026-02-08</span>
+                                    <span>👁️ 1,342次查看</span>
+                                    <span>📝 2,200字</span>
+                                </div>
+                                <div class="report-desc">
+                                    微信+视频号+小程序三位一体的社交广告新生态。分析腾讯混元AI创意工具、朋友圈广告进化、视频号商业化突破等核心变化。
+                                </div>
+                                <div class="report-tags">
+                                    <span class="report-tag">腾讯</span>
+                                    <span class="report-tag">社交广告</span>
+                                    <span class="report-tag">视频号</span>
+                                </div>
+                            </li>
+
+                            <li class="report-item" data-keywords="阿里妈妈 淘宝 全域营销">
+                                <div class="report-title">阿里妈妈全域营销升级解读</div>
+                                <div class="report-meta">
+                                    <span>📅 2026-01-25</span>
+                                    <span>👁️ 623次查看</span>
+                                    <span>📝 1,500字</span>
+                                </div>
+                                <div class="report-desc">
+                                    打通淘宝、天猫、1688全链路，推出"全域ROI优化"智能投放系统。分析阿里商业化重组后的战略方向与技术升级。
+                                </div>
+                                <div class="report-tags">
+                                    <span class="report-tag">阿里妈妈</span>
+                                    <span class="report-tag">全域营销</span>
+                                    <span class="report-tag">淘宝</span>
+                                </div>
+                            </li>
+
+                            <li class="report-item" data-keywords="游戏买量 IAA 激励视频">
+                                <div class="report-title">游戏买量市场回暖：IAA模式创新实践</div>
+                                <div class="report-meta">
+                                    <span>📅 2026-01-18</span>
+                                    <span>👁️ 534次查看</span>
+                                    <span>📝 1,400字</span>
+                                </div>
+                                <div class="report-desc">
+                                    激励视频eCPM突破200元，休闲游戏商业化效率提升。分析游戏买量市场复苏信号、IAA模式创新、头部游戏厂商投放策略。
+                                </div>
+                                <div class="report-tags">
+                                    <span class="report-tag">游戏</span>
+                                    <span class="report-tag">IAA</span>
+                                    <span class="report-tag">买量</span>
+                                </div>
+                            </li>
+
+                            <li class="report-item" data-keywords="短剧 漫剧 IAP 变现">
+                                <div class="report-title">短剧/漫剧广告爆发：CPM从15元涨至50元</div>
+                                <div class="report-meta">
+                                    <span>📅 2026-01-10</span>
+                                    <span>👁️ 1,890次查看</span>
+                                    <span>📝 1,750字</span>
+                                </div>
+                                <div class="report-desc">
+                                    IAP+IAA混合变现模式成主流。梳理短剧/漫剧行业商业化路径，分析字节跳动与快手在内容变现领域的竞争格局。
+                                </div>
+                                <div class="report-tags">
+                                    <span class="report-tag">短剧</span>
+                                    <span class="report-tag">内容变现</span>
+                                    <span class="report-tag">IAP</span>
+                                </div>
+                            </li>
+
+                            <li class="report-item" data-keywords="电商广告 ROI优化 归因">
+                                <div class="report-title">电商广告ROI优化实战：从CPM到GMV</div>
+                                <div class="report-meta">
+                                    <span>📅 2025-12-28</span>
+                                    <span>👁️ 1,123次查看</span>
+                                    <span>📝 2,300字</span>
+                                </div>
+                                <div class="report-desc">
+                                    全链路归因与优化方法论。覆盖素材测试、定向优化、智能出价、落地页转化等完整链路，提供可落地的优化策略与工具。
+                                </div>
+                                <div class="report-tags">
+                                    <span class="report-tag">电商</span>
+                                    <span class="report-tag">ROI优化</span>
+                                    <span class="report-tag">方法论</span>
+                                </div>
+                            </li>
+
+                            <li class="report-item" data-keywords="短视频广告 创意 素材">
+                                <div class="report-title">短视频广告进化路径与创新玩法</div>
+                                <div class="report-meta">
+                                    <span>📅 2025-12-15</span>
+                                    <span>👁️ 967次查看</span>
+                                    <span>📝 1,600字</span>
+                                </div>
+                                <div class="report-desc">
+                                    信息流、激励视频、开屏广告的创新玩法与效果对比。分析短视频广告创意公式、素材优化策略、平台算法特点。
+                                </div>
+                                <div class="report-tags">
+                                    <span class="report-tag">短视频</span>
+                                    <span class="report-tag">广告创意</span>
+                                    <span class="report-tag">玩法</span>
+                                </div>
+                            </li>
+                        </ul>
+
+                        <div style="text-align: center; margin-top: 30px; color: var(--text-muted); font-size: 0.9em;">
+                            - 已加载全部报告 -
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Footer -->
+                <footer>
+                    <div class="footer-title">🎯 商业化洞察平台</div>
+                    <div class="footer-subtitle">专注广告行业战略追踪 | 每日更新 | 深度分析</div>
+                    <p style="margin-top: 15px; font-size: 0.9em;">
+                        Demo Version 2.1 | 最后更新: 2026-03-16 | 
+                        <a href="https://github.com/ailiuliuliu/ad-insight-platform" target="_blank">GitHub</a>
+                    </p>
+                </footer>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Tab切换
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const tabId = btn.dataset.tab;
+                
+                document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+                document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+                
+                btn.classList.add('active');
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+
+        // 侧边栏切换
+        function toggleSidebar() {
+            document.getElementById('knowledgeSidebar').classList.toggle('open');
+        }
+
+        // 报告搜索
+        function searchReports() {
+            const searchTerm = document.getElementById('reportSearch').value.toLowerCase();
+            const reportItems = document.querySelectorAll('.report-item');
+            let visibleCount = 0;
+
+            reportItems.forEach(item => {
+                const title = item.querySelector('.report-title').textContent.toLowerCase();
+                const desc = item.querySelector('.report-desc').textContent.toLowerCase();
+                const keywords = item.dataset.keywords.toLowerCase();
+                const tags = Array.from(item.querySelectorAll('.report-tag')).map(tag => tag.textContent.toLowerCase()).join(' ');
+                
+                const searchContent = title + ' ' + desc + ' ' + keywords + ' ' + tags;
+                
+                if (searchContent.includes(searchTerm)) {
+                    item.style.display = 'block';
+                    visibleCount++;
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+
+            document.getElementById('resultCount').textContent = 
+                searchTerm ? `找到 ${visibleCount} 份相关报告` : `共 ${reportItems.length} 份报告`;
+        }
+
+        // 报告点击
+        document.querySelectorAll('.report-item').forEach(item => {
+            item.addEventListener('click', () => {
+                const title = item.querySelector('.report-title').textContent;
+                alert(`打开报告：${title}\n\n这是Demo版本，实际版本会跳转到报告详情页面`);
+            });
+        });
+
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
