@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <!-- 任务标识 -->
+    <key>Label</key>
+    <string>com.ad-insight.wakeup-check</string>
+
+    <!-- 执行脚本 -->
+    <key>ProgramArguments</key>
+    <array>
+        <string>/usr/bin/python3</string>
+        <string>/Users/litianyu6/Documents/超级小李/ad-insight-demo/scripts/kim_wakeup_check.py</string>
+    </array>
+
+    <!-- 工作目录 -->
+    <key>WorkingDirectory</key>
+    <string>/Users/litianyu6/Documents/超级小李/ad-insight-demo/scripts</string>
+
+    <!-- 环境变量 -->
+    <key>EnvironmentVariables</key>
+    <dict>
+        <key>PATH</key>
+        <string>/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Frameworks/Python.framework/Versions/3.9/bin</string>
+        <key>PYTHONPATH</key>
+        <string>/Users/litianyu6/Library/Python/3.9/lib/python/site-packages</string>
+        <key>HOME</key>
+        <string>/Users/litianyu6</string>
+    </dict>
+
+    <!-- 系统唤醒时触发（从睡眠恢复） -->
+    <key>OnDemand</key>
+    <false/>
+
+    <!-- 每次用户登录时也执行一次 -->
+    <key>RunAtLoad</key>
+    <true/>
+
+    <!-- 监听唤醒通知 -->
+    <key>WatchPaths</key>
+    <array>
+        <!-- 监听睡眠唤醒状态文件（macOS唤醒时会更新此路径） -->
+        <string>/var/run/utmpx</string>
+    </array>
+
+    <!-- 日志 -->
+    <key>StandardOutPath</key>
+    <string>/Users/litianyu6/Documents/超级小李/ad-insight-demo/scripts/kim_push.log</string>
+    <key>StandardErrorPath</key>
+    <string>/Users/litianyu6/Documents/超级小李/ad-insight-demo/scripts/kim_push_error.log</string>
+
+    <key>KeepAlive</key>
+    <false/>
+</dict>
+</plist>

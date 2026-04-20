@@ -187,40 +187,76 @@ def send_to_kim(markdown_content):
         return False
 
 
-def main():
-    """主函数"""
+def get_last_push_date(script_dir):
+    """读取上次推送日期（用于防止重复推送）"""
+    state_file = os.path.join(script_dir, '.last_push_date')
+    if os.path.exists(state_file):
+        with open(state_file, 'r') as f:
+            return f.read().strip()
+    return None
+
+
+def save_push_date(script_dir):
+    """记录今天已推送"""
+    state_file = os.path.join(script_dir, '.last_push_date')
+    today = datetime.now().strftime('%Y-%m-%d')
+    with open(state_file, 'w') as f:
+        f.write(today)
+
+
+def already_pushed_today(script_dir):
+    """检查今天是否已经推送过"""
+    today = datetime.now().strftime('%Y-%m-%d')
+    last = get_last_push_date(script_dir)
+    if last == today:
+        logging.info(f"⏭️  今天({today})已推送过，跳过")
+        return True
+    return False
+
+
+def main(force=False):
+    """
+    主函数
+    Args:
+        force: 强制推送，忽略"今日已推送"检查（手动触发时用）
+    """
     logging.info("=" * 50)
     logging.info("开始执行KIM推送任务")
     logging.info("=" * 50)
-    
-    # 获取HTML文件路径（相对于脚本的上级目录）
+
     script_dir = os.path.dirname(os.path.abspath(__file__))
+
+    # 防重复推送检查（非强制模式下）
+    if not force and already_pushed_today(script_dir):
+        return True
+
+    # 获取HTML文件路径
     html_file = os.path.join(script_dir, '..', 'index.html')
-    
     if not os.path.exists(html_file):
         logging.error(f"❌ 找不到HTML文件: {html_file}")
         return False
-    
+
     # 提取洞察内容
     logging.info("正在提取洞察内容...")
     data = extract_insights_from_html(html_file)
-    
+
     if not data or not data.get('insights'):
         logging.error("❌ 未能提取到洞察内容")
         return False
-    
+
     logging.info(f"✅ 成功提取 {len(data['insights'])} 条洞察")
-    
+
     # 构造消息
     logging.info("正在构造Markdown消息...")
     markdown_msg = build_markdown_message(data)
     logging.info(f"消息内容:\n{markdown_msg}")
-    
+
     # 发送到KIM
     logging.info("正在发送到KIM...")
     success = send_to_kim(markdown_msg)
-    
+
     if success:
+        save_push_date(script_dir)  # 记录今日已推送
         logging.info("=" * 50)
         logging.info("✅ KIM推送任务执行成功")
         logging.info("=" * 50)
@@ -233,5 +269,7 @@ def main():
 
 
 if __name__ == '__main__':
-    success = main()
+    # 支持 --force 参数手动强制推送
+    force = '--force' in sys.argv
+    success = main(force=force)
     sys.exit(0 if success else 1)
