@@ -31,7 +31,7 @@
     <!-- 定时配置：每周一和周四上午11:00 -->
     <key>StartCalendarInterval</key>
     <array>
-        <!-- 每周一 11:00 -->
+        <!-- 每周一 11:00 (macOS launchd: 0=Sun, 1=Mon, 2=Tue, 3=Wed, 4=Thu, 5=Fri, 6=Sat) -->
         <dict>
             <key>Weekday</key>
             <integer>1</integer>
