@@ -9,6 +9,13 @@ Created: 2026-03-19
 Updated: 2026-03-24 (调整为每周一、周四11:00推送)
 """
 
+import sys
+import os
+# 确保 launchd 环境下也能找到用户级 site-packages（解决 PYTHONPATH 丢失问题）
+_user_packages = os.path.expanduser('~/Library/Python/3.9/lib/python/site-packages')
+if _user_packages not in sys.path:
+    sys.path.insert(0, _user_packages)
+
 import requests
 import json
 from bs4 import BeautifulSoup

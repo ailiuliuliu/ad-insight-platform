@@ -33,7 +33,7 @@ app = Flask(__name__)
 
 # KIM机器人配置
 KIM_ROBOT_KEY = os.getenv('KIM_ROBOT_KEY', '271996bf-7424-4c93-984f-21830b354394')
-KIM_SEND_URL = f"http://kim-robot.internal/api/robot/send?key={KIM_ROBOT_KEY}"
+KIM_SEND_URL = f"https://kim-robot.kwaitalk.com/api/robot/send?key={KIM_ROBOT_KEY}"
 
 # 更新脚本路径
 UPDATE_SCRIPT = os.path.join(os.path.dirname(__file__), '..', 'scripts', 'update_platform.py')
