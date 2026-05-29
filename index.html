@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>商业化洞察 | 广告行业追踪平台</title>
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <meta name="description" content="系统化追踪广告行业核心动态，聚焦字节、快手、腾讯等头部平台，深度分析变现策略与商业模式">
@@ -313,6 +313,7 @@
             cursor: pointer;
             transition: all 0.3s;
             white-space: nowrap;
+            -webkit-tap-highlight-color: transparent;
         }
 
         .tab-btn:hover {
@@ -380,6 +381,7 @@
             cursor: pointer;
             transition: all 0.25s;
             flex-shrink: 0;
+            -webkit-tap-highlight-color: transparent;
         }
 
         .timeline-btn:hover {
@@ -682,6 +684,10 @@
             list-style: none;
             cursor: pointer;
             user-select: none;
+            -webkit-tap-highlight-color: transparent;
+            min-height: 44px; /* 触摸最小可点击高度 */
+            display: flex;
+            align-items: center;
         }
 
         details summary::-webkit-details-marker {
@@ -782,31 +788,194 @@
             color: var(--ks-orange-light);
         }
 
-        /* Responsive */
+        /* =========================================
+           Responsive — Mobile First
+           ========================================= */
+
+        /* ---- 768px 及以下（手机 / 小平板） ---- */
         @media (max-width: 768px) {
-            .header-title {
-                font-size: 2.2em;
-            }
-            
-            .tab-nav {
-                flex-direction: column;
-            }
-            
-            .tab-btn {
-                min-width: auto;
-            }
-            
-            .content-card {
-                padding: 25px;
+
+            /* 容器 */
+            .container {
+                padding: 16px 12px 32px;
             }
 
+            /* Header */
+            .header-title {
+                font-size: 1.3em;
+                letter-spacing: 0;
+            }
+            .header-subtitle {
+                font-size: 0.7em;
+            }
+
+            /* 右侧固定浮动按钮：手机上移到底部横排，避免遮挡内容 */
+            .sidebar-toggle,
+            .content-hub-toggle {
+                position: fixed;
+                writing-mode: horizontal-tb;
+                border-radius: 12px 12px 0 0;
+                padding: 10px 16px;
+                font-size: 0.85em;
+                top: auto;
+                transform: none;
+            }
+
+            .sidebar-toggle {
+                bottom: 0;
+                right: 0;
+                left: 50%;
+                width: 50%;
+                border-radius: 12px 0 0 0;
+                text-align: center;
+            }
+
+            .content-hub-toggle {
+                bottom: 0;
+                left: 0;
+                width: 50%;
+                border-radius: 0 12px 0 0;
+                text-align: center;
+                justify-content: center;
+            }
+
+            /* 知识库侧边栏：手机全宽从底部滑出 */
             .sidebar-knowledge {
                 width: 100%;
-                right: -100%;
+                right: auto;
+                left: 0;
+                bottom: -100vh;
+                top: auto;
+                height: 80vh;
+                border-left: none;
+                border-top: 2px solid var(--ks-orange);
+                border-radius: 16px 16px 0 0;
+                transition: bottom 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             }
-
+            .sidebar-knowledge.open {
+                bottom: 44px; /* 底部按钮高度 */
+                right: auto;
+                box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.5);
+            }
             .sidebar-knowledge.open + .sidebar-toggle {
                 right: 0;
+                bottom: 0;
+            }
+
+            /* Tab 导航：手机横向滚动，不折行 */
+            .tab-nav {
+                flex-direction: row;
+                padding: 6px;
+                gap: 6px;
+                border-radius: 12px;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: none;
+            }
+            .tab-nav::-webkit-scrollbar { display: none; }
+
+            .tab-btn {
+                min-width: auto;
+                flex: 0 0 auto;
+                padding: 10px 14px;
+                font-size: 0.82em;
+                border-radius: 8px;
+                white-space: nowrap;
+            }
+
+            /* 时间轴：更紧凑 */
+            .timeline-nav {
+                padding: 10px 12px;
+                gap: 10px;
+                margin-bottom: 14px;
+            }
+            .timeline-label {
+                font-size: 0.72em;
+            }
+            .timeline-btn {
+                padding: 6px 12px;
+            }
+            .timeline-date {
+                font-size: 0.82em;
+            }
+            .timeline-line {
+                width: 20px;
+            }
+
+            /* 内容卡片 */
+            .content-card {
+                padding: 14px 12px;
+                border-radius: 12px;
+            }
+            .content-card h2 {
+                font-size: 1.1em;
+            }
+            .content-card h3 {
+                font-size: 1em;
+            }
+
+            /* 竞对详情折叠块 */
+            .company-summary {
+                padding: 10px 12px;
+            }
+            .company-summary-title h4 {
+                font-size: 0.88em;
+                line-height: 1.4;
+            }
+            .company-summary-desc {
+                font-size: 0.75em;
+            }
+
+            /* 新闻列表条目 */
+            .insight-list li {
+                padding: 12px 10px;
+                font-size: 0.88em;
+                line-height: 1.5;
+            }
+            .insight-badge {
+                display: block;
+                width: fit-content;
+                margin-bottom: 6px;
+                margin-right: 0;
+                font-size: 0.72em;
+            }
+
+            /* 报告库 meta 换行 */
+            .report-meta {
+                flex-wrap: wrap;
+                gap: 8px;
+            }
+            .report-item {
+                padding: 14px 12px;
+            }
+
+            /* 为底部固定按钮留出空间 */
+            body {
+                padding-bottom: 44px;
+            }
+
+            footer {
+                padding-bottom: 64px;
+            }
+        }
+
+        /* ---- 480px 及以下（小屏手机） ---- */
+        @media (max-width: 480px) {
+            .header-title {
+                font-size: 1.15em;
+            }
+            .container {
+                padding: 12px 10px 28px;
+            }
+            .content-card {
+                padding: 12px 10px;
+            }
+            .tab-btn {
+                padding: 8px 12px;
+                font-size: 0.78em;
+            }
+            .company-summary-title h4 {
+                font-size: 0.82em;
             }
         }
 
