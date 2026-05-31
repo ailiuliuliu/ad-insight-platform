@@ -707,6 +707,9 @@
             display: flex;
             align-items: center;
             gap: 6px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
         .expand-icon {
@@ -1325,6 +1328,8 @@
 
                     <div class="divider"></div>
 
+                    <div class="divider"></div>
+
                     <!-- 重点行业赛道 -->
                     <div class="content-card">
                         <h2 style="font-size: 1.3em; margin-bottom: 8px;">🚀 重点行业赛道</h2>
@@ -1332,45 +1337,81 @@
                             聚焦游戏与内容、本地生活、电商三大高增长赛道的商业化进展
                         </p>
 
-                        <h3>🎮 游戏与内容赛道</h3>
-                        <ul class="insight-list">
-                            <li>
-                                <span class="insight-badge hot">NEW</span>
-                                <strong>2026微信小游戏开发者大会（5/27）：月活5亿+，DAU破百万游戏升至80款，IAP首发5000万内0分成</strong> - IAA双大盘月活超4亿，女性用户占60%，月均在玩7.5款；PC付费增速130%，模拟经营年增速超200%（36氪）
-                                <div style="margin-top: 4px; padding: 6px; background: rgba(255,102,0,0.1); border-left: 2px solid var(--ks-orange); font-size: 0.85em; color: var(--text-secondary);">
-                                    💡 对快手启示：微信IAA端女性用户高活跃对快手女性用户优势有复用价值；快手小游戏若要吸引开发者，差异化让利政策是关键
+                        <!-- 游戏与内容 -->
+                        <details>
+                            <summary class="company-summary">
+                                <div class="company-summary-title">
+                                    <h4>🎮 游戏与内容</h4><span class="expand-icon">▼</span>
                                 </div>
-                            </li>
-                            <li>
-                                <span class="insight-badge trend">案例</span>
-                                <strong>抖音小游戏2026内容化范式（5/20）：指色科技案例——"素材先行+投流验证+达人放大+直播反馈"四步链路成标配</strong> - AI贯穿素材生成到投放全链路，内容竞争取代流量竞争成主旋律（巨量引擎官方）
-                                <div style="margin-top: 4px; padding: 6px; background: rgba(255,102,0,0.1); border-left: 2px solid var(--ks-orange); font-size: 0.85em; color: var(--text-secondary);">
-                                    💡 对快手启示：快手小游戏在内容化方向投入力度是否足够？需评估可灵AI+游戏素材制作的结合场景
+                                <div class="company-summary-desc">
+                                    <strong>微信小游戏月活5亿+ IAP首发0分成+抖音小游戏内容化范式</strong> - 平台进入"用让利换生态密度"深水区；内容竞争取代流量竞争成主旋律
                                 </div>
-                            </li>
-                        </ul>
+                            </summary>
+                            <div class="company-details">
+                                <ul class="insight-list">
+                                    <li>
+                                        <span class="insight-badge hot">NEW</span>
+                                        <strong>2026微信小游戏开发者大会（5/27）：月活5亿+，DAU破百万游戏升至80款，IAP首发5000万内0分成</strong> - IAA双大盘月活超4亿，女性用户占60%，月均在玩7.5款；PC付费增速130%，模拟经营年增速超200%（36氪）
+                                        <div style="margin-top: 4px; padding: 6px; background: rgba(255,102,0,0.1); border-left: 2px solid var(--ks-orange); font-size: 0.85em; color: var(--text-secondary);">
+                                            💡 对快手启示：微信IAA端女性用户高活跃对快手女性用户优势有复用价值；快手小游戏若要吸引开发者，差异化让利政策是关键
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <span class="insight-badge trend">案例</span>
+                                        <strong>抖音小游戏2026内容化范式（5/20）：指色科技案例——"素材先行+投流验证+达人放大+直播反馈"四步链路成标配</strong> - AI贯穿素材生成到投放全链路，内容竞争取代流量竞争成主旋律（巨量引擎官方）
+                                        <div style="margin-top: 4px; padding: 6px; background: rgba(255,102,0,0.1); border-left: 2px solid var(--ks-orange); font-size: 0.85em; color: var(--text-secondary);">
+                                            💡 对快手启示：快手小游戏在内容化方向投入力度是否足够？需评估可灵AI+游戏素材制作的结合场景
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </details>
 
-                        <h3>🍔 本地生活赛道</h3>
-                        <ul class="insight-list">
-                            <li>
-                                <span class="insight-badge hot">618</span>
-                                <strong>抖音电商618混资券2:1补贴（5/14）：平台出资2份商家出资1份，精准触达高意向用户；账期压缩至3天降低商家资金压力</strong> - 618期间抖音生活服务餐饮、到家类目持续加码流量激励（钛媒体）
-                                <div style="margin-top: 4px; padding: 6px; background: rgba(255,102,0,0.1); border-left: 2px solid var(--ks-orange); font-size: 0.85em; color: var(--text-secondary);">
-                                    💡 对快手启示：快手生活服务+29%增速扎实，磁力青松等本地生活工具需在618节点加大补贴力度和商家激励，避免被抖音进一步拉开差距
+                        <!-- 本地生活 -->
+                        <details>
+                            <summary class="company-summary">
+                                <div class="company-summary-title">
+                                    <h4>🍔 本地生活</h4><span class="expand-icon">▼</span>
                                 </div>
-                            </li>
-                        </ul>
+                                <div class="company-summary-desc">
+                                    <strong>抖音618混资券2:1补贴加码本地生活，账期压缩至3天</strong> - 618期间餐饮、到家类目持续加码流量激励；快手生活服务+29%增速扎实
+                                </div>
+                            </summary>
+                            <div class="company-details">
+                                <ul class="insight-list">
+                                    <li>
+                                        <span class="insight-badge hot">618</span>
+                                        <strong>抖音电商618混资券2:1补贴（5/14）：平台出资2份商家出资1份，精准触达高意向用户；账期压缩至3天降低商家资金压力</strong> - 618期间抖音生活服务餐饮、到家类目持续加码流量激励（钛媒体）
+                                        <div style="margin-top: 4px; padding: 6px; background: rgba(255,102,0,0.1); border-left: 2px solid var(--ks-orange); font-size: 0.85em; color: var(--text-secondary);">
+                                            💡 对快手启示：快手生活服务+29%增速扎实，磁力青松等本地生活工具需在618节点加大补贴力度和商家激励，避免被抖音进一步拉开差距
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </details>
 
-                        <h3>🛒 电商广告赛道</h3>
-                        <ul class="insight-list">
-                            <li>
-                                <span class="insight-badge trend">策略</span>
-                                <strong>抖音电商618大促投放逻辑重构（5/14）：免佣扩全场+净成交出价防秒退+搜索扶持+看后搜养词，内容→搜索→成交链路全打通</strong> - Q1九大扶持政策降本85亿（同比+57%）；千川ROI从4.2降至3.5仍属较高水平（钛媒体）
-                                <div style="margin-top: 4px; padding: 6px; background: rgba(255,102,0,0.1); border-left: 2px solid var(--ks-orange); font-size: 0.85em; color: var(--text-secondary);">
-                                    💡 对快手启示：抖音"净成交出价"解决商家秒退痛点，快手电商广告产品是否有类似能力？618节点快手广告降本策略需形成差异化竞争
+                        <!-- 电商广告 -->
+                        <details>
+                            <summary class="company-summary">
+                                <div class="company-summary-title">
+                                    <h4>🛒 电商广告</h4><span class="expand-icon">▼</span>
                                 </div>
-                            </li>
-                        </ul>
+                                <div class="company-summary-desc">
+                                    <strong>抖音618免佣扩全场+净成交出价+搜索扶持，大促投放逻辑全面重构</strong> - 内容→搜索→成交链路打通；千川ROI从4.2降至3.5仍属较高水平
+                                </div>
+                            </summary>
+                            <div class="company-details">
+                                <ul class="insight-list">
+                                    <li>
+                                        <span class="insight-badge trend">策略</span>
+                                        <strong>抖音电商618大促投放逻辑重构（5/14）：免佣扩全场+净成交出价防秒退+搜索扶持+看后搜养词，内容→搜索→成交链路全打通</strong> - Q1九大扶持政策降本85亿（同比+57%）；千川ROI从4.2降至3.5仍属较高水平（钛媒体）
+                                        <div style="margin-top: 4px; padding: 6px; background: rgba(255,102,0,0.1); border-left: 2px solid var(--ks-orange); font-size: 0.85em; color: var(--text-secondary);">
+                                            💡 对快手启示：抖音"净成交出价"解决商家秒退痛点，快手电商广告产品是否有类似能力？618节点快手广告降本策略需形成差异化竞争
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </details>
                     </div>
 
                     </div><!-- /date-panel-20260531 -->
@@ -1590,6 +1631,8 @@
 
                     <div class="divider"></div>
 
+                    <div class="divider"></div>
+
                     <!-- 重点行业赛道 -->
                     <div class="content-card">
                         <h2 style="font-size: 1.3em; margin-bottom: 8px;">🚀 重点行业赛道</h2>
@@ -1597,41 +1640,77 @@
                             聚焦游戏与内容、本地生活、电商三大高增长赛道的商业化进展
                         </p>
 
-                        <h3>🎮 游戏与内容赛道</h3>
-                        <ul class="insight-list">
-                            <li>
-                                <span class="insight-badge hot">案例</span>
-                                <a href="https://mp.weixin.qq.com/s/Hh3c5qJr_ue8TFfCnA2OhQ" target="_blank" style="color: inherit; text-decoration: none;">
-                                    <strong>if果酒×《有山灵》AI漫剧大促案例（5/7）：GMV突破200万，抖音商城低度果酒TOP3保持12天，AI漫剧成品牌种草新标配</strong> - AI漫剧将品牌理念（"人间值得"）融入剧情，用户情感共鸣促进种草→转化；联名区商品曝光持续提升，品牌心智与销量双赢（巨量引擎，2026-05-07）
-                                </a>
-                            </li>
-                        </ul>
+                        <!-- 游戏与内容 -->
+                        <details>
+                            <summary class="company-summary">
+                                <div class="company-summary-title">
+                                    <h4>🎮 游戏与内容</h4><span class="expand-icon">▼</span>
+                                </div>
+                                <div class="company-summary-desc">
+                                    <strong>if果酒×《有山灵》AI漫剧GMV破200万+抖音小游戏AI托管老游消耗翻5倍</strong> - AI漫剧成品牌种草新标配；"素材先行+内容驱动"范式成爆款标配
+                                </div>
+                            </summary>
+                            <div class="company-details">
+                                <ul class="insight-list">
+                                    <li>
+                                        <span class="insight-badge hot">案例</span>
+                                        <a href="https://mp.weixin.qq.com/s/Hh3c5qJr_ue8TFfCnA2OhQ" target="_blank" style="color: inherit; text-decoration: none;">
+                                            <strong>if果酒×《有山灵》AI漫剧大促案例（5/7）：GMV突破200万，抖音商城低度果酒TOP3保持12天，AI漫剧成品牌种草新标配</strong> - AI漫剧将品牌理念（"人间值得"）融入剧情，用户情感共鸣促进种草→转化（巨量引擎，2026-05-07）
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </details>
 
-                        <h3>🍔 本地生活赛道</h3>
-                        <ul class="insight-list">
-                            <li>
-                                <span class="insight-badge hot">NEW</span>
-                                <a href="https://www.questmobile.com.cn/research/report/1922565516937748481" target="_blank" style="color: inherit; text-decoration: none;">
-                                    <strong>QuestMobile（5/19）：抖省省截至5/10日活接近1600万，独立App三个月完成规模验证，美团到店压力骤升</strong> - 抖省省2月10日独立App上线，3个月内DAU接近1600万；淘宝闪购MAU同比+30%、京东秒送同比+71%；三平台商家端重合用户267.3万（+192.8%），全渠道运营已成本地生活商家标配（QuestMobile，2026-05-19）
-                                </a>
-                            </li>
-                            <li>
-                                <span class="insight-badge trend">格局</span>
-                                <a href="https://m.36kr.com/p/3804380953255682" target="_blank" style="color: inherit; text-decoration: none;">
-                                    <strong>618即时零售万亿贴身肉搏：美团收购叮咚买菜（7.17亿美元）固守高频基本盘，阿里千问+淘宝闪购用AI反攻美团腹地</strong> - 2026年即时零售市场将破万亿；快手告别GMV泡沫转向可持续利润；"AI购物入口"成平台最终竞争焦点（36氪，2026-05-11）
-                                </a>
-                            </li>
-                        </ul>
+                        <!-- 本地生活 -->
+                        <details>
+                            <summary class="company-summary">
+                                <div class="company-summary-title">
+                                    <h4>🍔 本地生活</h4><span class="expand-icon">▼</span>
+                                </div>
+                                <div class="company-summary-desc">
+                                    <strong>抖省省DAU接近1600万+即时零售破万亿+美团收购叮咚买菜固守高频</strong> - 五方竞争（美团/抖音/淘宝闪购/京东/百度）格局成型，全渠道运营成商家标配
+                                </div>
+                            </summary>
+                            <div class="company-details">
+                                <ul class="insight-list">
+                                    <li>
+                                        <span class="insight-badge hot">NEW</span>
+                                        <a href="https://www.questmobile.com.cn/research/report/1922565516937748481" target="_blank" style="color: inherit; text-decoration: none;">
+                                            <strong>QuestMobile（5/19）：抖省省截至5/10日活接近1600万，独立App三个月完成规模验证，美团到店压力骤升</strong> - 淘宝闪购MAU同比+30%、京东秒送同比+71%；三平台商家端重合用户+192.8%（QuestMobile，2026-05-19）
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <span class="insight-badge trend">格局</span>
+                                        <a href="https://m.36kr.com/p/3804380953255682" target="_blank" style="color: inherit; text-decoration: none;">
+                                            <strong>618即时零售万亿贴身肉搏：美团收购叮咚买菜（7.17亿美元）固守高频基本盘，阿里千问+淘宝闪购用AI反攻美团腹地</strong> - "AI购物入口"成平台最终竞争焦点（36氪，2026-05-11）
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </details>
 
-                        <h3>🛒 电商广告赛道</h3>
-                        <ul class="insight-list">
-                            <li>
-                                <span class="insight-badge trend">AI广告</span>
-                                <a href="https://mp.weixin.qq.com/s/S2J9ZdQJ_OYp2FcSWzH1Aw" target="_blank" style="color: inherit; text-decoration: none;">
-                                    <strong>抖音运动奢品2026夏季营销日历（5/9）：520/618/世界杯三大节点+品效合一策略，奢品类目AI内容化率持续提升</strong> - 运动奢品在节日/赛事节点强情绪共鸣ROI明显高于常规投放；AI营销素材助力降低品牌内容生产成本；女性消费者运动奢品消费力增速超男性（巨量引擎小助手，2026-05-09）
-                                </a>
-                            </li>
-                        </ul>
+                        <!-- 电商广告 -->
+                        <details>
+                            <summary class="company-summary">
+                                <div class="company-summary-title">
+                                    <h4>🛒 电商广告</h4><span class="expand-icon">▼</span>
+                                </div>
+                                <div class="company-summary-desc">
+                                    <strong>抖音618百亿消费券+腾讯520阶梯激励+小红书种搜一体60日归因升级</strong> - 三平台618广告工具同步迭代，电商广告全链路智能化加速
+                                </div>
+                            </summary>
+                            <div class="company-details">
+                                <ul class="insight-list">
+                                    <li>
+                                        <span class="insight-badge trend">AI广告</span>
+                                        <a href="https://mp.weixin.qq.com/s/S2J9ZdQJ_OYp2FcSWzH1Aw" target="_blank" style="color: inherit; text-decoration: none;">
+                                            <strong>抖音运动奢品2026夏季营销日历（5/9）：520/618/世界杯三大节点+品效合一策略，奢品类目AI内容化率持续提升</strong> - 节日/赛事节点强情绪共鸣ROI明显高于常规投放；AI营销素材助力降低品牌内容生产成本（巨量引擎，2026-05-09）
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </details>
                     </div>
                     </div><!-- /date-panel-20260525 -->
 
@@ -1850,82 +1929,120 @@
 
                     <div class="divider"></div>
 
+                    <div class="divider"></div>
+
                     <!-- 重点行业赛道 -->
                     <div class="content-card">
                         <h2 style="font-size: 1.3em; margin-bottom: 8px;">🚀 重点行业赛道</h2>
                         <p class="section-desc">聚焦游戏与内容、本地生活、电商三大高增长赛道的商业化进展</p>
 
-                        <h3>🎮 游戏与内容赛道</h3>
-                        <ul class="insight-list">
-                            <li>
-                                <span class="insight-badge hot">NEW</span>
-                                <a href="https://mp.weixin.qq.com/s/TlwfCxsnUP4ZCZL_t1cn5A" target="_blank" style="color: inherit; text-decoration: none;">
-                                    <strong>AI重塑IAA抖音小游戏：2026Q1流水+80%，内容场景流水+140%，AI素材ARPU较传统高50%+，AI托管后老游消耗翻5倍</strong> - 内容获客+160%、社交获客+360%、搜索获客+210%；AI渗透达标线：AI素材占比≥40%+消耗渗透率>20%（巨量引擎小助手，2026-05-08）
-                                </a>
-                            </li>
-                            <li>
-                                <span class="insight-badge hot">案例</span>
-                                <a href="https://mp.weixin.qq.com/s/ZWT2C7QEJQOXA6bDo5Zl5Q" target="_blank" style="color: inherit; text-decoration: none;">
-                                    <strong>从「好玩」到「好传播」：《狙击外星人》靠抖音原生玩法引爆二次增长，IAA小游戏爆款逻辑已改变</strong> - 社交裂变新增用户占比35%；"发行人计划"是中小团队低成本冷启动路径；平台原生设计能力反向塑造产品（巨量引擎小助手，2026-05-08）
-                                </a>
-                            </li>
-                            <li>
-                                <span class="insight-badge trend">短剧</span>
-                                <a href="#" target="_blank" style="color: inherit; text-decoration: none;">
-                                    <strong>短剧行业月活7.18亿、人均单日129分钟首超长视频；AI漫剧现存企业24.5万家</strong> - 独立短剧App+长短视频平台构成主分发格局；AI漫剧1月新增注册7307家（钛媒体，2026-04-08）
-                                </a>
-                            </li>
-                        </ul>
+                        <!-- 游戏与内容 -->
+                        <details>
+                            <summary class="company-summary">
+                                <div class="company-summary-title">
+                                    <h4>🎮 游戏与内容</h4><span class="expand-icon">▼</span>
+                                </div>
+                                <div class="company-summary-desc">
+                                    <strong>AI重塑IAA小游戏：抖音Q1流水+80%、内容场+140%，"AI素材+托管投放"成新增长引擎</strong> - 快手小游戏AI工具链建设刻不容缓
+                                </div>
+                            </summary>
+                            <div class="company-details">
+                                <ul class="insight-list">
+                                    <li>
+                                        <span class="insight-badge hot">NEW</span>
+                                        <a href="https://mp.weixin.qq.com/s/TlwfCxsnUP4ZCZL_t1cn5A" target="_blank" style="color: inherit; text-decoration: none;">
+                                            <strong>AI重塑IAA抖音小游戏：2026Q1流水+80%，内容场景流水+140%，AI素材ARPU较传统高50%+，AI托管后老游消耗翻5倍</strong> - 内容获客+160%、社交获客+360%、搜索获客+210%（巨量引擎小助手，2026-05-08）
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <span class="insight-badge hot">案例</span>
+                                        <a href="https://mp.weixin.qq.com/s/ZWT2C7QEJQOXA6bDo5Zl5Q" target="_blank" style="color: inherit; text-decoration: none;">
+                                            <strong>从「好玩」到「好传播」：《狙击外星人》靠抖音原生玩法引爆二次增长，IAA小游戏爆款逻辑已改变</strong> - 社交裂变新增用户占比35%；"发行人计划"是中小团队低成本冷启动路径（巨量引擎，2026-05-08）
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <span class="insight-badge trend">短剧</span>
+                                        <a href="#" target="_blank" style="color: inherit; text-decoration: none;">
+                                            <strong>短剧行业月活7.18亿、人均单日129分钟首超长视频；AI漫剧现存企业24.5万家</strong> - AI漫剧1月新增注册7307家（钛媒体，2026-04-08）
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </details>
 
-                        <h3>🍔 本地生活赛道</h3>
-                        <ul class="insight-list">
-                            <li>
-                                <span class="insight-badge hot">NEW</span>
-                                <a href="https://www.sc.chinanews.com.cn/bwbd/2026-05-16/244232.html" target="_blank" style="color: inherit; text-decoration: none;">
-                                    <strong>2026快手生活服务大会（5月15日）：66万商家覆盖208个行业，生活服务收入+29%，AI战略：菠萝bolo+女娲数字人+π数字员工+磁力青松</strong> - 刘逍定义"人-时-空"生意本质；磁力青松智能门店工具链降本（中新网四川，2026-05-16）
-                                </a>
-                            </li>
-                            <li>
-                                <span class="insight-badge trend">格局</span>
-                                <a href="#" target="_blank" style="color: inherit; text-decoration: none;">
-                                    <strong>到店团购成2026年Q2新主战场：淘宝闪购全面铺开、京东团购上线、百度上线本地生活专区</strong> - 外卖补贴大战叫停后巨头集体转向，O2O市场2025年规模3.89万亿，2028年预计近6万亿（钛媒体，2026-04-16）
-                                </a>
-                            </li>
-                            <li>
-                                <span class="insight-badge company">美团</span>
-                                <a href="#" target="_blank" style="color: inherit; text-decoration: none;">
-                                    <strong>美团AI破局：王兴面对抖音/抖省省围攻，大众点评换将、疯狂加码AI技术</strong> - 美团被逼从"静态黄页"转向"动态流量池"，大众点评负责人更换以应对抖省省冲击（钛媒体，2026-03-07）
-                                </a>
-                            </li>
-                        </ul>
+                        <!-- 本地生活 -->
+                        <details>
+                            <summary class="company-summary">
+                                <div class="company-summary-title">
+                                    <h4>🍔 本地生活</h4><span class="expand-icon">▼</span>
+                                </div>
+                                <div class="company-summary-desc">
+                                    <strong>快手生活服务大会：66万商家+收入+29%+AI四件套战略</strong> - 五方竞争（美团/抖音/淘宝/京东/百度）格局确立，到店团购成Q2新主战场
+                                </div>
+                            </summary>
+                            <div class="company-details">
+                                <ul class="insight-list">
+                                    <li>
+                                        <span class="insight-badge hot">NEW</span>
+                                        <a href="https://www.sc.chinanews.com.cn/bwbd/2026-05-16/244232.html" target="_blank" style="color: inherit; text-decoration: none;">
+                                            <strong>2026快手生活服务大会（5月15日）：66万商家覆盖208个行业，生活服务收入+29%，AI战略：菠萝bolo+女娲数字人+π数字员工+磁力青松</strong> - 刘逍定义"人-时-空"生意本质（中新网四川，2026-05-16）
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <span class="insight-badge trend">格局</span>
+                                        <a href="#" target="_blank" style="color: inherit; text-decoration: none;">
+                                            <strong>到店团购成2026年Q2新主战场：淘宝闪购全面铺开、京东团购上线、百度上线本地生活专区</strong> - O2O市场2025年规模3.89万亿，2028年预计近6万亿（钛媒体，2026-04-16）
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <span class="insight-badge company">美团</span>
+                                        <a href="#" target="_blank" style="color: inherit; text-decoration: none;">
+                                            <strong>美团AI破局：王兴面对抖音/抖省省围攻，大众点评换将、疯狂加码AI技术</strong> - 美团被逼从"静态黄页"转向"动态流量池"（钛媒体，2026-03-07）
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </details>
 
-                        <h3>🛒 电商广告赛道</h3>
-                        <ul class="insight-list">
-                            <li>
-                                <span class="insight-badge hot">NEW</span>
-                                <a href="https://mp.weixin.qq.com/s/xEW8BYszn8rTUcyXJxxo8g" target="_blank" style="color: inherit; text-decoration: none;">
-                                    <strong>小红书种搜一体产品升级：小红盟新增60日归因+AI智能笔记（基于机会词0成本生成素材）+CPUV出价+门店批量推广（上限500家）</strong> - 长决策周期行业（3C/家居）归因更全面；线上种草→线下到店完整链路打通（小红书种草学，2026-05-09）
-                                </a>
-                            </li>
-                            <li>
-                                <span class="insight-badge hot">NEW</span>
-                                <a href="https://mp.weixin.qq.com/s/1Rul6zPU4WVKSJNACUa0RA" target="_blank" style="color: inherit; text-decoration: none;">
-                                    <strong>腾讯520好礼季（5.8-5.21）：视频号+朋友圈+PCAD三版位联动激励，消耗增速达标享6%/8%/10%阶梯奖励+微信小店艾米全店托管</strong> - 新增「520礼赠人群」「大场敏感人群」等精准标签；节点测试客户享扶持金保障（腾讯广告公众号，2026-05-08）
-                                </a>
-                            </li>
-                            <li>
-                                <span class="insight-badge hot">618</span>
-                                <a href="https://www.openinstall.com/article/news/douyin-shangcheng618-baiyi-butie-liuliang" target="_blank" style="color: inherit; text-decoration: none;">
-                                    <strong>抖音618大促5月15日正式启动：百亿消费券+亿级流量扶持+商品卡免佣，重构分发秩序</strong> - 信号明确：不只是做促销，而是通过免佣+AIGC工具免费开放快速扩大商家基盘（openinstall，2026-05-15）
-                                </a>
-                            </li>
-                            <li>
-                                <span class="insight-badge trend">达人</span>
-                                <a href="#" target="_blank" style="color: inherit; text-decoration: none;">
-                                    <strong>达人营销内卷加剧：星广联投规模化分发+中腰部达人生存压力增大，MCN需转型数据投放能力</strong> - 站内达人总数爆增但品牌预算增速不及达人增速；细分垂类深度内容创作者变现空间更大（钛媒体，2026-04-14）
-                                </a>
-                            </li>
-                        </ul>
+                        <!-- 电商广告 -->
+                        <details>
+                            <summary class="company-summary">
+                                <div class="company-summary-title">
+                                    <h4>🛒 电商广告</h4><span class="expand-icon">▼</span>
+                                </div>
+                                <div class="company-summary-desc">
+                                    <strong>小红书60日归因+腾讯520阶梯激励+抖音618百亿消费券，电商广告链路全面升级</strong> - 达人营销内卷加剧，AI工业化降本成标配
+                                </div>
+                            </summary>
+                            <div class="company-details">
+                                <ul class="insight-list">
+                                    <li>
+                                        <span class="insight-badge hot">NEW</span>
+                                        <a href="https://mp.weixin.qq.com/s/xEW8BYszn8rTUcyXJxxo8g" target="_blank" style="color: inherit; text-decoration: none;">
+                                            <strong>小红书种搜一体产品升级：小红盟新增60日归因+AI智能笔记（基于机会词0成本生成素材）+CPUV出价+门店批量推广（上限500家）</strong> - 长决策周期行业（3C/家居）归因更全面（小红书种草学，2026-05-09）
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <span class="insight-badge hot">NEW</span>
+                                        <a href="https://mp.weixin.qq.com/s/1Rul6zPU4WVKSJNACUa0RA" target="_blank" style="color: inherit; text-decoration: none;">
+                                            <strong>腾讯520好礼季（5.8-5.21）：视频号+朋友圈+PCAD三版位联动，消耗增速达标享6%/8%/10%阶梯奖励+微信小店艾米全店托管</strong> - 新增「520礼赠人群」「大场敏感人群」精准标签（腾讯广告，2026-05-08）
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <span class="insight-badge hot">618</span>
+                                        <a href="https://www.openinstall.com/article/news/douyin-shangcheng618-baiyi-butie-liuliang" target="_blank" style="color: inherit; text-decoration: none;">
+                                            <strong>抖音618大促5月15日正式启动：百亿消费券+亿级流量扶持+商品卡免佣，重构分发秩序</strong> - 通过免佣+AIGC工具免费开放快速扩大商家基盘（openinstall，2026-05-15）
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <span class="insight-badge trend">达人</span>
+                                        <a href="#" target="_blank" style="color: inherit; text-decoration: none;">
+                                            <strong>达人营销内卷加剧：星广联投规模化分发+中腰部达人生存压力增大，MCN需转型数据投放能力</strong> - 细分垂类深度内容创作者变现空间更大（钛媒体，2026-04-14）
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </details>
                     </div>
                     </div><!-- /date-panel-20260518 -->
 
