@@ -695,30 +695,49 @@
         }
 
         .company-summary-title {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 6px;
-            overflow: hidden;
+            display: none;  /* 不再使用，由新布局替代 */
         }
 
-        .company-summary-title h4 {
-            font-size: 0.95em;
+        .company-summary-layout {
+            display: flex;
+            align-items: center;
+            gap: 0;
+            width: 100%;
+        }
+
+        /* 竞对/赛道 折叠块的标题（短标签如"字节跳动"，固定宽度保持纵向对齐） */
+        .company-summary-label {
+            font-size: 1.05em;
+            font-weight: 600;
             color: var(--text-primary);
             display: flex;
             align-items: center;
             gap: 6px;
+            flex: 0 0 160px;
+            min-width: 160px;
+            white-space: nowrap;
+        }
+
+        /* 今日洞察 折叠块的标题（长标题，自然换行，不截断） */
+        .company-summary-label.label-long {
             flex: 1;
             min-width: 0;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
+            white-space: normal;
+            font-size: 0.95em;
+            font-weight: 600;
+        }
+
+        /* label-long 时 layout 顶部对齐 */
+        .company-summary-layout:has(.label-long) {
+            align-items: flex-start;
         }
 
         .expand-icon {
             font-size: 0.9em;
             color: var(--ks-orange);
             transition: transform 0.3s;
+            margin-right: 8px;
+            flex-shrink: 0;
         }
 
         details[open] .expand-icon {
@@ -726,10 +745,11 @@
         }
 
         .company-summary-desc {
+            flex: 1;
+            min-width: 0;
             color: var(--text-secondary);
             font-size: 0.8em;
-            line-height: 1.4;
-            margin-top: 4px;
+            line-height: 1.5;
         }
 
         .company-details {
@@ -1136,13 +1156,11 @@
                             <!-- 洞察A -->
                             <details style="margin-bottom: 8px;">
                                 <summary class="company-summary" style="border: 1px solid var(--ks-orange); padding: 10px; cursor: pointer;">
-                                    <div class="company-summary-title" style="margin-bottom: 6px;">
-                                        <h4 style="color: var(--ks-orange); font-size: 0.95em;">🎮 微信小游戏月活破5亿，IAP首发"5000万免分成"加速平台生态密化</h4>
-                                        <span class="expand-icon">▼</span>
-                                    </div>
-                                    <div class="company-summary-desc" style="font-size: 0.8em; line-height: 1.4;">
-                                        5月27日2026微信小游戏开发者大会：月活5亿+、DAU破百万游戏升至80款；推出四项让利政策——IAP新游首发5000万内不分成、IAA双分成（90%快回收/85%长留存）、PC小游戏专属广告金+10%；PC付费增长130%。平台进入"用让利换生态密度"的深水区。
-                                    </div>
+                                    <div class="company-summary-layout">
+                                <span class="company-summary-label label-long">🎮 微信小游戏月活破5亿，IAP首发"5000万免分成"加速平台生态密化</span>
+                                <span class="expand-icon">▼</span>
+                                <div class="company-summary-desc">5月27日2026微信小游戏开发者大会：月活5亿+、DAU破百万游戏升至80款；推出四项让利政策——IAP新游首发5000万内不分成、IAA双分成（90%快回收/85%长留存）、PC小游戏专属广告金+10%；PC付费增长130%。平台进入"用让利换生态密度"的深水区。</div>
+                            </div>
                                 </summary>
                                 <div class="company-details">
                                     <div style="padding: 10px; background: var(--bg-secondary); border-radius: 6px; line-height: 1.4; font-size: 0.8em;">
@@ -1156,13 +1174,11 @@
                             <!-- 洞察B -->
                             <details style="margin-bottom: 8px;">
                                 <summary class="company-summary" style="border: 1px solid var(--ks-orange); padding: 10px; cursor: pointer;">
-                                    <div class="company-summary-title" style="margin-bottom: 6px;">
-                                        <h4 style="color: var(--ks-orange); font-size: 0.95em;">🛒 抖音电商618结构性重组：千川划入电商、红果独立电商Tab、自营3C上线</h4>
-                                        <span class="expand-icon">▼</span>
-                                    </div>
-                                    <div class="company-summary-desc" style="font-size: 0.8em; line-height: 1.4;">
-                                        抖音电商618背后是组织层面的深度重构：Q1九大扶持政策降本85亿（+57%）；商品卡免佣扩至直播+短视频全场；千川已划入电商部门，广告与GMV可联动决策；红果电商独立、首页嵌入商城Tab；自营3C覆盖北上广深。抖音正从"广告公司"向"多形态零售生态"进化。
-                                    </div>
+                                    <div class="company-summary-layout">
+                                <span class="company-summary-label label-long">🛒 抖音电商618结构性重组：千川划入电商、红果独立电商Tab、自营3C上线</span>
+                                <span class="expand-icon">▼</span>
+                                <div class="company-summary-desc">抖音电商618背后是组织层面的深度重构：Q1九大扶持政策降本85亿（+57%）；商品卡免佣扩至直播+短视频全场；千川已划入电商部门，广告与GMV可联动决策；红果电商独立、首页嵌入商城Tab；自营3C覆盖北上广深。抖音正从"广告公司"向"多形态零售生态"进化。</div>
+                            </div>
                                 </summary>
                                 <div class="company-details">
                                     <div style="padding: 10px; background: var(--bg-secondary); border-radius: 6px; line-height: 1.4; font-size: 0.8em;">
@@ -1176,13 +1192,11 @@
                             <!-- 洞察C -->
                             <details style="margin-bottom: 8px;">
                                 <summary class="company-summary" style="border: 1px solid var(--ks-orange); padding: 10px; cursor: pointer;">
-                                    <div class="company-summary-title" style="margin-bottom: 6px;">
-                                        <h4 style="color: var(--ks-orange); font-size: 0.95em;">📉 百度Q1搜索广告同比-22%，AI业务占比首破52%但护城河塌陷信号已出</h4>
-                                        <span class="expand-icon">▼</span>
-                                    </div>
-                                    <div class="company-summary-desc" style="font-size: 0.8em; line-height: 1.4;">
-                                        百度Q1在线营销收入126亿（同比-22%），AI云同比+79%，AI业务占比首次过半至52%——但这是"旧地基塌陷"的被动抬升，而非AI爆发。AI应用收入25亿、AI原生营销23亿均环比下降，搜索广告失血加速，传统广告65%毛利正被AI业务35-40%毛利稀释。百度的战略困境对全行业有参照意义。
-                                    </div>
+                                    <div class="company-summary-layout">
+                                <span class="company-summary-label label-long">📉 百度Q1搜索广告同比-22%，AI业务占比首破52%但护城河塌陷信号已出</span>
+                                <span class="expand-icon">▼</span>
+                                <div class="company-summary-desc">百度Q1在线营销收入126亿（同比-22%），AI云同比+79%，AI业务占比首次过半至52%——但这是"旧地基塌陷"的被动抬升，而非AI爆发。AI应用收入25亿、AI原生营销23亿均环比下降，搜索广告失血加速，传统广告65%毛利正被AI业务35-40%毛利稀释。百度的战略困境对全行业有参照意义。</div>
+                            </div>
                                 </summary>
                                 <div class="company-details">
                                     <div style="padding: 10px; background: var(--bg-secondary); border-radius: 6px; line-height: 1.4; font-size: 0.8em;">
@@ -1207,13 +1221,11 @@
                         <!-- 字节跳动 -->
                         <details>
                             <summary class="company-summary">
-                                <div class="company-summary-title">
-                                    <h4>🔥 字节跳动</h4>
-                                    <span class="expand-icon">▼</span>
-                                </div>
-                                <div class="company-summary-desc">
-                                    <strong>抖音电商618结构性重组：千川划入电商+红果独立商城Tab+AIGC工具全面开放</strong> - 618首周破亿品牌数同比+89%；巨量引擎5大AI投放工具降低大促门槛；圈层IP营销+工作台升级双线并进，广告与GMV一体化决策体系成形
-                                </div>
+                                <div class="company-summary-layout">
+                                <span class="company-summary-label">🔥 字节跳动</span>
+                                <span class="expand-icon">▼</span>
+                                <div class="company-summary-desc"><strong>抖音电商618结构性重组：千川划入电商+红果独立商城Tab+AIGC工具全面开放</strong> - 618首周破亿品牌数同比+89%；巨量引擎5大AI投放工具降低大促门槛；圈层IP营销+工作台升级双线并进，广告与GMV一体化决策体系成形</div>
+                            </div>
                             </summary>
                             <div class="company-details">
                                 <ul class="insight-list">
@@ -1245,13 +1257,11 @@
                         <!-- 小红书 -->
                         <details>
                             <summary class="company-summary">
-                                <div class="company-summary-title">
-                                    <h4>💄 小红书</h4>
-                                    <span class="expand-icon">▼</span>
-                                </div>
-                                <div class="company-summary-desc">
-                                    <strong>拿下2026世界杯转播权取代抖音+618种草学升级+66周年庆打榜赛</strong> - 借世界杯冲击日活2亿目标，构建"版权→内容→社区→消费"完整商业链条；首次全开赛事直播间品牌合作，618节点攻势全面
-                                </div>
+                                <div class="company-summary-layout">
+                                <span class="company-summary-label">💄 小红书</span>
+                                <span class="expand-icon">▼</span>
+                                <div class="company-summary-desc"><strong>拿下2026世界杯转播权取代抖音+618种草学升级+66周年庆打榜赛</strong> - 借世界杯冲击日活2亿目标，构建"版权→内容→社区→消费"完整商业链条；首次全开赛事直播间品牌合作，618节点攻势全面</div>
+                            </div>
                             </summary>
                             <div class="company-details">
                                 <ul class="insight-list">
@@ -1276,13 +1286,11 @@
                         <!-- 腾讯 -->
                         <details>
                             <summary class="company-summary">
-                                <div class="company-summary-title">
-                                    <h4>🐧 腾讯</h4>
-                                    <span class="expand-icon">▼</span>
-                                </div>
-                                <div class="company-summary-desc">
-                                    <strong>Q1营销服务+20%至382亿（AI赋能ECPM提升）+「寻味中国」品牌公益营销落地</strong> - AI推荐模型升级带来广告效果显著改善；视频号广告加载率仍仅4-5%，618节点扩容空间充足
-                                </div>
+                                <div class="company-summary-layout">
+                                <span class="company-summary-label">🐧 腾讯</span>
+                                <span class="expand-icon">▼</span>
+                                <div class="company-summary-desc"><strong>Q1营销服务+20%至382亿（AI赋能ECPM提升）+「寻味中国」品牌公益营销落地</strong> - AI推荐模型升级带来广告效果显著改善；视频号广告加载率仍仅4-5%，618节点扩容空间充足</div>
+                            </div>
                             </summary>
                             <div class="company-details">
                                 <ul class="insight-list">
@@ -1307,13 +1315,11 @@
                         <!-- 百度 -->
                         <details>
                             <summary class="company-summary">
-                                <div class="company-summary-title">
-                                    <h4>🏢 百度</h4>
-                                    <span class="expand-icon">▼</span>
-                                </div>
-                                <div class="company-summary-desc">
-                                    <strong>Q1搜索广告同比-22%至126亿，AI业务占比首破52%但护城河塌陷信号明确</strong> - AI云同比+49%（136亿）；AI应用+AI营销环比双双下滑；传统广告65%毛利被AI业务35-40%稀释，利润结构持续恶化
-                                </div>
+                                <div class="company-summary-layout">
+                                <span class="company-summary-label">🏢 百度</span>
+                                <span class="expand-icon">▼</span>
+                                <div class="company-summary-desc"><strong>Q1搜索广告同比-22%至126亿，AI业务占比首破52%但护城河塌陷信号明确</strong> - AI云同比+49%（136亿）；AI应用+AI营销环比双双下滑；传统广告65%毛利被AI业务35-40%稀释，利润结构持续恶化</div>
+                            </div>
                             </summary>
                             <div class="company-details">
                                 <ul class="insight-list">
@@ -1343,12 +1349,11 @@
                         <!-- 游戏与内容 -->
                         <details>
                             <summary class="company-summary">
-                                <div class="company-summary-title">
-                                    <h4>🎮 游戏与内容</h4><span class="expand-icon">▼</span>
-                                </div>
-                                <div class="company-summary-desc">
-                                    <strong>微信小游戏月活5亿+ IAP首发0分成+抖音小游戏内容化范式</strong> - 平台进入"用让利换生态密度"深水区；内容竞争取代流量竞争成主旋律
-                                </div>
+                                <div class="company-summary-layout">
+                                <span class="company-summary-label">🎮 游戏与内容</span>
+                                <span class="expand-icon">▼</span>
+                                <div class="company-summary-desc"><strong>微信小游戏月活5亿+ IAP首发0分成+抖音小游戏内容化范式</strong> - 平台进入"用让利换生态密度"深水区；内容竞争取代流量竞争成主旋律</div>
+                            </div>
                             </summary>
                             <div class="company-details">
                                 <ul class="insight-list">
@@ -1373,12 +1378,11 @@
                         <!-- 本地生活 -->
                         <details>
                             <summary class="company-summary">
-                                <div class="company-summary-title">
-                                    <h4>🍔 本地生活</h4><span class="expand-icon">▼</span>
-                                </div>
-                                <div class="company-summary-desc">
-                                    <strong>抖音618混资券2:1补贴加码本地生活，账期压缩至3天</strong> - 618期间餐饮、到家类目持续加码流量激励；快手生活服务+29%增速扎实
-                                </div>
+                                <div class="company-summary-layout">
+                                <span class="company-summary-label">🍔 本地生活</span>
+                                <span class="expand-icon">▼</span>
+                                <div class="company-summary-desc"><strong>抖音618混资券2:1补贴加码本地生活，账期压缩至3天</strong> - 618期间餐饮、到家类目持续加码流量激励；快手生活服务+29%增速扎实</div>
+                            </div>
                             </summary>
                             <div class="company-details">
                                 <ul class="insight-list">
@@ -1396,12 +1400,11 @@
                         <!-- 电商广告 -->
                         <details>
                             <summary class="company-summary">
-                                <div class="company-summary-title">
-                                    <h4>🛒 电商广告</h4><span class="expand-icon">▼</span>
-                                </div>
-                                <div class="company-summary-desc">
-                                    <strong>抖音618免佣扩全场+净成交出价+搜索扶持，大促投放逻辑全面重构</strong> - 内容→搜索→成交链路打通；千川ROI从4.2降至3.5仍属较高水平
-                                </div>
+                                <div class="company-summary-layout">
+                                <span class="company-summary-label">🛒 电商广告</span>
+                                <span class="expand-icon">▼</span>
+                                <div class="company-summary-desc"><strong>抖音618免佣扩全场+净成交出价+搜索扶持，大促投放逻辑全面重构</strong> - 内容→搜索→成交链路打通；千川ROI从4.2降至3.5仍属较高水平</div>
+                            </div>
                             </summary>
                             <div class="company-details">
                                 <ul class="insight-list">
@@ -1432,13 +1435,11 @@
                             <!-- 洞察1 -->
                             <details style="margin-bottom: 8px;">
                                 <summary class="company-summary" style="border: 1px solid var(--ks-orange); padding: 10px; cursor: pointer;">
-                                    <div class="company-summary-title" style="margin-bottom: 6px;">
-                                        <h4 style="color: var(--ks-orange); font-size: 0.95em;">🎁 腾讯520好礼季×618 AIM+矩阵：微信生态"小店艾米+三版位联动+阶梯激励"全面激活，广告×电商闭环正式进入实战期</h4>
-                                        <span class="expand-icon">▼</span>
-                                    </div>
-                                    <div class="company-summary-desc" style="font-size: 0.8em; line-height: 1.4;">
-                                        腾讯520好礼季（5.8-5.21）：视频号+朋友圈+PCAD三版位联动，消耗增速达标享6%/8%/10%阶梯激励，小店艾米全店托管上线，新增「520礼赠人群」「大场敏感人群」精准标签；618期间进一步升级AIM+矩阵——广告主仅需三步完成投放设置，大模型智能中控自动探索定向/版位/出价，微信生态电商商业化正式从"节点运营"转向"AI常态闭环"
-                                    </div>
+                                    <div class="company-summary-layout">
+                                <span class="company-summary-label label-long">🎁 腾讯520好礼季×618 AIM+矩阵：微信生态"小店艾米+三版位联动+阶梯激励"全面激活，广告×电商闭环正式进入实战期</span>
+                                <span class="expand-icon">▼</span>
+                                <div class="company-summary-desc">腾讯520好礼季（5.8-5.21）：视频号+朋友圈+PCAD三版位联动，消耗增速达标享6%/8%/10%阶梯激励，小店艾米全店托管上线，新增「520礼赠人群」「大场敏感人群」精准标签；618期间进一步升级AIM+矩阵——广告主仅需三步完成投放设置，大模型智能中控自动探索定向/版位/出价，微信生态电商商业化正式从"节点运营"转向"AI常态闭环"</div>
+                            </div>
                                 </summary>
                                 <div class="company-details">
                                     <div style="padding: 10px; background: var(--bg-secondary); border-radius: 6px; line-height: 1.4; font-size: 0.8em;">
@@ -1452,13 +1453,11 @@
                             <!-- 洞察2 -->
                             <details style="margin-bottom: 8px;">
                                 <summary class="company-summary" style="border: 1px solid var(--ks-orange); padding: 10px; cursor: pointer;">
-                                    <div class="company-summary-title" style="margin-bottom: 6px;">
-                                        <h4 style="color: var(--ks-orange); font-size: 0.95em;">🎬 AI短剧行业两极分化：Q1上线12.8万部占比95%+，但爆款率仅0.12%——内容从"稀缺"进入"泛滥"，流量才是真护城河</h4>
-                                        <span class="expand-icon">▼</span>
-                                    </div>
-                                    <div class="company-summary-desc" style="font-size: 0.8em; line-height: 1.4;">
-                                        钛媒体（5/23）+DataEye数据：2026Q1全行业上线微短剧12.8万部，AI占比超95%；漫剧百强榜AI仿真人占比从2025年初7%飙升至2026年3月超60%；但12.78万在播作品中播放破亿不足150部，爆款率仅0.12%——AI把产能天花板打穿，却让"流量分发权"更集中于平台手中，内容从"稀缺变现"转向"情绪付费+精准买量"双轮驱动
-                                    </div>
+                                    <div class="company-summary-layout">
+                                <span class="company-summary-label label-long">🎬 AI短剧行业两极分化：Q1上线12.8万部占比95%+，但爆款率仅0.12%——内容从"稀缺"进入"泛滥"，流量才是真护城河</span>
+                                <span class="expand-icon">▼</span>
+                                <div class="company-summary-desc">钛媒体（5/23）+DataEye数据：2026Q1全行业上线微短剧12.8万部，AI占比超95%；漫剧百强榜AI仿真人占比从2025年初7%飙升至2026年3月超60%；但12.78万在播作品中播放破亿不足150部，爆款率仅0.12%——AI把产能天花板打穿，却让"流量分发权"更集中于平台手中，内容从"稀缺变现"转向"情绪付费+精准买量"双轮驱动</div>
+                            </div>
                                 </summary>
                                 <div class="company-details">
                                     <div style="padding: 10px; background: var(--bg-secondary); border-radius: 6px; line-height: 1.4; font-size: 0.8em;">
@@ -1472,13 +1471,11 @@
                             <!-- 洞察3 -->
                             <details style="margin-bottom: 0;">
                                 <summary class="company-summary" style="border: 1px solid var(--ks-orange); padding: 10px; cursor: pointer;">
-                                    <div class="company-summary-title" style="margin-bottom: 6px;">
-                                        <h4 style="color: var(--ks-orange); font-size: 0.95em;">🌸 内容平台618大促集体转向"情绪×AI"双驱模式：字节星图食饮大会+小红书种搜升级，内容消费进入"情绪价值变现"新阶段</h4>
-                                        <span class="expand-icon">▼</span>
-                                    </div>
-                                    <div class="company-summary-desc" style="font-size: 0.8em; line-height: 1.4;">
-                                        巨量引擎食饮星图大会(5/8)：情绪内容在播放量/互动率/完播率全面领先，AI漫剧+明星AI授权价格降至传统1/10；小红书618公开课(5/9)：种草直达ROI保险+AI智能笔记0成本扩素材——内容平台集体确立"情绪锚点×AI工业化"双驱营销范式，达人营销正在经历AI重构
-                                    </div>
+                                    <div class="company-summary-layout">
+                                <span class="company-summary-label label-long">🌸 内容平台618大促集体转向"情绪×AI"双驱模式：字节星图食饮大会+小红书种搜升级，内容消费进入"情绪价值变现"新阶段</span>
+                                <span class="expand-icon">▼</span>
+                                <div class="company-summary-desc">巨量引擎食饮星图大会(5/8)：情绪内容在播放量/互动率/完播率全面领先，AI漫剧+明星AI授权价格降至传统1/10；小红书618公开课(5/9)：种草直达ROI保险+AI智能笔记0成本扩素材——内容平台集体确立"情绪锚点×AI工业化"双驱营销范式，达人营销正在经历AI重构</div>
+                            </div>
                                 </summary>
                                 <div class="company-details">
                                     <div style="padding: 10px; background: var(--bg-secondary); border-radius: 6px; line-height: 1.4; font-size: 0.8em;">
@@ -1503,13 +1500,11 @@
                         <!-- 字节跳动 -->
                         <details>
                             <summary class="company-summary">
-                                <div class="company-summary-title">
-                                    <h4>🔥 字节跳动</h4>
-                                    <span class="expand-icon">▼</span>
-                                </div>
-                                <div class="company-summary-desc">
-                                    <strong>品星云618全景图谱发布+食饮星图大会"情绪×AI"双驱+抖音618大促百亿消费券</strong> - 巨量引擎618营销链路全面AI化：星图AI找达人+AI素材工业化+AI托管投放一体贯通；情绪营销成为食饮/美妆类目的核心增长方法论
-                                </div>
+                                <div class="company-summary-layout">
+                                <span class="company-summary-label">🔥 字节跳动</span>
+                                <span class="expand-icon">▼</span>
+                                <div class="company-summary-desc"><strong>品星云618全景图谱发布+食饮星图大会"情绪×AI"双驱+抖音618大促百亿消费券</strong> - 巨量引擎618营销链路全面AI化：星图AI找达人+AI素材工业化+AI托管投放一体贯通；情绪营销成为食饮/美妆类目的核心增长方法论</div>
+                            </div>
                             </summary>
                             <div class="company-details">
                                 <ul class="insight-list">
@@ -1538,13 +1533,11 @@
                         <!-- 小红书 -->
                         <details>
                             <summary class="company-summary">
-                                <div class="company-summary-title">
-                                    <h4>💄 小红书</h4>
-                                    <span class="expand-icon">▼</span>
-                                </div>
-                                <div class="company-summary-desc">
-                                    <strong>小红书618全域电商大促实战攻略（5/9）+种搜一体新能力+AI智能笔记0成本扩素材</strong> - 信息流→搜索分阶段卡位；AI笔记基于机会词自动改写；CPUV出价支持长决策周期归因；618投放ROI保险机制首次推出
-                                </div>
+                                <div class="company-summary-layout">
+                                <span class="company-summary-label">💄 小红书</span>
+                                <span class="expand-icon">▼</span>
+                                <div class="company-summary-desc"><strong>小红书618全域电商大促实战攻略（5/9）+种搜一体新能力+AI智能笔记0成本扩素材</strong> - 信息流→搜索分阶段卡位；AI笔记基于机会词自动改写；CPUV出价支持长决策周期归因；618投放ROI保险机制首次推出</div>
+                            </div>
                             </summary>
                             <div class="company-details">
                                 <ul class="insight-list">
@@ -1582,13 +1575,11 @@
                         <!-- 腾讯 -->
                         <details>
                             <summary class="company-summary">
-                                <div class="company-summary-title">
-                                    <h4>🐧 腾讯</h4>
-                                    <span class="expand-icon">▼</span>
-                                </div>
-                                <div class="company-summary-desc">
-                                    <strong>腾讯Q1财报5月13日发布：广告收入381亿(+20%)+混元3.0开源登顶OpenRouter+微信AI整合Q3上线，2026年AI投入至少翻倍</strong> - 马化腾股东会："站上去了，还坐不下去"；视频号时长+20%但广告加载率仅4-5%；AI模型+广告商业化双飞轮格局已成
-                                </div>
+                                <div class="company-summary-layout">
+                                <span class="company-summary-label">🐧 腾讯</span>
+                                <span class="expand-icon">▼</span>
+                                <div class="company-summary-desc"><strong>腾讯Q1财报5月13日发布：广告收入381亿(+20%)+混元3.0开源登顶OpenRouter+微信AI整合Q3上线，2026年AI投入至少翻倍</strong> - 马化腾股东会："站上去了，还坐不下去"；视频号时长+20%但广告加载率仅4-5%；AI模型+广告商业化双飞轮格局已成</div>
+                            </div>
                             </summary>
                             <div class="company-details">
                                 <ul class="insight-list">
@@ -1608,13 +1599,11 @@
                         <!-- 其他头部平台 -->
                         <details>
                             <summary class="company-summary">
-                                <div class="company-summary-title">
-                                    <h4>🏢 其他头部平台</h4>
-                                    <span class="expand-icon">▼</span>
-                                </div>
-                                <div class="company-summary-desc">
-                                    <strong>抖省省独立App截至5/10日活接近1600万（QuestMobile 5/19）+本地生活五方竞争+商家三平台重合用户+193%</strong> - 抖音本地生活独立闭环初具规模；美团收购叮咚买菜（7.17亿美元）固守到家；淘宝闪购/京东秒送抢食到店，全渠道运营成商家标配
-                                </div>
+                                <div class="company-summary-layout">
+                                <span class="company-summary-label">🏢 其他头部平台</span>
+                                <span class="expand-icon">▼</span>
+                                <div class="company-summary-desc"><strong>抖省省独立App截至5/10日活接近1600万（QuestMobile 5/19）+本地生活五方竞争+商家三平台重合用户+193%</strong> - 抖音本地生活独立闭环初具规模；美团收购叮咚买菜（7.17亿美元）固守到家；淘宝闪购/京东秒送抢食到店，全渠道运营成商家标配</div>
+                            </div>
                             </summary>
                             <div class="company-details">
                                 <ul class="insight-list">
@@ -1646,12 +1635,11 @@
                         <!-- 游戏与内容 -->
                         <details>
                             <summary class="company-summary">
-                                <div class="company-summary-title">
-                                    <h4>🎮 游戏与内容</h4><span class="expand-icon">▼</span>
-                                </div>
-                                <div class="company-summary-desc">
-                                    <strong>if果酒×《有山灵》AI漫剧GMV破200万+抖音小游戏AI托管老游消耗翻5倍</strong> - AI漫剧成品牌种草新标配；"素材先行+内容驱动"范式成爆款标配
-                                </div>
+                                <div class="company-summary-layout">
+                                <span class="company-summary-label">🎮 游戏与内容</span>
+                                <span class="expand-icon">▼</span>
+                                <div class="company-summary-desc"><strong>if果酒×《有山灵》AI漫剧GMV破200万+抖音小游戏AI托管老游消耗翻5倍</strong> - AI漫剧成品牌种草新标配；"素材先行+内容驱动"范式成爆款标配</div>
+                            </div>
                             </summary>
                             <div class="company-details">
                                 <ul class="insight-list">
@@ -1668,12 +1656,11 @@
                         <!-- 本地生活 -->
                         <details>
                             <summary class="company-summary">
-                                <div class="company-summary-title">
-                                    <h4>🍔 本地生活</h4><span class="expand-icon">▼</span>
-                                </div>
-                                <div class="company-summary-desc">
-                                    <strong>抖省省DAU接近1600万+即时零售破万亿+美团收购叮咚买菜固守高频</strong> - 五方竞争（美团/抖音/淘宝闪购/京东/百度）格局成型，全渠道运营成商家标配
-                                </div>
+                                <div class="company-summary-layout">
+                                <span class="company-summary-label">🍔 本地生活</span>
+                                <span class="expand-icon">▼</span>
+                                <div class="company-summary-desc"><strong>抖省省DAU接近1600万+即时零售破万亿+美团收购叮咚买菜固守高频</strong> - 五方竞争（美团/抖音/淘宝闪购/京东/百度）格局成型，全渠道运营成商家标配</div>
+                            </div>
                             </summary>
                             <div class="company-details">
                                 <ul class="insight-list">
@@ -1696,12 +1683,11 @@
                         <!-- 电商广告 -->
                         <details>
                             <summary class="company-summary">
-                                <div class="company-summary-title">
-                                    <h4>🛒 电商广告</h4><span class="expand-icon">▼</span>
-                                </div>
-                                <div class="company-summary-desc">
-                                    <strong>抖音618百亿消费券+腾讯520阶梯激励+小红书种搜一体60日归因升级</strong> - 三平台618广告工具同步迭代，电商广告全链路智能化加速
-                                </div>
+                                <div class="company-summary-layout">
+                                <span class="company-summary-label">🛒 电商广告</span>
+                                <span class="expand-icon">▼</span>
+                                <div class="company-summary-desc"><strong>抖音618百亿消费券+腾讯520阶梯激励+小红书种搜一体60日归因升级</strong> - 三平台618广告工具同步迭代，电商广告全链路智能化加速</div>
+                            </div>
                             </summary>
                             <div class="company-details">
                                 <ul class="insight-list">
@@ -1729,13 +1715,11 @@
                             <!-- 洞察1 -->
                             <details style="margin-bottom: 8px;">
                                 <summary class="company-summary" style="border: 1px solid var(--ks-orange); padding: 10px; cursor: pointer;">
-                                    <div class="company-summary-title" style="margin-bottom: 6px;">
-                                        <h4 style="color: var(--ks-orange); font-size: 0.95em;">📊 腾讯Q1广告+20%财报落地：AIM+覆盖30%投放+视频号加载率仅4-5%，AI广告双飞轮进入规模化收割期</h4>
-                                        <span class="expand-icon">▼</span>
-                                    </div>
-                                    <div class="company-summary-desc" style="font-size: 0.8em; line-height: 1.4;">
-                                        5月13日腾讯Q1财报：广告收入382亿(+20%)，唯一双位数增长业务；AIM+智能投放覆盖全平台30%广告；视频号时长+20%但广告加载率仅4-5%（行业最低），618微信小店100%补贴压上——腾讯广告"低密度高增速"格局对快手形成直接压力
-                                    </div>
+                                    <div class="company-summary-layout">
+                                <span class="company-summary-label label-long">📊 腾讯Q1广告+20%财报落地：AIM+覆盖30%投放+视频号加载率仅4-5%，AI广告双飞轮进入规模化收割期</span>
+                                <span class="expand-icon">▼</span>
+                                <div class="company-summary-desc">5月13日腾讯Q1财报：广告收入382亿(+20%)，唯一双位数增长业务；AIM+智能投放覆盖全平台30%广告；视频号时长+20%但广告加载率仅4-5%（行业最低），618微信小店100%补贴压上——腾讯广告"低密度高增速"格局对快手形成直接压力</div>
+                            </div>
                                 </summary>
                                 <div class="company-details">
                                     <div style="padding: 10px; background: var(--bg-secondary); border-radius: 6px; line-height: 1.4; font-size: 0.8em;">
@@ -1748,13 +1732,11 @@
                             <!-- 洞察2 -->
                             <details style="margin-bottom: 8px;">
                                 <summary class="company-summary" style="border: 1px solid var(--ks-orange); padding: 10px; cursor: pointer;">
-                                    <div class="company-summary-title" style="margin-bottom: 6px;">
-                                        <h4 style="color: var(--ks-orange); font-size: 0.95em;">🛒 抖音618百亿消费券+商品卡免佣5月15日打响：年中电商大战决战开始，快手必须立即亮出筹码</h4>
-                                        <span class="expand-icon">▼</span>
-                                    </div>
-                                    <div class="company-summary-desc" style="font-size: 0.8em; line-height: 1.4;">
-                                        抖音618大促5月15日正式启动：百亿消费券+亿级流量+商品卡免佣+AIGC工具免费开放——不只是做促销，而是通过政策包重构商家分发秩序；同期腾讯520三版位联动+小红书618种草链路升级，快手磁力引擎618专项政策尚未匹配
-                                    </div>
+                                    <div class="company-summary-layout">
+                                <span class="company-summary-label label-long">🛒 抖音618百亿消费券+商品卡免佣5月15日打响：年中电商大战决战开始，快手必须立即亮出筹码</span>
+                                <span class="expand-icon">▼</span>
+                                <div class="company-summary-desc">抖音618大促5月15日正式启动：百亿消费券+亿级流量+商品卡免佣+AIGC工具免费开放——不只是做促销，而是通过政策包重构商家分发秩序；同期腾讯520三版位联动+小红书618种草链路升级，快手磁力引擎618专项政策尚未匹配</div>
+                            </div>
                                 </summary>
                                 <div class="company-details">
                                     <div style="padding: 10px; background: var(--bg-secondary); border-radius: 6px; line-height: 1.4; font-size: 0.8em;">
@@ -1767,13 +1749,11 @@
                             <!-- 洞察3 -->
                             <details style="margin-bottom: 0;">
                                 <summary class="company-summary" style="border: 1px solid var(--ks-orange); padding: 10px; cursor: pointer;">
-                                    <div class="company-summary-title" style="margin-bottom: 6px;">
-                                        <h4 style="color: var(--ks-orange); font-size: 0.95em;">🎮 AI重塑IAA小游戏：抖音Q1流水+80%、内容场+140%，"AI素材+托管投放"成新增长引擎，快手小游戏AI工具链建设刻不容缓</h4>
-                                        <span class="expand-icon">▼</span>
-                                    </div>
-                                    <div class="company-summary-desc" style="font-size: 0.8em; line-height: 1.4;">
-                                        巨量引擎数据：2026Q1 IAA抖音小游戏流水+80%，内容场景流水+140%；AI素材ARPU较传统高50%+，AI托管后老游消耗翻5倍；内容获客+160%/社交获客+360%/搜索获客+210%——小游戏已从"买量驱动"转向"内容驱动+AI放大"的新增长范式
-                                    </div>
+                                    <div class="company-summary-layout">
+                                <span class="company-summary-label label-long">🎮 AI重塑IAA小游戏：抖音Q1流水+80%、内容场+140%，"AI素材+托管投放"成新增长引擎，快手小游戏AI工具链建设刻不容缓</span>
+                                <span class="expand-icon">▼</span>
+                                <div class="company-summary-desc">巨量引擎数据：2026Q1 IAA抖音小游戏流水+80%，内容场景流水+140%；AI素材ARPU较传统高50%+，AI托管后老游消耗翻5倍；内容获客+160%/社交获客+360%/搜索获客+210%——小游戏已从"买量驱动"转向"内容驱动+AI放大"的新增长范式</div>
+                            </div>
                                 </summary>
                                 <div class="company-details">
                                     <div style="padding: 10px; background: var(--bg-secondary); border-radius: 6px; line-height: 1.4; font-size: 0.8em;">
@@ -1796,12 +1776,11 @@
                         <!-- 字节跳动 -->
                         <details>
                             <summary class="company-summary">
-                                <div class="company-summary-title">
-                                    <h4>🔥 字节跳动</h4><span class="expand-icon">▼</span>
-                                </div>
-                                <div class="company-summary-desc">
-                                    <strong>抖音618大促5月15日启动+豆包付费订阅+5亿扶持真人短剧</strong> - 618百亿消费券+亿级流量压上，AI商业化进入收割期；真人短剧+AI漫剧双线布局，内容生态全面升级
-                                </div>
+                                <div class="company-summary-layout">
+                                <span class="company-summary-label">🔥 字节跳动</span>
+                                <span class="expand-icon">▼</span>
+                                <div class="company-summary-desc"><strong>抖音618大促5月15日启动+豆包付费订阅+5亿扶持真人短剧</strong> - 618百亿消费券+亿级流量压上，AI商业化进入收割期；真人短剧+AI漫剧双线布局，内容生态全面升级</div>
+                            </div>
                             </summary>
                             <div class="company-details">
                                 <ul class="insight-list">
@@ -1830,12 +1809,11 @@
                         <!-- 小红书 -->
                         <details>
                             <summary class="company-summary">
-                                <div class="company-summary-title">
-                                    <h4>💄 小红书</h4><span class="expand-icon">▼</span>
-                                </div>
-                                <div class="company-summary-desc">
-                                    <strong>小红书4月30日史上最大架构调整+种搜一体产品升级（小红盟60日归因+AI智能笔记）</strong> - 柯南集权三大业务+新设AI部门Dots；广告产品能力持续迭代，618种草转化效率大幅提升
-                                </div>
+                                <div class="company-summary-layout">
+                                <span class="company-summary-label">💄 小红书</span>
+                                <span class="expand-icon">▼</span>
+                                <div class="company-summary-desc"><strong>小红书4月30日史上最大架构调整+种搜一体产品升级（小红盟60日归因+AI智能笔记）</strong> - 柯南集权三大业务+新设AI部门Dots；广告产品能力持续迭代，618种草转化效率大幅提升</div>
+                            </div>
                             </summary>
                             <div class="company-details">
                                 <ul class="insight-list">
@@ -1864,12 +1842,11 @@
                         <!-- 腾讯 -->
                         <details>
                             <summary class="company-summary">
-                                <div class="company-summary-title">
-                                    <h4>🐧 腾讯</h4><span class="expand-icon">▼</span>
-                                </div>
-                                <div class="company-summary-desc">
-                                    <strong>腾讯Q1财报5月13日发布：广告收入382亿(+20%)+视频号时长+20%+AIM+覆盖30%投放+518百分百补贴冲618</strong> - 广告业务唯一双位数高增，AI驱动效果广告+视频号流量双飞轮；视频号广告加载率仅4-5%，增长空间仍大
-                                </div>
+                                <div class="company-summary-layout">
+                                <span class="company-summary-label">🐧 腾讯</span>
+                                <span class="expand-icon">▼</span>
+                                <div class="company-summary-desc"><strong>腾讯Q1财报5月13日发布：广告收入382亿(+20%)+视频号时长+20%+AIM+覆盖30%投放+518百分百补贴冲618</strong> - 广告业务唯一双位数高增，AI驱动效果广告+视频号流量双飞轮；视频号广告加载率仅4-5%，增长空间仍大</div>
+                            </div>
                             </summary>
                             <div class="company-details">
                                 <ul class="insight-list">
@@ -1898,12 +1875,11 @@
                         <!-- 其他头部平台 -->
                         <details>
                             <summary class="company-summary">
-                                <div class="company-summary-title">
-                                    <h4>🏢 其他头部平台</h4><span class="expand-icon">▼</span>
-                                </div>
-                                <div class="company-summary-desc">
-                                    <strong>幽灵外卖36亿天价罚单落地+百度入局本地生活+爱奇艺AI艺人库引争议</strong> - 监管重拳整治平台虚假信息，内容AI合规边界成行业新命题
-                                </div>
+                                <div class="company-summary-layout">
+                                <span class="company-summary-label">🏢 其他头部平台</span>
+                                <span class="expand-icon">▼</span>
+                                <div class="company-summary-desc"><strong>幽灵外卖36亿天价罚单落地+百度入局本地生活+爱奇艺AI艺人库引争议</strong> - 监管重拳整治平台虚假信息，内容AI合规边界成行业新命题</div>
+                            </div>
                             </summary>
                             <div class="company-details">
                                 <ul class="insight-list">
@@ -1942,12 +1918,11 @@
                         <!-- 游戏与内容 -->
                         <details>
                             <summary class="company-summary">
-                                <div class="company-summary-title">
-                                    <h4>🎮 游戏与内容</h4><span class="expand-icon">▼</span>
-                                </div>
-                                <div class="company-summary-desc">
-                                    <strong>AI重塑IAA小游戏：抖音Q1流水+80%、内容场+140%，"AI素材+托管投放"成新增长引擎</strong> - 快手小游戏AI工具链建设刻不容缓
-                                </div>
+                                <div class="company-summary-layout">
+                                <span class="company-summary-label">🎮 游戏与内容</span>
+                                <span class="expand-icon">▼</span>
+                                <div class="company-summary-desc"><strong>AI重塑IAA小游戏：抖音Q1流水+80%、内容场+140%，"AI素材+托管投放"成新增长引擎</strong> - 快手小游戏AI工具链建设刻不容缓</div>
+                            </div>
                             </summary>
                             <div class="company-details">
                                 <ul class="insight-list">
@@ -1976,12 +1951,11 @@
                         <!-- 本地生活 -->
                         <details>
                             <summary class="company-summary">
-                                <div class="company-summary-title">
-                                    <h4>🍔 本地生活</h4><span class="expand-icon">▼</span>
-                                </div>
-                                <div class="company-summary-desc">
-                                    <strong>快手生活服务大会：66万商家+收入+29%+AI四件套战略</strong> - 五方竞争（美团/抖音/淘宝/京东/百度）格局确立，到店团购成Q2新主战场
-                                </div>
+                                <div class="company-summary-layout">
+                                <span class="company-summary-label">🍔 本地生活</span>
+                                <span class="expand-icon">▼</span>
+                                <div class="company-summary-desc"><strong>快手生活服务大会：66万商家+收入+29%+AI四件套战略</strong> - 五方竞争（美团/抖音/淘宝/京东/百度）格局确立，到店团购成Q2新主战场</div>
+                            </div>
                             </summary>
                             <div class="company-details">
                                 <ul class="insight-list">
@@ -2010,12 +1984,11 @@
                         <!-- 电商广告 -->
                         <details>
                             <summary class="company-summary">
-                                <div class="company-summary-title">
-                                    <h4>🛒 电商广告</h4><span class="expand-icon">▼</span>
-                                </div>
-                                <div class="company-summary-desc">
-                                    <strong>小红书60日归因+腾讯520阶梯激励+抖音618百亿消费券，电商广告链路全面升级</strong> - 达人营销内卷加剧，AI工业化降本成标配
-                                </div>
+                                <div class="company-summary-layout">
+                                <span class="company-summary-label">🛒 电商广告</span>
+                                <span class="expand-icon">▼</span>
+                                <div class="company-summary-desc"><strong>小红书60日归因+腾讯520阶梯激励+抖音618百亿消费券，电商广告链路全面升级</strong> - 达人营销内卷加剧，AI工业化降本成标配</div>
+                            </div>
                             </summary>
                             <div class="company-details">
                                 <ul class="insight-list">
