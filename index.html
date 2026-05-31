@@ -775,6 +775,17 @@
             border-color: var(--ks-orange);
         }
 
+        /* 新闻条目里的链接不改色，保持正文颜色 */
+        .company-details .insight-list li a,
+        .company-details .insight-list li a:visited {
+            color: inherit;
+            text-decoration: none;
+        }
+        .company-details .insight-list li a:hover {
+            color: var(--ks-orange);
+            text-decoration: underline;
+        }
+
         /* Divider */
         .divider {
             height: 1px;
