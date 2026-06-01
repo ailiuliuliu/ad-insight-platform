@@ -68,20 +68,33 @@ def extract_insights_from_html(html_file_path):
                 update_date = text.split('更新于')[-1].strip().rstrip('）')
                 break
         
-        # 提取洞察内容 - 查找第一个content-card（今日洞察）
+        # 提取洞察内容 - 查找active面板中的今日洞察card
         insights = []
-        insight_card = soup.find('div', class_='content-card')
+        # 优先查找 active 的 date-panel
+        active_panel = soup.find('div', class_='date-panel active')
+        if not active_panel:
+            active_panel = soup  # 兜底：全文搜索
         
-        if insight_card and '今日洞察' in insight_card.get_text():
+        insight_card = None
+        for card in active_panel.find_all('div', class_='content-card'):
+            if '今日洞察' in card.get_text():
+                insight_card = card
+                break
+        
+        if insight_card:
             # 查找所有洞察details
             details = insight_card.find_all('details', recursive=True)
             
             for detail in details:
-                # 提取标题
-                title_elem = detail.find('h4')
+                # 提取标题：新结构用 .company-summary-label，旧结构用 h4
+                title_elem = detail.find(class_='company-summary-label')
                 title = ""
                 if title_elem:
                     title = title_elem.get_text().strip()
+                else:
+                    title_elem = detail.find('h4')
+                    if title_elem:
+                        title = title_elem.get_text().strip()
                 
                 # 提取描述
                 desc_elem = detail.find('div', class_='company-summary-desc')
@@ -194,7 +207,84 @@ def send_to_kim(markdown_content):
         return False
 
 
-def get_last_push_date(script_dir):
+def build_monthly_recap_message(data):
+    """
+    构造月度回顾的Markdown消息（5条精选洞察，手动触发）
+    
+    Args:
+        data: dict，含 month_label（如"5月"）和 insights（list of {title, description}）
+    Returns:
+        str: Markdown格式消息
+    """
+    month_label = data.get('month_label', '本月')
+    insights = data.get('insights', [])
+    today = datetime.now().strftime('%Y-%m-%d')
+
+    markdown = f"## 📊 {month_label}商业化重点外部洞察回顾\n\n"
+    markdown += f"> 整理时间：{today}　|　覆盖区间：{month_label}\n\n"
+
+    for i, insight in enumerate(insights, 1):
+        title = insight['title']
+        desc = insight['description']
+        markdown += f"**{i}. {title}**\n{desc}\n\n"
+
+    markdown += f"\n---\n\n[📊 查看完整洞察平台]({PLATFORM_URL})\n"
+    markdown += "💬 更多竞对动态、行业趋势、深度分析请访问平台"
+
+    return markdown
+
+
+def push_monthly_recap():
+    """
+    月度回顾推送入口，手动触发（python3 kim_push.py --monthly）
+    5条精选洞察硬编码于此，每月初更新一次。
+    """
+    logging.info("=" * 50)
+    logging.info("开始执行月度回顾推送")
+    logging.info("=" * 50)
+
+    # ===== 5月精选洞察（每月初手动更新这里）=====
+    MONTHLY_INSIGHTS = [
+        {
+            'title': '🎬 AI短剧行业两极分化：Q1上线12.8万部占比95%+，但爆款率仅0.12%——内容从"稀缺"进入"泛滥"，流量才是真护城河',
+            'description': '钛媒体（5/23）+DataEye数据：2026Q1全行业上线微短剧12.8万部，AI占比超95%；但12.78万在播作品中播放破亿不足150部，爆款率仅0.12%——AI把产能天花板打穿，却让"流量分发权"更集中于平台手中，内容从"稀缺变现"转向"情绪付费+精准买量"双轮驱动。',
+        },
+        {
+            'title': '🎮 AI重塑IAA小游戏：抖音Q1流水+80%、内容场+140%，"AI素材+托管投放"成新增长引擎，快手小游戏AI工具链建设刻不容缓',
+            'description': '巨量引擎数据：2026Q1 IAA抖音小游戏流水+80%，内容场景流水+140%；AI素材ARPU较传统高50%+，AI托管后老游消耗翻5倍；内容获客+160%/社交获客+360%/搜索获客+210%——小游戏已从"买量驱动"转向"内容驱动+AI放大"的新增长范式。',
+        },
+        {
+            'title': '🎮 微信小游戏月活破5亿，IAP首发"5000万免分成"加速平台生态密化',
+            'description': '5月27日2026微信小游戏开发者大会：月活5亿+、DAU破百万游戏升至80款；推出四项让利政策——IAP新游首发5000万内不分成、IAA双分成（90%快回收/85%长留存）、PC小游戏专属广告金+10%；PC付费增长130%。平台进入"用让利换生态密度"的深水区。',
+        },
+        {
+            'title': '🛒 抖音电商618结构性重组：千川划入电商、红果独立电商Tab、自营3C上线',
+            'description': '抖音电商618背后是组织层面的深度重构：Q1九大扶持政策降本85亿（+57%）；商品卡免佣扩至直播+短视频全场；千川已划入电商部门，广告与GMV可联动决策；红果电商独立、首页嵌入商城Tab；自营3C覆盖北上广深。抖音正从"广告公司"向"多形态零售生态"进化。',
+        },
+        {
+            'title': '🌸 内容平台618大促集体转向"情绪×AI"双驱模式：字节星图食饮大会+小红书种搜升级，内容消费进入"情绪价值变现"新阶段',
+            'description': '巨量引擎食饮星图大会(5/8)：情绪内容在播放量/互动率/完播率全面领先，AI漫剧+明星AI授权价格降至传统1/10；小红书618公开课(5/9)：种草直达ROI保险+AI智能笔记0成本扩素材——内容平台集体确立"情绪锚点×AI工业化"双驱营销范式，达人营销正在经历AI重构。',
+        },
+    ]
+    # =============================================
+
+    data = {
+        'month_label': '5月',
+        'insights': MONTHLY_INSIGHTS,
+    }
+
+    markdown_msg = build_monthly_recap_message(data)
+    logging.info(f"月度回顾消息内容:\n{markdown_msg}")
+
+    success = send_to_kim(markdown_msg)
+    if success:
+        logging.info("✅ 月度回顾推送成功")
+    else:
+        logging.error("❌ 月度回顾推送失败")
+    return success
+
+
+
     """读取上次推送日期（用于防止重复推送）"""
     state_file = os.path.join(script_dir, '.last_push_date')
     if os.path.exists(state_file):
@@ -277,6 +367,10 @@ def main(force=False):
 
 if __name__ == '__main__':
     # 支持 --force 参数手动强制推送
-    force = '--force' in sys.argv
-    success = main(force=force)
+    # 支持 --monthly 参数触发月度回顾推送
+    if '--monthly' in sys.argv:
+        success = push_monthly_recap()
+    else:
+        force = '--force' in sys.argv
+        success = main(force=force)
     sys.exit(0 if success else 1)
