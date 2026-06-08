@@ -282,9 +282,7 @@ def push_monthly_recap():
     else:
         logging.error("❌ 月度回顾推送失败")
     return success
-
-
-
+def get_last_push_date(script_dir):
     """读取上次推送日期（用于防止重复推送）"""
     state_file = os.path.join(script_dir, '.last_push_date')
     if os.path.exists(state_file):
