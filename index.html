@@ -1128,7 +1128,7 @@
                 <div class="tab-nav">
                     <button class="tab-btn active" data-tab="daily">📰 每日动态</button>
                     <button class="tab-btn" data-tab="research">🔬 深度调研</button>
-                    <button class="tab-btn" data-tab="reports">📄 行研报告库（开发中）</button>
+                    <button class="tab-btn" data-tab="reports" data-external-url="https://expert-interview-hub.frontend-cloud.corp.kuaishou.com/#/knowledge">📄 行研报告库</button>
                 </div>
 
                 <!-- Tab Panels -->
@@ -3103,235 +3103,10 @@
                 <!-- Reports Library -->
                 <div class="tab-panel" id="reports">
                     <div class="content-card">
-                        <h2 style="font-size: 1.3em; margin-bottom: 8px;">📄 行研报告库（开发中）</h2>
+                        <h2 style="font-size: 1.3em; margin-bottom: 8px;">📄 行研报告库</h2>
                         <p class="section-desc">
-                            历史行研报告归档，支持全文搜索，快速定位所需内容
+                            点击上方「行研报告库」标签后，将直接跳转至专家访谈管理系统的资料库模块。
                         </p>
-
-                        <div class="search-box">
-                            <input 
-                                type="text" 
-                                class="search-input" 
-                                id="reportSearch" 
-                                placeholder="搜索报告标题、关键词、公司名称..."
-                                onkeyup="searchReports()"
-                            >
-                            <span class="search-icon">🔍</span>
-                        </div>
-
-                        <div class="search-result-count" id="resultCount">
-                            共 12 份报告
-                        </div>
-
-                        <ul class="report-list" id="reportList">
-                            <li class="report-item" data-keywords="字节跳动 商业化 Q1 财报 广告 本地生活 电商">
-                                <div class="report-title">字节跳动商业化行研报告(2026年Q1)</div>
-                                <div class="report-meta">
-                                    <span>📅 2026-03-13</span>
-                                    <span>👁️ 1,245次查看</span>
-                                    <span>📝 1,585字</span>
-                                </div>
-                                <div class="report-desc">
-                                    覆盖广告业务、本地生活、电商、生态整合等7大维度的深度分析。重点解析字节商业化战略转向、AI模型商业化突破、ROI3托管模式等核心议题。
-                                </div>
-                                <div class="report-tags">
-                                    <span class="report-tag">字节跳动</span>
-                                    <span class="report-tag">商业化</span>
-                                    <span class="report-tag">财报分析</span>
-                                </div>
-                            </li>
-
-                            <li class="report-item" data-keywords="ROI3 托管 字节 快手 对比">
-                                <div class="report-title">ROI3托管模式深度解析：字节vs快手战略对比</div>
-                                <div class="report-meta">
-                                    <span>📅 2026-03-10</span>
-                                    <span>👁️ 892次查看</span>
-                                    <span>📝 2,100字</span>
-                                </div>
-                                <div class="report-desc">
-                                    对比字节跳动与快手在ROI3托管模式上的战略差异，分析平台补贴策略、算法能力、商家接入门槛等关键维度，揭示广告托管背后的商业逻辑。
-                                </div>
-                                <div class="report-tags">
-                                    <span class="report-tag">ROI3</span>
-                                    <span class="report-tag">托管模式</span>
-                                    <span class="report-tag">竞对分析</span>
-                                </div>
-                            </li>
-
-                            <li class="report-item" data-keywords="信息流广告 AI 程序化创意 oCPX">
-                                <div class="report-title">2026年信息流广告趋势报告</div>
-                                <div class="report-meta">
-                                    <span>📅 2026-03-05</span>
-                                    <span>👁️ 1,567次查看</span>
-                                    <span>📝 1,800字</span>
-                                </div>
-                                <div class="report-desc">
-                                    AI生成素材、程序化创意、oCPX智能出价三大核心变化。分析字节Seedance 2.0、腾讯混元、阿里通义千问在广告创意生成领域的落地实践。
-                                </div>
-                                <div class="report-tags">
-                                    <span class="report-tag">信息流</span>
-                                    <span class="report-tag">AI广告</span>
-                                    <span class="report-tag">趋势</span>
-                                </div>
-                            </li>
-
-                            <li class="report-item" data-keywords="本地生活 抖音 美团 GMV 补贴">
-                                <div class="report-title">本地生活广告战争：抖音vs美团</div>
-                                <div class="report-meta">
-                                    <span>📅 2026-02-28</span>
-                                    <span>👁️ 2,134次查看</span>
-                                    <span>📝 2,400字</span>
-                                </div>
-                                <div class="report-desc">
-                                    抖音生服GMV超8500亿，货补从4%提至10%，与美团正面竞争。深度分析双方补贴策略、商业化平衡点、长期盈利模型与核销率差异。
-                                </div>
-                                <div class="report-tags">
-                                    <span class="report-tag">本地生活</span>
-                                    <span class="report-tag">抖音</span>
-                                    <span class="report-tag">美团</span>
-                                </div>
-                            </li>
-
-                            <li class="report-item" data-keywords="TikTok Shop 电商 出海 美国">
-                                <div class="report-title">TikTok Shop全球扩张战略分析</div>
-                                <div class="report-meta">
-                                    <span>📅 2026-02-20</span>
-                                    <span>👁️ 1,023次查看</span>
-                                    <span>📝 1,650字</span>
-                                </div>
-                                <div class="report-desc">
-                                    TikTok Shop美区2025年销售额同比暴增108%，2030年目标跻身全球前三零售商。分析字节出海电商战略、算法优势转化、合规运营模式。
-                                </div>
-                                <div class="report-tags">
-                                    <span class="report-tag">TikTok</span>
-                                    <span class="report-tag">出海</span>
-                                    <span class="report-tag">电商</span>
-                                </div>
-                            </li>
-
-                            <li class="report-item" data-keywords="快手 磁力引擎 电商 直播">
-                                <div class="report-title">快手磁力引擎进化史</div>
-                                <div class="report-meta">
-                                    <span>📅 2026-02-15</span>
-                                    <span>👁️ 756次查看</span>
-                                    <span>📝 1,900字</span>
-                                </div>
-                                <div class="report-desc">
-                                    从直播带货到短视频+本地生活全链路变现，GMV破万亿背后的战略。梳理磁力金牛广告产品迭代路径，分析快手商业化基础设施建设。
-                                </div>
-                                <div class="report-tags">
-                                    <span class="report-tag">快手</span>
-                                    <span class="report-tag">磁力引擎</span>
-                                    <span class="report-tag">电商</span>
-                                </div>
-                            </li>
-
-                            <li class="report-item" data-keywords="腾讯广告 微信 视频号 小程序">
-                                <div class="report-title">腾讯广告生态重构：社交广告的下一个十年</div>
-                                <div class="report-meta">
-                                    <span>📅 2026-02-08</span>
-                                    <span>👁️ 1,342次查看</span>
-                                    <span>📝 2,200字</span>
-                                </div>
-                                <div class="report-desc">
-                                    微信+视频号+小程序三位一体的社交广告新生态。分析腾讯混元AI创意工具、朋友圈广告进化、视频号商业化突破等核心变化。
-                                </div>
-                                <div class="report-tags">
-                                    <span class="report-tag">腾讯</span>
-                                    <span class="report-tag">社交广告</span>
-                                    <span class="report-tag">视频号</span>
-                                </div>
-                            </li>
-
-                            <li class="report-item" data-keywords="阿里妈妈 淘宝 全域营销">
-                                <div class="report-title">阿里妈妈全域营销升级解读</div>
-                                <div class="report-meta">
-                                    <span>📅 2026-01-25</span>
-                                    <span>👁️ 623次查看</span>
-                                    <span>📝 1,500字</span>
-                                </div>
-                                <div class="report-desc">
-                                    打通淘宝、天猫、1688全链路，推出"全域ROI优化"智能投放系统。分析阿里商业化重组后的战略方向与技术升级。
-                                </div>
-                                <div class="report-tags">
-                                    <span class="report-tag">阿里妈妈</span>
-                                    <span class="report-tag">全域营销</span>
-                                    <span class="report-tag">淘宝</span>
-                                </div>
-                            </li>
-
-                            <li class="report-item" data-keywords="游戏买量 IAA 激励视频">
-                                <div class="report-title">游戏买量市场回暖：IAA模式创新实践</div>
-                                <div class="report-meta">
-                                    <span>📅 2026-01-18</span>
-                                    <span>👁️ 534次查看</span>
-                                    <span>📝 1,400字</span>
-                                </div>
-                                <div class="report-desc">
-                                    激励视频eCPM突破200元，休闲游戏商业化效率提升。分析游戏买量市场复苏信号、IAA模式创新、头部游戏厂商投放策略。
-                                </div>
-                                <div class="report-tags">
-                                    <span class="report-tag">游戏</span>
-                                    <span class="report-tag">IAA</span>
-                                    <span class="report-tag">买量</span>
-                                </div>
-                            </li>
-
-                            <li class="report-item" data-keywords="短剧 漫剧 IAP 变现">
-                                <div class="report-title">短剧/漫剧广告爆发：CPM从15元涨至50元</div>
-                                <div class="report-meta">
-                                    <span>📅 2026-01-10</span>
-                                    <span>👁️ 1,890次查看</span>
-                                    <span>📝 1,750字</span>
-                                </div>
-                                <div class="report-desc">
-                                    IAP+IAA混合变现模式成主流。梳理短剧/漫剧行业商业化路径，分析字节跳动与快手在内容变现领域的竞争格局。
-                                </div>
-                                <div class="report-tags">
-                                    <span class="report-tag">短剧</span>
-                                    <span class="report-tag">内容变现</span>
-                                    <span class="report-tag">IAP</span>
-                                </div>
-                            </li>
-
-                            <li class="report-item" data-keywords="电商广告 ROI优化 归因">
-                                <div class="report-title">电商广告ROI优化实战：从CPM到GMV</div>
-                                <div class="report-meta">
-                                    <span>📅 2025-12-28</span>
-                                    <span>👁️ 1,123次查看</span>
-                                    <span>📝 2,300字</span>
-                                </div>
-                                <div class="report-desc">
-                                    全链路归因与优化方法论。覆盖素材测试、定向优化、智能出价、落地页转化等完整链路，提供可落地的优化策略与工具。
-                                </div>
-                                <div class="report-tags">
-                                    <span class="report-tag">电商</span>
-                                    <span class="report-tag">ROI优化</span>
-                                    <span class="report-tag">方法论</span>
-                                </div>
-                            </li>
-
-                            <li class="report-item" data-keywords="短视频广告 创意 素材">
-                                <div class="report-title">短视频广告进化路径与创新玩法</div>
-                                <div class="report-meta">
-                                    <span>📅 2025-12-15</span>
-                                    <span>👁️ 967次查看</span>
-                                    <span>📝 1,600字</span>
-                                </div>
-                                <div class="report-desc">
-                                    信息流、激励视频、开屏广告的创新玩法与效果对比。分析短视频广告创意公式、素材优化策略、平台算法特点。
-                                </div>
-                                <div class="report-tags">
-                                    <span class="report-tag">短视频</span>
-                                    <span class="report-tag">广告创意</span>
-                                    <span class="report-tag">玩法</span>
-                                </div>
-                            </li>
-                        </ul>
-
-                        <div style="text-align: center; margin-top: 30px; color: var(--text-muted); font-size: 0.9em;">
-                            - 已加载全部报告 -
-                        </div>
                     </div>
                 </div>
 
@@ -3352,6 +3127,12 @@
         // Tab切换
         document.querySelectorAll('.tab-btn').forEach(btn => {
             btn.addEventListener('click', () => {
+                const externalUrl = btn.dataset.externalUrl;
+                if (externalUrl) {
+                    window.location.href = externalUrl;
+                    return;
+                }
+
                 const tabId = btn.dataset.tab;
                 
                 document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
@@ -3379,40 +3160,6 @@
         function toggleSidebar() {
             document.getElementById('knowledgeSidebar').classList.toggle('open');
         }
-
-        // 报告搜索
-        function searchReports() {
-            const searchTerm = document.getElementById('reportSearch').value.toLowerCase();
-            const reportItems = document.querySelectorAll('.report-item');
-            let visibleCount = 0;
-
-            reportItems.forEach(item => {
-                const title = item.querySelector('.report-title').textContent.toLowerCase();
-                const desc = item.querySelector('.report-desc').textContent.toLowerCase();
-                const keywords = item.dataset.keywords.toLowerCase();
-                const tags = Array.from(item.querySelectorAll('.report-tag')).map(tag => tag.textContent.toLowerCase()).join(' ');
-                
-                const searchContent = title + ' ' + desc + ' ' + keywords + ' ' + tags;
-                
-                if (searchContent.includes(searchTerm)) {
-                    item.style.display = 'block';
-                    visibleCount++;
-                } else {
-                    item.style.display = 'none';
-                }
-            });
-
-            document.getElementById('resultCount').textContent = 
-                searchTerm ? `找到 ${visibleCount} 份相关报告` : `共 ${reportItems.length} 份报告`;
-        }
-
-        // 报告点击
-        document.querySelectorAll('.report-item').forEach(item => {
-            item.addEventListener('click', () => {
-                const title = item.querySelector('.report-title').textContent;
-                alert(`打开报告：${title}\n\n这是Demo版本，实际版本会跳转到报告详情页面`);
-            });
-        });
 
         // 平滑滚动
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
