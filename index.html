@@ -3129,7 +3129,7 @@
             btn.addEventListener('click', () => {
                 const externalUrl = btn.dataset.externalUrl;
                 if (externalUrl) {
-                    window.location.href = externalUrl;
+                    window.open(externalUrl, '_blank', 'noopener');
                     return;
                 }
 
