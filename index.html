@@ -345,6 +345,20 @@
             overflow-x: auto;
         }
 
+        .timeline-track::-webkit-scrollbar {
+            height: 3px;
+        }
+
+        .timeline-track::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .timeline-track::-webkit-scrollbar-thumb {
+            background: var(--ks-orange);
+            border-radius: 2px;
+            max-width: 60px;
+        }
+
         .timeline-line {
             width: 32px;
             height: 2px;
@@ -976,8 +990,8 @@
 
         /* Scrollbar */
         ::-webkit-scrollbar {
-            width: 10px;
-            height: 10px;
+            width: 5px;
+            height: 5px;
         }
 
         ::-webkit-scrollbar-track {
@@ -986,7 +1000,7 @@
 
         ::-webkit-scrollbar-thumb {
             background: var(--ks-orange);
-            border-radius: 5px;
+            border-radius: 3px;
         }
 
         ::-webkit-scrollbar-thumb:hover {
