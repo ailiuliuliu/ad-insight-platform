@@ -1,15 +1,29 @@
 {
-  "update_time": "2026-08-16T01:43:51.423132",
+  "update_time": "2026-08-09T22:57:00.000000",
   "competitors": {
-    "字节跳动": [],
-    "小红书": [],
+    "字节跳动": [
+      {"title": "AI重构字节：飞书并豆包，大模型ARR 40亿美元", "source": "钛媒体", "date": "2026-08-01", "url": "https://www.tmtpost.com/8081244.html"}
+    ],
+    "小红书": [
+      {"title": "小红书RED Skill开放，AI超创商业通路扩展", "source": "36氪", "date": "2026-08-09", "url": "https://36kr.com/p/3826006180296961"}
+    ],
     "快手": [],
-    "腾讯": [],
+    "腾讯": [
+      {"title": "腾讯Q2前瞻：广告+18%，视频号负载加大；视频号电商+微信小店广告商业化双提速", "source": "华盛通", "date": "2026-08-07", "url": "https://www.hstong.com/news/detail/26080618044197354"},
+      {"title": "AI短剧找到打开方式，腾讯视频分账规则更新", "source": "钛媒体", "date": "2026-07-31", "url": "https://www.tmtpost.com/8085821.html"}
+    ],
     "阿里": []
   },
   "industries": {
-    "游戏与内容": [],
-    "本地生活": [],
-    "电商广告": []
+    "游戏与内容": [
+      {"title": "AI短剧CPM从20元涨至50元，1000部仅出1部爆款", "source": "新浪/DataEye", "date": "2026-08-08", "url": "https://k.sina.com.cn/article_7879922982_1d5ae15260680b7ysm.html"},
+      {"title": "AppLovin Q2营收+53%但股价暴跌25%，移动游戏广告出现预期差", "source": "腾讯新闻", "date": "2026-08-06", "url": "https://news.qq.com/rain/a/20260806A0CQ1100"}
+    ],
+    "本地生活": [
+      {"title": "抖省省DAU达2103万，逼近大众点评；本地生活全链路闭环解析", "source": "钛媒体", "date": "2026-08-05", "url": "https://www.tmtpost.com/8090747.html"}
+    ],
+    "电商广告": [
+      {"title": "抖音电商投流ROI跌至1:3.5，CPM较2023涨40%", "source": "CCTV财经", "date": "2026-08-06", "url": "https://finance.cctv.com/2026/08/06/ARTIy6hh3O9CY61uaDOP6dcx260806.shtml"}
+    ]
   }
 }
