@@ -156,8 +156,8 @@ def build_markdown_message(data):
 
 """
     
-    # 添加洞察条目（最多3条）
-    for i, insight in enumerate(insights[:3], 1):
+    # 添加洞察条目（全部输出，不限条数）
+    for i, insight in enumerate(insights, 1):
         title = insight['title']
         desc = insight['description']
         markdown += f"**{i}. {title}**\n"
