@@ -1042,7 +1042,11 @@
                     <div class="timeline-nav" id="timelineNav">
                         <div class="timeline-label">📅 Timeline</div>
                         <div class="timeline-track">
-                            <button class="timeline-btn active" data-date="20260907">
+                            <button class="timeline-btn active" data-date="20260914">
+                                <span class="timeline-date">2026-09-14</span>
+                            </button>
+                            <div class="timeline-line"></div>
+                            <button class="timeline-btn" data-date="20260907">
                                 <span class="timeline-date">2026-09-07</span>
                             </button>
                             <div class="timeline-line"></div>
@@ -1112,8 +1116,175 @@
                         </div>
                     </div>
 
+                    <!-- 2026-09-14 内容面板 -->
+                    <div class="date-panel active" id="panel-20260914">
+                    <!-- 今日洞察 -->
+                    <div class="content-card" style="background: linear-gradient(135deg, rgba(255, 102, 0, 0.05) 0%, rgba(255, 102, 0, 0.02) 100%); border: 2px solid var(--ks-orange); padding: 20px;">
+                        <h2 style="font-size: 1.3em; margin-bottom: 8px;">💡 今日洞察</h2>
+                        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 18px;">
+                            <span style="background: var(--ks-orange); color: white; font-size: 0.75em; font-weight: 700; padding: 3px 10px; border-radius: 20px;">2026-09-14 更新</span>
+                            <span style="color: var(--text-muted); font-size: 0.8em;">覆盖周期 09/04–09/14</span>
+                        </div>
+
+                        <!-- 洞察1 -->
+                        <div style="margin-bottom: 20px; padding: 16px; background: rgba(255,102,0,0.06); border-radius: 10px; border-left: 3px solid var(--ks-orange);">
+                            <div style="font-size: 0.75em; font-weight: 700; color: var(--ks-orange); letter-spacing: 1px; margin-bottom: 8px;">洞察一</div>
+                            <div style="font-weight: 700; font-size: 1.05em; margin-bottom: 8px; color: #fff;">AI正在蚕食广告的流量底座</div>
+                            <p style="color: var(--text-secondary); font-size: 0.9em; line-height: 1.7;">腾讯研究院警告 AI Agent 将终结"免费午餐"广告逻辑；小红书广告收入 320 亿元占营收 76%，却被 AI 搜索步步蚕食；OpenAI 切断竞品广告位，亚马逊转而把广告塞进 ChatGPT——广告生意的流量根基正被 AI 重新分配。谁能先在 AI 对话入口建立广告位，谁就掌握下一轮商业化话语权。</p>
+                        </div>
+
+                        <!-- 洞察2 -->
+                        <div style="margin-bottom: 20px; padding: 16px; background: rgba(255,102,0,0.06); border-radius: 10px; border-left: 3px solid var(--ks-orange);">
+                            <div style="font-size: 0.75em; font-weight: 700; color: var(--ks-orange); letter-spacing: 1px; margin-bottom: 8px;">洞察二</div>
+                            <div style="font-weight: 700; font-size: 1.05em; margin-bottom: 8px; color: #fff;">种草，开始被清算</div>
+                            <p style="color: var(--text-secondary); font-size: 0.9em; line-height: 1.7;">小红书种草生态遭遇真实性危机：虚假种草、数据注水令广告主重新审视 ROI；与此同时，小红书二手交易内测近一年却"边做边藏"，AI 布局也以防守为主——当最核心的广告逻辑被质疑，种草平台的商业化天花板正在被重新估算。</p>
+                        </div>
+
+                        <!-- 洞察3 -->
+                        <div style="padding: 16px; background: rgba(255,102,0,0.06); border-radius: 10px; border-left: 3px solid var(--ks-orange);">
+                            <div style="font-size: 0.75em; font-weight: 700; color: var(--ks-orange); letter-spacing: 1px; margin-bottom: 8px;">洞察三</div>
+                            <div style="font-weight: 700; font-size: 1.05em; margin-bottom: 8px; color: #fff;">内容平台流量王座易主，广告预算跟着走</div>
+                            <p style="color: var(--text-secondary); font-size: 0.9em; line-height: 1.7;">抖音月均时长首次超越微信、红果短剧日活 1.68 亿超越爱优腾芒之和——用户时间正在被短剧和 AI 内容重新切分。广告主预算天然跟着流量走，Q4 大促前各平台争夺的核心是：在这轮流量重组中卡位品牌主心智。快手在下沉市场和直播电商的护城河，正面临这轮冲击的真实考验。</p>
+                        </div>
+                    </div>
+
+                    <!-- 核心竞对动态 -->
+                    <div class="content-card">
+                        <h2 style="font-size: 1.2em; margin-bottom: 18px; display: flex; align-items: center; gap: 10px;">
+                            <span style="width: 4px; height: 20px; background: var(--gradient-orange); border-radius: 2px; display: inline-block;"></span>
+                            核心竞对动态
+                        </h2>
+
+                        <!-- 字节跳动 -->
+                        <div style="margin-bottom: 24px;">
+                            <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px;">
+                                <span style="background: rgba(255,102,0,0.15); color: var(--ks-orange); font-size: 0.8em; font-weight: 700; padding: 3px 10px; border-radius: 20px; border: 1px solid rgba(255,102,0,0.3);">字节跳动</span>
+                            </div>
+                            <ul style="list-style: none; display: flex; flex-direction: column; gap: 10px;">
+                                <li style="padding: 12px 14px; background: var(--bg-card-hover); border-radius: 8px; border-left: 3px solid #FF6600; font-size: 0.88em; line-height: 1.6; color: var(--text-secondary);">
+                                    <a href="https://www.cls.cn/detail/1959158" target="_blank" style="color: #fff; font-weight: 600; text-decoration: none; display: block; margin-bottom: 4px; font-size: 0.95em;">巨量千川并入抖音电商，脱离巨量引擎商业化体系</a>
+                                    商业化架构大调整：千川从广告产品线划入电商生态，意味着效果广告与电商闭环深度整合，广告主投放路径将随之重构。<span style="color: var(--text-muted); font-size: 0.85em; margin-left: 6px;">财联社 · 09-09</span>
+                                </li>
+                                <li style="padding: 12px 14px; background: var(--bg-card-hover); border-radius: 8px; border-left: 3px solid #FF6600; font-size: 0.88em; line-height: 1.6; color: var(--text-secondary);">
+                                    <a href="https://m.huxiu.com/article/4888998.html" target="_blank" style="color: #fff; font-weight: 600; text-decoration: none; display: block; margin-bottom: 4px; font-size: 0.95em;">字节开始激进了</a>
+                                    抖音到店 H1 GTV 超 6000 亿追平美团，但集团战略重心全面转向 AI，本地生活主动收缩补贴、上调佣金转向盈利，成熟业务开始为 AI 资本开支"输血"。<span style="color: var(--text-muted); font-size: 0.85em; margin-left: 6px;">虎嗅 · 09-11</span>
+                                </li>
+                                <li style="padding: 12px 14px; background: var(--bg-card-hover); border-radius: 8px; border-left: 3px solid #FF6600; font-size: 0.88em; line-height: 1.6; color: var(--text-secondary);">
+                                    <a href="https://m.huxiu.com/article/4889941.html" target="_blank" style="color: #fff; font-weight: 600; text-decoration: none; display: block; margin-bottom: 4px; font-size: 0.95em;">字节赢得时间，但 AI 在消灭时间</a>
+                                    抖音月均时长首超微信成为国内时长第一 App，字节系使用时长份额升至 40.9%，但 AI 内容本身也在稀释用户的主动搜索与消费决策路径。<span style="color: var(--text-muted); font-size: 0.85em; margin-left: 6px;">虎嗅 · 09-10</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- 腾讯 -->
+                        <div style="margin-bottom: 24px;">
+                            <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px;">
+                                <span style="background: rgba(255,102,0,0.15); color: var(--ks-orange); font-size: 0.8em; font-weight: 700; padding: 3px 10px; border-radius: 20px; border: 1px solid rgba(255,102,0,0.3);">腾讯</span>
+                            </div>
+                            <ul style="list-style: none; display: flex; flex-direction: column; gap: 10px;">
+                                <li style="padding: 12px 14px; background: var(--bg-card-hover); border-radius: 8px; border-left: 3px solid #07C160; font-size: 0.88em; line-height: 1.6; color: var(--text-secondary);">
+                                    <a href="https://eu.36kr.com/zh/p/3973178742747400" target="_blank" style="color: #fff; font-weight: 600; text-decoration: none; display: block; margin-bottom: 4px; font-size: 0.95em;">AI Agent 正在终结互联网免费午餐</a>
+                                    腾讯研究院发文警告：当 AI Agent 替代用户点击路径，广告展示机会消失，基于点击流量的广告商业模式面临结构性挑战。平台需提前布局 AI 原生广告形态。<span style="color: var(--text-muted); font-size: 0.85em; margin-left: 6px;">36氪 · 09-07</span>
+                                </li>
+                                <li style="padding: 12px 14px; background: var(--bg-card-hover); border-radius: 8px; border-left: 3px solid #07C160; font-size: 0.88em; line-height: 1.6; color: var(--text-secondary);">
+                                    <a href="https://www.huxiu.com/article/4890084.html" target="_blank" style="color: #fff; font-weight: 600; text-decoration: none; display: block; margin-bottom: 4px; font-size: 0.95em;">AI 时代，资本更不相信"老骥伏枥"？</a>
+                                    腾讯 Q2 营销服务收入 436 亿元同比 +22%，AI 广告精准提效贡献显著；但资本市场对 Q2 资本开支飙升至 528 亿元、自由现金流转负保持警惕，AI 投入的广告变现路径仍待验证。<span style="color: var(--text-muted); font-size: 0.85em; margin-left: 6px;">虎嗅 · 09-10</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- 小红书 -->
+                        <div>
+                            <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px;">
+                                <span style="background: rgba(255,102,0,0.15); color: var(--ks-orange); font-size: 0.8em; font-weight: 700; padding: 3px 10px; border-radius: 20px; border: 1px solid rgba(255,102,0,0.3);">小红书</span>
+                            </div>
+                            <ul style="list-style: none; display: flex; flex-direction: column; gap: 10px;">
+                                <li style="padding: 12px 14px; background: var(--bg-card-hover); border-radius: 8px; border-left: 3px solid #FF2442; font-size: 0.88em; line-height: 1.6; color: var(--text-secondary);">
+                                    <a href="https://eu.36kr.com/zh/p/3977478232184708" target="_blank" style="color: #fff; font-weight: 600; text-decoration: none; display: block; margin-bottom: 4px; font-size: 0.95em;">"最怕 AI"的小红书，是怎么搞 AI 的？</a>
+                                    小红书广告收入约 320 亿占营收 76%，AI 搜索直接威胁其核心广告盘——AI 回答替代搜索结果即意味着广告展示消失。小红书商业化团队已要求 AI 搜索限制主动生成购物推荐，全面布局防守策略。<span style="color: var(--text-muted); font-size: 0.85em; margin-left: 6px;">36氪 · 09-10</span>
+                                </li>
+                                <li style="padding: 12px 14px; background: var(--bg-card-hover); border-radius: 8px; border-left: 3px solid #FF2442; font-size: 0.88em; line-height: 1.6; color: var(--text-secondary);">
+                                    <a href="https://www.huxiu.com/article/4890481.html" target="_blank" style="color: #fff; font-weight: 600; text-decoration: none; display: block; margin-bottom: 4px; font-size: 0.95em;">种草，开始被清算</a>
+                                    虚假种草、数据注水问题集中爆发，广告主对小红书 ROI 产生普遍质疑；种草作为核心商业模式的可信度正在受到系统性挑战。<span style="color: var(--text-muted); font-size: 0.85em; margin-left: 6px;">虎嗅 · 09-12</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- 重点行业赛道 -->
+                    <div class="content-card">
+                        <h2 style="font-size: 1.2em; margin-bottom: 18px; display: flex; align-items: center; gap: 10px;">
+                            <span style="width: 4px; height: 20px; background: var(--gradient-orange); border-radius: 2px; display: inline-block;"></span>
+                            重点行业赛道
+                        </h2>
+
+                        <!-- 游戏与内容 -->
+                        <div style="margin-bottom: 24px;">
+                            <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px;">
+                                <span style="background: rgba(138,43,226,0.15); color: #a855f7; font-size: 0.8em; font-weight: 700; padding: 3px 10px; border-radius: 20px; border: 1px solid rgba(138,43,226,0.3);">🎮 游戏与内容</span>
+                            </div>
+                            <ul style="list-style: none; display: flex; flex-direction: column; gap: 10px;">
+                                <li style="padding: 12px 14px; background: var(--bg-card-hover); border-radius: 8px; border-left: 3px solid #a855f7; font-size: 0.88em; line-height: 1.6; color: var(--text-secondary);">
+                                    <a href="https://m.huxiu.com/article/4890461.html" target="_blank" style="color: #fff; font-weight: 600; text-decoration: none; display: block; margin-bottom: 4px; font-size: 0.95em;">红果短剧日活达 1.68 亿，超越爱优腾芒四家之和</a>
+                                    短剧已成内容消费主流阵地：红果月活超 3.56 亿、日活 1.68 亿，用户月均观看时长近 27 小时。品牌广告预算正加速向短剧平台迁移，传统长视频平台广告份额承压。<span style="color: var(--text-muted); font-size: 0.85em; margin-left: 6px;">虎嗅 · 09-12</span>
+                                </li>
+                                <li style="padding: 12px 14px; background: var(--bg-card-hover); border-radius: 8px; border-left: 3px solid #a855f7; font-size: 0.88em; line-height: 1.6; color: var(--text-secondary);">
+                                    <a href="https://www.huxiu.com/article/4889954.html" target="_blank" style="color: #fff; font-weight: 600; text-decoration: none; display: block; margin-bottom: 4px; font-size: 0.95em;">月活狂飙之后，汽水音乐终于逼 TME 出手了</a>
+                                    字节汽水音乐月活持续上升，腾讯音乐（TME）被迫启动反制动作；音乐内容赛道广告与订阅收入争夺升温，腾讯内容生态护城河受压测试。<span style="color: var(--text-muted); font-size: 0.85em; margin-left: 6px;">虎嗅 · 09-09</span>
+                                </li>
+                                <li style="padding: 12px 14px; background: var(--bg-card-hover); border-radius: 8px; border-left: 3px solid #a855f7; font-size: 0.88em; line-height: 1.6; color: var(--text-secondary);">
+                                    <a href="https://m.huxiu.com/article/4889110.html" target="_blank" style="color: #fff; font-weight: 600; text-decoration: none; display: block; margin-bottom: 4px; font-size: 0.95em;">GEO 到底是一门什么生意？</a>
+                                    腾讯 09-07 上线 AI 搜索产品 Answerbit，GEO（生成式引擎优化）概念兴起——品牌需为"被 AI 推荐"付费，这是继 SEO、SEM 之后广告主面临的第三次搜索流量革命。<span style="color: var(--text-muted); font-size: 0.85em; margin-left: 6px;">虎嗅 · 09-07</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- 电商广告 -->
+                        <div style="margin-bottom: 24px;">
+                            <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px;">
+                                <span style="background: rgba(20,184,166,0.15); color: #2dd4bf; font-size: 0.8em; font-weight: 700; padding: 3px 10px; border-radius: 20px; border: 1px solid rgba(20,184,166,0.3);">🛒 电商广告</span>
+                            </div>
+                            <ul style="list-style: none; display: flex; flex-direction: column; gap: 10px;">
+                                <li style="padding: 12px 14px; background: var(--bg-card-hover); border-radius: 8px; border-left: 3px solid #2dd4bf; font-size: 0.88em; line-height: 1.6; color: var(--text-secondary);">
+                                    <a href="https://m.ebrun.com/706993.html" target="_blank" style="color: #fff; font-weight: 600; text-decoration: none; display: block; margin-bottom: 4px; font-size: 0.95em;">亚马逊广告正式接入 ChatGPT，首批面向美国部分品牌开放</a>
+                                    Amazon DSP 广告主可将广告活动延伸至 ChatGPT，Delta Vacations 率先参与测试；AI 对话成为电商广告新渠道，广告出现在 AI 回答下方并标注赞助属性，ChatGPT 广告年化收入已达 10 亿美元。<span style="color: var(--text-muted); font-size: 0.85em; margin-left: 6px;">亿邦动力 · 09-11</span>
+                                </li>
+                                <li style="padding: 12px 14px; background: var(--bg-card-hover); border-radius: 8px; border-left: 3px solid #2dd4bf; font-size: 0.88em; line-height: 1.6; color: var(--text-secondary);">
+                                    <a href="https://finance.sina.com.cn/stock/bxjj/2026-09-10/doc-iniriafa3049539.shtml" target="_blank" style="color: #fff; font-weight: 600; text-decoration: none; display: block; margin-bottom: 4px; font-size: 0.95em;">OpenAI 切断 Adobe 等企业在 ChatGPT 投放竞品 AI 产品广告</a>
+                                    OpenAI 禁止图像、音频生成类竞品广告入场 ChatGPT，平台广告政策走向保护主义；倘若扩展至其他品类，将进一步压缩 OpenAI 广告收入，亦倒逼广告主重新规划 AI 平台投放策略。<span style="color: var(--text-muted); font-size: 0.85em; margin-left: 6px;">格隆汇 · 09-10</span>
+                                </li>
+                                <li style="padding: 12px 14px; background: var(--bg-card-hover); border-radius: 8px; border-left: 3px solid #2dd4bf; font-size: 0.88em; line-height: 1.6; color: var(--text-secondary);">
+                                    <a href="https://www.huxiu.com/article/4890157.html" target="_blank" style="color: #fff; font-weight: 600; text-decoration: none; display: block; margin-bottom: 4px; font-size: 0.95em;">剧星传媒 IPO：营收 83.7 亿、效果广告占 33.4%，最大供应商抖音占媒体采购 47%</a>
+                                    大型广告代理公司财务数据揭示行业现实：效果广告依赖度持续提升，抖音垄断近半数媒体采购份额，盈利空间极薄（83.7 亿营收仅 1 亿利润），广告代理行业高度依赖平台且议价能力弱。<span style="color: var(--text-muted); font-size: 0.85em; margin-left: 6px;">虎嗅 · 09-10</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- 本地生活 -->
+                        <div>
+                            <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px;">
+                                <span style="background: rgba(251,146,60,0.15); color: #fb923c; font-size: 0.8em; font-weight: 700; padding: 3px 10px; border-radius: 20px; border: 1px solid rgba(251,146,60,0.3);">📍 本地生活</span>
+                            </div>
+                            <ul style="list-style: none; display: flex; flex-direction: column; gap: 10px;">
+                                <li style="padding: 12px 14px; background: var(--bg-card-hover); border-radius: 8px; border-left: 3px solid #fb923c; font-size: 0.88em; line-height: 1.6; color: var(--text-secondary);">
+                                    <a href="https://caifuhao.eastmoney.com/news/20260912062519214622780" target="_blank" style="color: #fff; font-weight: 600; text-decoration: none; display: block; margin-bottom: 4px; font-size: 0.95em;">字节跳动战略转向 AI，成熟业务转向利润输血</a>
+                                    抖音生活服务 H1 交易额同比 +50% 即将触及盈亏平衡，却因字节 AI 资本开支计划翻倍（最高 700 亿美元）被迫从规模扩张转向算账模式：收缩补贴、上调佣金，本地生活广告收入增长停滞，商家投流意愿下降。<span style="color: var(--text-muted); font-size: 0.85em; margin-left: 6px;">经济观察网 · 09-12</span>
+                                </li>
+                                <li style="padding: 12px 14px; background: var(--bg-card-hover); border-radius: 8px; border-left: 3px solid #fb923c; font-size: 0.88em; line-height: 1.6; color: var(--text-secondary);">
+                                    <a href="https://m.huxiu.com/article/4890284.html" target="_blank" style="color: #fff; font-weight: 600; text-decoration: none; display: block; margin-bottom: 4px; font-size: 0.95em;">视障老人被弹窗困住背后：手机厂商广告年收入超 285 亿</a>
+                                    OEM 厂商系统级广告年收入超 285 亿元，弹窗、开屏、预装成为隐性广告生态；监管压力升温，系统广告走向规范化将直接影响手机厂商商业化收入结构。<span style="color: var(--text-muted); font-size: 0.85em; margin-left: 6px;">虎嗅 · 09-11</span>
+                                </li>
+                                <li style="padding: 12px 14px; background: var(--bg-card-hover); border-radius: 8px; border-left: 3px solid #fb923c; font-size: 0.88em; line-height: 1.6; color: var(--text-secondary);">
+                                    <a href="https://m.huxiu.com/article/4890364.html" target="_blank" style="color: #fff; font-weight: 600; text-decoration: none; display: block; margin-bottom: 4px; font-size: 0.95em;">APP 自动续费乱象调查：九成用户被扣过费，取消按钮藏在迷宫</a>
+                                    App 订阅与自动续费广告变现乱象曝光，监管信号明确；用户信任度下降将倒逼平台提升广告透明度，短期商业化收入承压，长期有利于规范化运营的头部平台。<span style="color: var(--text-muted); font-size: 0.85em; margin-left: 6px;">虎嗅 · 09-10</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    </div><!-- end panel-20260914 -->
+
                     <!-- 2026-09-07 内容面板 -->
-                    <div class="date-panel active" id="panel-20260907">
+                    <div class="date-panel" id="panel-20260907">
                     <!-- 今日洞察 -->
                     <div class="content-card" style="background: linear-gradient(135deg, rgba(255, 102, 0, 0.05) 0%, rgba(255, 102, 0, 0.02) 100%); border: 2px solid var(--ks-orange); padding: 20px;">
                         <h2 style="font-size: 1.3em; margin-bottom: 8px;">💡 今日洞察</h2>
